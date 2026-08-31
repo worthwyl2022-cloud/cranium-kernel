@@ -20,12 +20,18 @@ import java.math.RoundingMode
  *   evidenceRefIds          count (4-byte int) + each id sorted lexicographically,
  *                           length-prefixed UTF-8
  *   source                  enum name as UTF-8, length-prefixed
- *   authorizationId         UTF-8 if present, empty string if null, length-prefixed
  *   expectedStateVersion    8-byte big-endian long
  *   idempotencyKey          UTF-8 bytes, length-prefixed
  *   timestamp               ISO-8601 UTC millisecond string, length-prefixed
  *
- * Any change to this table is a breaking change. Bump the contract version.
+ * Deliberate exclusion:
+ *   authorization           NOT INCLUDED in the request hash
+ *
+ * Rationale: authorization is bound TO the canonical request hash. If the
+ * authorization were included in the canonical bytes, a valid boundRequestHash
+ * could not be computed before the authorization itself existed, creating a
+ * circular dependency. The request hash therefore identifies the operation
+ * payload; TransitionAuthorization binds itself to that hash.
  */
 class AuthorityTransitionRequestEncoder : CanonicalEncoder<AuthorityTransitionRequest> {
 
@@ -45,7 +51,6 @@ class AuthorityTransitionRequestEncoder : CanonicalEncoder<AuthorityTransitionRe
         out.writeInt(sortedEvidenceIds.size)
         sortedEvidenceIds.forEach { out.writeUtf8(it) }
         out.writeUtf8(value.source.name)
-        out.writeUtf8(value.authorization?.authorizationId ?: "")
         out.writeLong(value.expectedStateVersion)
         out.writeUtf8(value.idempotencyKey)
         out.writeUtf8(value.timestamp.toString())

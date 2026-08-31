@@ -1,19 +1,22 @@
 package com.example.cranium.authority
 
+import com.example.cranium.hash.RequestHash
 import java.time.Instant
 
 /**
- * A signed capability token permitting a specific, scoped authority transition.
+ * A capability token permitting a specific, scoped authority transition.
  *
- * Answers: WHO has the CAPABILITY to request this scoped state change?
+ * Commit 3 deliberately does NOT invent a cryptographic issuer/key model that
+ * the current v1 contract has not yet specified. The rule is:
  *
- * Distinct from:
- *   EvidenceRef    — WHY a proposition should be considered
- *   AuthorityTransitionRequest — WHAT operation is attempted
+ *   real where specified
+ *   explicitly absent where not yet specified
+ *   never simulated
  *
- * [signature] must be verified by a real [AuthorizationVerifier] against the
- * canonical serialization of the paired request. A fake verifier is prohibited
- * by the Verification Integrity Rule.
+ * Accordingly, this type includes a real [boundRequestHash] so the authority
+ * boundary can verify request/authorization binding mechanically. Signature
+ * verification is intentionally left absent until the issuer/key model is
+ * specified tightly enough to implement it for real.
  */
 data class TransitionAuthorization(
     val authorizationId: String,
@@ -21,6 +24,7 @@ data class TransitionAuthorization(
     val scope: AuthorizationScope,
     val issuedAt: Instant,
     val expiresAt: Instant?,
+    val boundRequestHash: RequestHash,
     val signature: String
 ) {
     init {

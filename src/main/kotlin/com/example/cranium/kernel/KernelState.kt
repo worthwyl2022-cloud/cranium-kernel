@@ -1,6 +1,8 @@
 package com.example.cranium.kernel
 
 import com.example.cranium.authorization.AuthorizationDecision
+import com.example.cranium.authority.AuthorityLevel
+import com.example.cranium.cognition.CognitiveAtom
 import com.example.cranium.immunity.ThreatAssessment
 
 /**
@@ -8,12 +10,11 @@ import com.example.cranium.immunity.ThreatAssessment
  *
  * KernelState carries values, not operational machinery. It contains no
  * references to CanonRegistry, AuthorityTransitionEngine, ModelAdapter,
- * ReceiptChain, or any other subsystem. Those subsystems receive KernelState
- * as input; they are never reachable from it.
+ * ReceiptChain, or any other subsystem.
  *
- * All List fields are defensively copied via [safeXxx] accessors.
- * Kotlin's List is read-only but not structurally immutable; callers must
- * never retain a reference to a backing mutable collection.
+ * Commit 3 extends the snapshot with immutable cognitive atom values so the
+ * authority boundary can resolve a request subject from the snapshot rather
+ * than from a mutable request payload.
  */
 data class KernelState(
     val executionId: String,
@@ -23,6 +24,7 @@ data class KernelState(
     val authorityVersion: Long,
     val canonVersion: Long,
 
+    val atomsById: Map<String, CognitiveAtom>,
     val activeAtomIds: List<String>,
     val contradictionEventIds: List<String>,
     val authorityTransitionIds: List<String>,
@@ -39,8 +41,16 @@ data class KernelState(
         require(canonVersion >= 0) { "canonVersion must be >= 0" }
     }
 
+    val safeAtomsById: Map<String, CognitiveAtom> get() = atomsById.toMap()
     val safeActiveAtomIds: List<String> get() = activeAtomIds.toList()
     val safeContradictionEventIds: List<String> get() = contradictionEventIds.toList()
     val safeAuthorityTransitionIds: List<String> get() = authorityTransitionIds.toList()
     val safeDeliberationStepIds: List<String> get() = deliberationStepIds.toList()
+
+    fun subjectById(subjectId: String): CognitiveAtom? = atomsById[subjectId]
+
+    fun authorityOf(subjectId: String): AuthorityLevel =
+        requireNotNull(atomsById[subjectId]) { "Unknown subjectId: $subjectId" }.authorityLevel()
+
+    fun containsSubject(subjectId: String): Boolean = atomsById.containsKey(subjectId)
 }

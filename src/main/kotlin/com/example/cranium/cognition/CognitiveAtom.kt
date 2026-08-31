@@ -1,20 +1,25 @@
 package com.example.cranium.cognition
 
+import com.example.cranium.authority.AuthorityClass
+import com.example.cranium.authority.AuthorityLevel
 import com.example.cranium.canon.CanonLane
 import java.time.Instant
 
 /**
  * An immutable unit of governed cognition.
  *
- * Tracks five distinct dimensions:
+ * Tracks distinct dimensions:
  *   [kind]            — epistemic category
  *   [lane]            — jurisdiction
  *   [confidence]      — certainty in the proposition
- *   [authorityWeight] — current authority strength (not a self-grant permission)
+ *   [authorityClass]  — current jurisdictional authority class
+ *   [authorityWeight] — current authority strength within that class
  *   [provenance]      — origin
+ *   [status]          — operational lifecycle state
  *
- * These dimensions must not be conflated. A high-confidence retrieved document
- * does not automatically become an enterprise policy.
+ * Authority is descriptive state here, not permission. The only legitimate
+ * way authority changes is through an [com.example.cranium.authority.AuthorityTransition]
+ * applied by the governed commit path.
  */
 data class CognitiveAtom(
     val id: String,
@@ -22,8 +27,10 @@ data class CognitiveAtom(
     val kind: AtomKind,
     val lane: CanonLane,
     val confidence: Double,
+    val authorityClass: AuthorityClass,
     val authorityWeight: Double,
     val provenance: Provenance,
+    val status: CognitiveStatus,
     val timestamp: Instant,
     val entropyScore: Double,
     val tags: Set<String> = emptySet(),
@@ -37,4 +44,6 @@ data class CognitiveAtom(
         require(authorityWeight in 0.0..1.0) { "authorityWeight must be in [0.0, 1.0], got $authorityWeight" }
         require(entropyScore >= 0.0) { "entropyScore must be >= 0.0, got $entropyScore" }
     }
+
+    fun authorityLevel(): AuthorityLevel = AuthorityLevel(authorityClass, authorityWeight)
 }
