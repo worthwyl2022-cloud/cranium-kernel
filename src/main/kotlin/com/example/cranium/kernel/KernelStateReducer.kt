@@ -9,6 +9,11 @@ import com.example.cranium.authority.TransitionDecision
  * The reducer does not decide whether a transition is legal. It applies only
  * already-evaluated transitions. Denied / escalated / isolated transitions do
  * not mutate state. Granted transitions produce a new immutable snapshot.
+ *
+ * Commit integrity is explicit and fail-closed:
+ *   - the transition must have been evaluated against this exact
+ *     [KernelState.authorityVersion]
+ *   - the transition ID must not already have been committed in this state
  */
 class KernelStateReducer {
 
@@ -17,6 +22,14 @@ class KernelStateReducer {
         transition: AuthorityTransition
     ): KernelState {
         if (transition.decision !is TransitionDecision.Granted) return before
+
+        require(transition.evaluatedAuthorityVersion == before.authorityVersion) {
+            "Evaluated authorityVersion ${transition.evaluatedAuthorityVersion} does not match current authorityVersion ${before.authorityVersion}"
+        }
+
+        require(transition.id !in before.authorityTransitionIds) {
+            "Transition ${transition.id} has already been committed"
+        }
 
         val subject = requireNotNull(before.subjectById(transition.subjectAtomId)) {
             "Cannot reduce transition for unknown subject ${transition.subjectAtomId}"
