@@ -1,15 +1,18 @@
-name: CI
+name: Cranium CI
 
 on:
   push:
-    branches: [main]
+    branches: ["main"]
   pull_request:
-    branches: [main]
+    branches: ["main"]
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+
 jobs:
-  build-and-test:
-    name: Compile and run test suite
+  test:
+    name: Test and build
     runs-on: ubuntu-latest
 
     steps:
@@ -20,32 +23,15 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: "21"
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Compile (compileKotlin + compileTestKotlin)
-        run: ./gradlew compileKotlin compileTestKotlin --stacktrace
-
-      - name: Run full test suite
-        run: ./gradlew test --stacktrace
-
-      - name: Upload test results (always, including failures)
-        if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: |
-            build/reports/tests/test/**
-            build/test-results/test/**
-          retention-days: 30
+          gradle-version: "8.10"
 
-      - name: Fail loudly if any test failed
-        if: failure()
-        run: |
-          echo "::error::One or more real tests failed. This is evidence, not noise. Do not delete this signal -- preserve the failing case as a fixture and a permanent regression test."
-          exit 1
+      - name: Run tests
+        run: gradle test --no-daemon --stacktrace
+
+      - name: Build
+        run: gradle build --no-daemon --stacktrace
