@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  build-and-test:
+    name: Compile and run test suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Compile (compileKotlin + compileTestKotlin)
+        run: ./gradlew compileKotlin compileTestKotlin --stacktrace
+
+      - name: Run full test suite
+        run: ./gradlew test --stacktrace
+
+      - name: Upload test results (always, including failures)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            build/reports/tests/test/**
+            build/test-results/test/**
+          retention-days: 30
+
+      - name: Fail loudly if any test failed
+        if: failure()
+        run: |
+          echo "::error::One or more real tests failed. This is evidence, not noise. Do not delete this signal -- preserve the failing case as a fixture and a permanent regression test."
+          exit 1
