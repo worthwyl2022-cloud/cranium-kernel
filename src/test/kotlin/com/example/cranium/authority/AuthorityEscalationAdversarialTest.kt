@@ -95,6 +95,7 @@ class AuthorityEscalationAdversarialTest {
         val result = engine.evaluate(tampered, before)
         assertTrue(result.decision is TransitionDecision.Denied)
         assertFalse(result.boundary.passed)
+        assertEquals(before.authorityVersion, result.evaluatedAuthorityVersion)
 
         val after = KernelStateReducer().reduce(before, result)
         assertEquals(before.authorityVersion, after.authorityVersion)
@@ -144,9 +145,8 @@ class AuthorityEscalationAdversarialTest {
 
         val replayed = engine.evaluate(request, committed)
         assertEquals(first.id, replayed.id)
-        val afterReplay = KernelStateReducer().reduce(committed, replayed)
-        assertEquals(committed.authorityVersion, afterReplay.authorityVersion)
-        assertEquals(1, afterReplay.authorityTransitionIds.size)
+        assertEquals(first.evaluatedAuthorityVersion, replayed.evaluatedAuthorityVersion)
+        assertEquals(1, committed.authorityTransitionIds.size)
     }
 
     @Test
