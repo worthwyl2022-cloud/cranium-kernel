@@ -12,6 +12,7 @@ import com.example.cranium.replay.InMemoryReplayGuard
 import java.time.Instant
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
 class AuthorityTransitionEngineTest {
@@ -92,6 +93,7 @@ class AuthorityTransitionEngineTest {
 
         val transition = engine.evaluate(fullRequest, before)
         assertTrue(transition.decision is TransitionDecision.Granted)
+        assertEquals(before.authorityVersion, transition.evaluatedAuthorityVersion)
 
         val after = KernelStateReducer().reduce(before, transition)
         assertEquals(before.authorityVersion + 1, after.authorityVersion)
@@ -100,7 +102,7 @@ class AuthorityTransitionEngineTest {
     }
 
     @Test
-    fun `existing replay returns original transition with no second increment`() {
+    fun `existing replay returns original transition and is not reduced again`() {
         val replayGuard = InMemoryReplayGuard()
         val hasher = Sha256RequestHasher()
         val baseRequest = AuthorityTransitionRequest(
@@ -125,8 +127,63 @@ class AuthorityTransitionEngineTest {
 
         val replayed = engine.evaluate(fullRequest, committed)
         assertEquals(first.id, replayed.id)
+        assertEquals(first.evaluatedAuthorityVersion, replayed.evaluatedAuthorityVersion)
+        assertEquals(1, committed.authorityTransitionIds.size)
+    }
 
-        val afterReplay = KernelStateReducer().reduce(committed, replayed)
-        assertEquals(committed.authorityVersion, afterReplay.authorityVersion)
+    @Test
+    fun `reducer rejects duplicate commitment of same transition id`() {
+        val replayGuard = InMemoryReplayGuard()
+        val hasher = Sha256RequestHasher()
+        val baseRequest = AuthorityTransitionRequest(
+            requestId = "req-1",
+            subjectId = "atom-1",
+            requestedAuthority = AuthorityLevel(AuthorityClass.ENTERPRISE, 0.9),
+            evidence = listOf(EvidenceRef("ev-1", "prov-1", "hash-1", "source")),
+            source = AuthoritySource.HUMAN_REVIEW,
+            authorization = null,
+            expectedStateVersion = 3,
+            idempotencyKey = "idem-1",
+            timestamp = Instant.parse("2026-08-31T21:00:00.000Z")
+        )
+        val realHash = hasher.hash(baseRequest)
+        val fullRequest = request(realHash)
+        val engine = DefaultAuthorityTransitionEngine(replayGuard = replayGuard)
+        val before = state(atom())
+
+        val first = engine.evaluate(fullRequest, before)
+        val committed = KernelStateReducer().reduce(before, first)
+
+        assertFailsWith<IllegalArgumentException> {
+            KernelStateReducer().reduce(committed, first)
+        }
+    }
+
+    @Test
+    fun `reducer rejects transition evaluated against different authority version`() {
+        val replayGuard = InMemoryReplayGuard()
+        val hasher = Sha256RequestHasher()
+        val baseRequest = AuthorityTransitionRequest(
+            requestId = "req-1",
+            subjectId = "atom-1",
+            requestedAuthority = AuthorityLevel(AuthorityClass.ENTERPRISE, 0.9),
+            evidence = listOf(EvidenceRef("ev-1", "prov-1", "hash-1", "source")),
+            source = AuthoritySource.HUMAN_REVIEW,
+            authorization = null,
+            expectedStateVersion = 3,
+            idempotencyKey = "idem-1",
+            timestamp = Instant.parse("2026-08-31T21:00:00.000Z")
+        )
+        val realHash = hasher.hash(baseRequest)
+        val fullRequest = request(realHash)
+        val engine = DefaultAuthorityTransitionEngine(replayGuard = replayGuard)
+        val before = state(atom())
+
+        val transition = engine.evaluate(fullRequest, before)
+        val newerState = before.copy(authorityVersion = before.authorityVersion + 1)
+
+        assertFailsWith<IllegalArgumentException> {
+            KernelStateReducer().reduce(newerState, transition)
+        }
     }
 }
