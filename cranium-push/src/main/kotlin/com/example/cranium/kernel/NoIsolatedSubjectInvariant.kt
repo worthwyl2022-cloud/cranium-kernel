@@ -26,3 +26,4 @@ class NoIsolatedSubjectInvariant : KernelInvariant {
             InvariantResult.Passed(invariantId)
     }
 }
+ 
