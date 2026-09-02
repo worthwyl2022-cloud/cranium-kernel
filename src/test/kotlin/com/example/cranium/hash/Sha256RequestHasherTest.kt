@@ -128,3 +128,4 @@ class Sha256RequestHasherTest {
         assertNotEquals(hasher.hash(baseRequest), hasher.hash(altered))
     }
 }
+ 
