@@ -44,7 +44,15 @@ class AuthorityTransitionEngineTest {
         deliberationStepIds = emptyList(),
         candidateHash = null,
         authorization = AuthorizationDecision(true, "ok"),
-        threatAssessment = ThreatAssessment(false, "LOW", "ok")
+        threatAssessment = ThreatAssessment(
+    threatDetected = false,
+    threatLevel = ThreatLevel.NONE,
+    threatClass = ThreatClass.UNKNOWN,
+    reason = "ok",
+    subjectId = "atom-1",
+    lane = "ENTERPRISE_POLICY",
+    timestampEpochMs = 0L
+)
     )
 
     private fun request(hash: com.example.cranium.hash.RequestHash) = AuthorityTransitionRequest(
