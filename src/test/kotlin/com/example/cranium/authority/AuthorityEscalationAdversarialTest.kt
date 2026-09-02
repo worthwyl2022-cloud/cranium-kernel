@@ -5,6 +5,8 @@ import com.example.cranium.canon.CanonLane
 import com.example.cranium.cognition.*
 import com.example.cranium.hash.Sha256RequestHasher
 import com.example.cranium.immunity.ThreatAssessment
+import com.example.cranium.immunity.ThreatClass
+import com.example.cranium.immunity.ThreatLevel
 import com.example.cranium.kernel.ExecutionState
 import com.example.cranium.kernel.KernelState
 import com.example.cranium.kernel.KernelStateReducer
