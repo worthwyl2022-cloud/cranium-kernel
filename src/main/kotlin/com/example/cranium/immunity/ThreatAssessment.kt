@@ -1,8 +1,15 @@
 package com.example.cranium.immunity
 
-/** v1 stub — full contract defined in the immunity package. */
+/**
+ * Result of evaluating a cognition cycle or transition request for threats.
+ * Replaces the v1 stub with a properly typed contract.
+ */
 data class ThreatAssessment(
     val threatDetected: Boolean,
-    val threatLevel: String,
-    val reason: String
+    val threatLevel: ThreatLevel,
+    val threatClass: ThreatClass,
+    val reason: String,
+    val subjectId: String,
+    val lane: String,
+    val timestampEpochMs: Long
 )
