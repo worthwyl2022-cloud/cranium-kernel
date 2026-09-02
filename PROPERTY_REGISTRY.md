@@ -162,3 +162,4 @@ Current: ATTACK-001 (stale state) — pending CI execution.
 Next: ATTACK-002 (duplicate commit), ATTACK-004 (identical replay).
 Then: Protected-lane escalation, identity substitution, evidence manipulation.
 Then: Compound attacks combining two or more vectors.
+ 
