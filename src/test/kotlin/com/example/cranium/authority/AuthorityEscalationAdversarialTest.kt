@@ -199,3 +199,4 @@ class AuthorityEscalationAdversarialTest {
         assertEquals(1, after.authorityTransitionIds.size)
     }
 }
+  
