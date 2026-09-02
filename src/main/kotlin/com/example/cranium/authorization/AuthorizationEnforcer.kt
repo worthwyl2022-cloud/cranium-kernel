@@ -1,6 +1,6 @@
 package com.example.cranium.authorization
 
-import com.example.cranium.kernel.AuthorityLevel
+import com.example.cranium.authority.AuthorityLevel
 
 class AuthorizationEnforcer(private val store: AuthorizationPolicyStore) {
 
