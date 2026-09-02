@@ -27,3 +27,4 @@ class ProtectedLaneInvariant : KernelInvariant {
         return InvariantResult.Passed(invariantId)
     }
 }
+ 
