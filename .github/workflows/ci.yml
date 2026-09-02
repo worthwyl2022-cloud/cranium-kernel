@@ -30,6 +30,7 @@ jobs:
         with:
           gradle-version: "8.10"
                     cache-disabled: true
+                    cache-disabled: true
 
       - name: Run tests
         run: gradle test --no-daemon --stacktrace
