@@ -30,4 +30,4 @@ class InMemoryReceiptChain : ReceiptChain {
             .joinToString("") { "%02x".format(it) }
     }
 }
- 
+  
