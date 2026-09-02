@@ -42,4 +42,4 @@ data class AuthorityReceipt(
         const val CONSTITUTION_HASH_STUB = "NONE-v1"
     }
 }
- 
+  
