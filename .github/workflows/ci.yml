@@ -32,7 +32,7 @@ jobs:
           cache-disabled: true
                 
       - name: Run tests
-        run: gradle test --no-daemon --stacktrace
+        run: gradle test --no-daemon
 
       - name: Build
         run: gradle build --no-daemon --stacktrace
