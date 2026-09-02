@@ -6,4 +6,4 @@ interface ReceiptChain {
     fun all(): List<AuthorityReceipt>
     fun headHash(): String
 }
- 
+  
