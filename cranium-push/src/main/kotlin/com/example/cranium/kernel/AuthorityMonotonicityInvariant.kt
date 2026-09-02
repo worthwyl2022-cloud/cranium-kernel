@@ -30,3 +30,4 @@ class AuthorityMonotonicityInvariant : KernelInvariant {
                 "Granted transitions must not demote.")
     }
 }
+ 
