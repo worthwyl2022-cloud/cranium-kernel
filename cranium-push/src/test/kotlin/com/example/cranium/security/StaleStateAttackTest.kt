@@ -171,4 +171,4 @@ class StaleStateAttackTest {
             "atom-b authority must be unchanged after rejected stale commit"
         )
     }
-}
+} 
