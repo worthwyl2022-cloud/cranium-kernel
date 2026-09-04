@@ -85,4 +85,3 @@ The only valid reasons to change the contract surface:
 - An explicit diligence or compliance requirement
 
 Implementation convenience is not on that list.
- 
