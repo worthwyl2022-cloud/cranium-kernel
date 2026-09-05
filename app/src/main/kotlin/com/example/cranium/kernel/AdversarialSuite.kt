@@ -33,7 +33,7 @@ object AdversarialSuite {
                 subjectId = "atom_shadow_missing_999",
                 requestedAuthority = AuthorityLevel(AuthorityClass.FACTUAL, 0.8),
                 evidence = listOf(
-                    EvidenceRef("ev-1", "https://evidence.io/payload", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", true, "Fake proof")
+                    EvidenceRef("ev-1", "https://invalid.example/evidence/payload", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", true, "Intentionally invalid digest for adversarial verification")
                 ),
                 justification = "Testing shadow subject injection",
                 requesterId = "MALICIOUS_ACTOR",
