@@ -215,6 +215,19 @@ export class DefaultAuthorityTransitionEngine {
       replayStatus
     );
 
+    // A replay must return the original transition byte-for-byte. Creating a
+    // second receipt here would make idempotency observationally false and
+    // would introduce wall-clock dependence into an otherwise deterministic
+    // evaluation.
+    if (replayStatus.type === 'Existing') {
+      const priorTx = state.transitions.find(
+        (t) => t.id === replayStatus.transitionId
+      );
+      if (priorTx) {
+        return { transition: priorTx, replayStatus };
+      }
+    }
+
     let decision: TransitionDecision;
     if (!boundaryAssessment.passed) {
       decision = {
@@ -235,7 +248,10 @@ export class DefaultAuthorityTransitionEngine {
       decision = this.ruleEvaluator.evaluate(request, subject!);
     }
 
-    const transitionId = `tx_${Date.now()}_${reqHash.hexDigest.slice(0, 8)}`;
+    // Request timestamps are part of the signed input contract. Do not use
+    // Date.now(): repeated evaluation of the same request must produce the
+    // same transition identity and receipt.
+    const transitionId = `tx_${request.timestamp}_${reqHash.hexDigest.slice(0, 8)}`;
     const receiptSignature = sha256(
       `${transitionId}:${reqHash.hexDigest}:${decision.type}`
     );
@@ -253,7 +269,7 @@ export class DefaultAuthorityTransitionEngine {
       boundary: boundaryAssessment,
       evidenceRefs: request.evidence.map((e) => e.id),
       requestHash: reqHash,
-      timestamp: Date.now(),
+      timestamp: request.timestamp,
       receiptSignature,
     };
 
