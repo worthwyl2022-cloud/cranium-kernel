@@ -53,19 +53,33 @@ src/
 └── data/         explicitly labeled receipt and benchmark artifacts
 ```
 
-## ALGS integration boundary
+## System architecture
 
-`governance/AlgsRuntimeAdapter.ts` implements the first ALGS-to-Cranium vertical slice. An
-ALGS attestation records model provenance, policy version, controller configuration, bounded
+Cranium is a governed intelligence substrate composed of two independent but integrated
+layers:
+
+1. **Cranium Synapse** is the inference-native contract and evidence bridge for compatible AI
+   runtimes. It carries policy-relevant model-state evidence, bounded intervention,
+   abstention, and escalation signals into governed requests.
+2. **Cranium Core** is the independent authority and state-governance kernel. It alone
+   determines whether an output may acquire authority, mutate governed state, invoke a tool,
+   or cause an external side effect.
+
+Cranium Synapse may reduce the available action envelope or request escalation. It may never
+grant, expand, or independently execute authority. **Synapse carries cognition. Core governs
+action.**
+
+`governance/SynapseRuntimeAdapter.ts` implements the first Synapse-to-Core vertical slice. A
+Synapse attestation records model provenance, policy version, controller configuration, bounded
 intervention, risk disposition, and a deterministic trace commitment. For protected actions,
 the adapter fails closed when the attestation is missing, mismatched, or explicitly blocked.
 
 The attestation is included in the canonical request hash, so changing inference evidence
 changes the request identity. The adapter can admit valid evidence into `GovernedKernelPort`,
 but it cannot grant authority or bypass the canonical evaluator and reducer. `npm run
-verify:algs` checks valid admission, hash binding, policy mismatch rejection, and fail-safe
+verify:synapse` checks valid admission, hash binding, policy mismatch rejection, and fail-safe
 blocking. This is an integration contract and deterministic harness, not evidence that a
-production transformer-level ALGS controller has already been implemented.
+production transformer-level inference controller has already been implemented.
 
 ## Reproduce the current build
 
@@ -73,7 +87,7 @@ production transformer-level ALGS controller has already been implemented.
 npm ci
 npm run lint
 npm run build
-npm run verify:algs
+npm run verify:synapse
 ```
 
 These commands verify TypeScript compilation and the production UI bundle. They do not claim

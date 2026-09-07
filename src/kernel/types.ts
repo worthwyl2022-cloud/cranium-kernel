@@ -69,7 +69,7 @@ export interface EvidenceRef {
  * Deterministic evidence emitted by a model-native governance adapter.
  * This is evidence about inference, not an authority grant.
  */
-export interface AlgsAttestation {
+export interface SynapseAttestation {
   assessmentId: string;
   correlationId: string;
   modelId: string;
@@ -95,8 +95,8 @@ export interface AuthorityTransitionRequest {
   requesterId: string;
   timestamp: number;
   targetAuthorityVersion: number;
-  /** Optional for ordinary kernel transitions; required by protected ALGS adapters. */
-  algsAttestation?: AlgsAttestation;
+  /** Optional for ordinary kernel transitions; required by protected Synapse adapters. */
+  synapseAttestation?: SynapseAttestation;
 }
 
 export interface RequestHash {
@@ -121,9 +121,9 @@ export enum BoundaryViolation {
   STALE_AUTHORITY_VERSION = 'STALE_AUTHORITY_VERSION',
   UNAUTHORIZED_REQUESTER = 'UNAUTHORIZED_REQUESTER',
   INVALID_REQUEST = 'INVALID_REQUEST',
-  MISSING_ALGS_ATTESTATION = 'MISSING_ALGS_ATTESTATION',
-  INVALID_ALGS_ATTESTATION = 'INVALID_ALGS_ATTESTATION',
-  ALGS_FAIL_SAFE_BLOCK = 'ALGS_FAIL_SAFE_BLOCK',
+  MISSING_SYNAPSE_ATTESTATION = 'MISSING_SYNAPSE_ATTESTATION',
+  INVALID_SYNAPSE_ATTESTATION = 'INVALID_SYNAPSE_ATTESTATION',
+  SYNAPSE_FAIL_SAFE_BLOCK = 'SYNAPSE_FAIL_SAFE_BLOCK',
 }
 
 export interface BoundaryAssessment {

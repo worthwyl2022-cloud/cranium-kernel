@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { GovernedKernelPort, AlgsRuntimeAdapter, createAlgsAttestation, makeTracePayload } from '../src/governance/index';
+import { GovernedKernelPort, SynapseRuntimeAdapter, createSynapseAttestation, makeTracePayload } from '../src/governance/index';
 import { InMemoryReplayGuard } from '../src/kernel/replayGuard';
 import { CanonicalEncoder } from '../src/kernel/engine';
 import { AuthorityClass, type AuthorityTransitionRequest } from '../src/kernel/types';
@@ -12,7 +12,7 @@ const envelope = {
   failSafe: 'BLOCK_PROTECTED' as const,
 };
 
-const attestation = createAlgsAttestation({
+const attestation = createSynapseAttestation({
   assessmentId: 'assessment-001',
   correlationId: 'corr-001',
   modelId: 'open-model-test',
@@ -35,33 +35,33 @@ const request: AuthorityTransitionRequest = {
   requestedAuthority: { authorityClass: AuthorityClass.WORKING, weight: 0.45 },
   evidence: [],
   justification: 'Controlled promotion after bounded model assessment.',
-  requesterId: 'ALGS_RUNTIME_ADAPTER',
+  requesterId: 'CRANIUM_SYNAPSE',
   timestamp: 1757200000000,
   targetAuthorityVersion: 104,
-  algsAttestation: attestation,
+  synapseAttestation: attestation,
 };
 
 const port = new GovernedKernelPort(new InMemoryReplayGuard());
-const adapter = new AlgsRuntimeAdapter(port);
+const adapter = new SynapseRuntimeAdapter(port);
 const state = createInitialKernelState();
 const context = {
-  adapterId: 'algs-runtime-v1',
+  adapterId: 'cranium-synapse-v1',
   requestedBy: 'agent-test',
   purpose: 'integration-check',
   correlationId: 'corr-001',
 };
 
 const admission = adapter.admit(request, state, context, envelope);
-assert.equal(admission.accepted, true, 'valid ALGS evidence should reach Cranium');
+assert.equal(admission.accepted, true, 'valid Synapse evidence should reach Cranium Core');
 assert.ok(admission.governance, 'accepted admission must contain canonical governance evaluation');
 assert.equal(admission.governance.evaluation.transition.requestHash.hexDigest, CanonicalEncoder.hashRequest(request).hexDigest);
 
 const changedAssessment = { ...attestation, riskScore: 0.05 };
-const changedRequest = { ...request, algsAttestation: changedAssessment };
+const changedRequest = { ...request, synapseAttestation: changedAssessment };
 assert.notEqual(
   CanonicalEncoder.hashRequest(request).hexDigest,
   CanonicalEncoder.hashRequest(changedRequest).hexDigest,
-  'changing ALGS evidence must change the canonical request hash'
+  'changing Synapse evidence must change the canonical request hash'
 );
 
 const mismatch = adapter.admit(
@@ -73,7 +73,7 @@ const mismatch = adapter.admit(
 assert.equal(mismatch.accepted, false, 'policy mismatch must be rejected before authority evaluation');
 assert.match(mismatch.reason, /POLICY_VERSION_MISMATCH/);
 
-const blockedAttestation = createAlgsAttestation({
+const blockedAttestation = createSynapseAttestation({
   ...{
     assessmentId: 'assessment-002',
     correlationId: 'corr-001',
@@ -91,12 +91,12 @@ const blockedAttestation = createAlgsAttestation({
   },
 });
 const blocked = adapter.admit(
-  { ...request, algsAttestation: blockedAttestation },
+  { ...request, synapseAttestation: blockedAttestation },
   state,
   context,
   envelope
 );
-assert.equal(blocked.accepted, false, 'ALGS fail-safe block must prevent protected admission');
-assert.match(blocked.reason, /ALGS_FAIL_SAFE_BLOCK/);
+assert.equal(blocked.accepted, false, 'Synapse fail-safe block must prevent protected admission');
+assert.match(blocked.reason, /SYNAPSE_FAIL_SAFE_BLOCK/);
 
-console.log('ALGS integration check passed: admission, hash binding, mismatch rejection, and fail-safe block.');
+console.log('Cranium Synapse integration check passed: admission, hash binding, mismatch rejection, and fail-safe block.');

@@ -1,6 +1,6 @@
 import { sha256 } from '../kernel/sha256';
 import {
-  AlgsAttestation,
+  SynapseAttestation,
   AuthorityTransitionRequest,
   KernelState,
 } from '../kernel/types';
@@ -10,14 +10,14 @@ import {
   GovernedKernelPort,
 } from './GovernanceBoundary';
 
-export interface AlgsPolicyEnvelope {
+export interface SynapsePolicyEnvelope {
   policyPackVersion: string;
   protectedAction: boolean;
-  allowedInterventions: AlgsAttestation['intervention'][];
+  allowedInterventions: SynapseAttestation['intervention'][];
   failSafe: 'ALLOW_SAFE_ONLY' | 'BLOCK_PROTECTED';
 }
 
-export interface AlgsAssessmentInput {
+export interface SynapseAssessmentInput {
   assessmentId: string;
   correlationId: string;
   modelId: string;
@@ -25,28 +25,28 @@ export interface AlgsAssessmentInput {
   inferenceRuntime: string;
   policyPackVersion: string;
   controllerConfigHash: string;
-  riskClass: AlgsAttestation['riskClass'];
+  riskClass: SynapseAttestation['riskClass'];
   riskScore: number;
   confidence: number;
-  intervention: AlgsAttestation['intervention'];
-  disposition: AlgsAttestation['disposition'];
+  intervention: SynapseAttestation['intervention'];
+  disposition: SynapseAttestation['disposition'];
   tracePayload: string;
 }
 
-export type AlgsAdmission =
+export type SynapseAdmission =
   | {
       accepted: true;
-      attestation?: AlgsAttestation;
+      attestation?: SynapseAttestation;
       governance: GovernanceEvaluation;
     }
   | {
       accepted: false;
       reason: string;
-      attestation?: AlgsAttestation;
+      attestation?: SynapseAttestation;
       governance?: GovernanceEvaluation;
     };
 
-export function createAlgsAttestation(input: AlgsAssessmentInput): AlgsAttestation {
+export function createSynapseAttestation(input: SynapseAssessmentInput): SynapseAttestation {
   const traceCommitment = sha256(
     [
       input.assessmentId,
@@ -82,9 +82,9 @@ export function createAlgsAttestation(input: AlgsAssessmentInput): AlgsAttestati
   };
 }
 
-export function validateAlgsAttestation(
-  attestation: AlgsAttestation,
-  envelope: AlgsPolicyEnvelope
+export function validateSynapseAttestation(
+  attestation: SynapseAttestation,
+  envelope: SynapsePolicyEnvelope
 ): string[] {
   const violations: string[] = [];
   if (!attestation.assessmentId || !attestation.correlationId) {
@@ -109,7 +109,7 @@ export function validateAlgsAttestation(
     violations.push('PROTECTED_ACTION_REQUIRES_LOW_RISK');
   }
   if (envelope.protectedAction && attestation.disposition === 'BLOCK') {
-    violations.push('ALGS_FAIL_SAFE_BLOCK');
+    violations.push('SYNAPSE_FAIL_SAFE_BLOCK');
   }
   if (!attestation.traceCommitment) {
     violations.push('MISSING_TRACE_COMMITMENT');
@@ -117,19 +117,19 @@ export function validateAlgsAttestation(
   return violations;
 }
 
-/** Adapter boundary for inference-time governance; it never grants authority. */
-export class AlgsRuntimeAdapter {
+/** Cranium Synapse bridge; it validates evidence but never grants authority. */
+export class SynapseRuntimeAdapter {
   constructor(private readonly kernelPort: GovernedKernelPort) {}
 
   admit(
     request: AuthorityTransitionRequest,
     state: KernelState,
     context: GovernanceContext,
-    envelope: AlgsPolicyEnvelope
-  ): AlgsAdmission {
-    const attestation = request.algsAttestation;
+    envelope: SynapsePolicyEnvelope
+  ): SynapseAdmission {
+    const attestation = request.synapseAttestation;
     if (!attestation && envelope.protectedAction) {
-      return { accepted: false, reason: 'Protected action requires an ALGS attestation.' };
+      return { accepted: false, reason: 'Protected action requires a Cranium Synapse attestation.' };
     }
     if (!attestation) {
       const governance = this.kernelPort.evaluate(request, state, context);
@@ -138,11 +138,11 @@ export class AlgsRuntimeAdapter {
         : { accepted: false, reason: governance.rejectionReason ?? 'Cranium rejected request.', governance };
     }
 
-    const violations = validateAlgsAttestation(attestation, envelope);
+    const violations = validateSynapseAttestation(attestation, envelope);
     if (violations.length > 0) {
       return {
         accepted: false,
-        reason: `ALGS admission rejected: ${violations.join(', ')}`,
+        reason: `Cranium Synapse admission rejected: ${violations.join(', ')}`,
         attestation,
       };
     }
@@ -161,6 +161,6 @@ export function makeTracePayload(fields: Record<string, string>): string {
     .join('|');
 }
 
-export function isProtectedDisposition(attestation: AlgsAttestation): boolean {
+export function isProtectedDisposition(attestation: SynapseAttestation): boolean {
   return attestation.disposition === 'RESTRICT' || attestation.disposition === 'ESCALATE' || attestation.disposition === 'BLOCK';
 }

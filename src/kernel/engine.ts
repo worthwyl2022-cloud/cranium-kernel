@@ -26,23 +26,23 @@ export class CanonicalEncoder {
       )
       .join('|');
 
-    const algs = req.algsAttestation
+    const synapse = req.synapseAttestation
       ? [
-          `assessmentId=${req.algsAttestation.assessmentId}`,
-          `correlationId=${req.algsAttestation.correlationId}`,
-          `modelId=${req.algsAttestation.modelId}`,
-          `modelWeightsHash=${req.algsAttestation.modelWeightsHash}`,
-          `inferenceRuntime=${req.algsAttestation.inferenceRuntime}`,
-          `policyPackVersion=${req.algsAttestation.policyPackVersion}`,
-          `controllerConfigHash=${req.algsAttestation.controllerConfigHash}`,
-          `riskClass=${req.algsAttestation.riskClass}`,
-          `riskScore=${req.algsAttestation.riskScore.toFixed(6)}`,
-          `confidence=${req.algsAttestation.confidence.toFixed(6)}`,
-          `intervention=${req.algsAttestation.intervention}`,
-          `traceCommitment=${req.algsAttestation.traceCommitment}`,
-          `disposition=${req.algsAttestation.disposition}`,
+          `assessmentId=${req.synapseAttestation.assessmentId}`,
+          `correlationId=${req.synapseAttestation.correlationId}`,
+          `modelId=${req.synapseAttestation.modelId}`,
+          `modelWeightsHash=${req.synapseAttestation.modelWeightsHash}`,
+          `inferenceRuntime=${req.synapseAttestation.inferenceRuntime}`,
+          `policyPackVersion=${req.synapseAttestation.policyPackVersion}`,
+          `controllerConfigHash=${req.synapseAttestation.controllerConfigHash}`,
+          `riskClass=${req.synapseAttestation.riskClass}`,
+          `riskScore=${req.synapseAttestation.riskScore.toFixed(6)}`,
+          `confidence=${req.synapseAttestation.confidence.toFixed(6)}`,
+          `intervention=${req.synapseAttestation.intervention}`,
+          `traceCommitment=${req.synapseAttestation.traceCommitment}`,
+          `disposition=${req.synapseAttestation.disposition}`,
         ].join('|')
-      : 'algsAttestation=none';
+      : 'synapseAttestation=none';
 
     return [
       `requestId=${req.requestId}`,
@@ -54,7 +54,7 @@ export class CanonicalEncoder {
       `requester=${req.requesterId}`,
       `justification=${req.justification.trim()}`,
       evidenceSorted,
-      algs,
+      synapse,
     ].join('::');
   }
 

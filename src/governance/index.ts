@@ -4,12 +4,12 @@ export {
   type GovernanceEvaluation,
 } from './GovernanceBoundary';
 export {
-  AlgsRuntimeAdapter,
-  createAlgsAttestation,
+  SynapseRuntimeAdapter,
+  createSynapseAttestation,
   isProtectedDisposition,
   makeTracePayload,
-  validateAlgsAttestation,
-  type AlgsAdmission,
-  type AlgsAssessmentInput,
-  type AlgsPolicyEnvelope,
-} from './AlgsRuntimeAdapter';
+  validateSynapseAttestation,
+  type SynapseAdmission,
+  type SynapseAssessmentInput,
+  type SynapsePolicyEnvelope,
+} from './SynapseRuntimeAdapter';
