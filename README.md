@@ -78,8 +78,11 @@ The attestation is included in the canonical request hash, so changing inference
 changes the request identity. The adapter can admit valid evidence into `GovernedKernelPort`,
 but it cannot grant authority or bypass the canonical evaluator and reducer. `npm run
 verify:synapse` checks valid admission, hash binding, policy mismatch rejection, and fail-safe
-blocking. This is an integration contract and deterministic harness, not evidence that a
-production transformer-level inference controller has already been implemented.
+blocking. `SynapseCoreTransaction.ts` additionally implements the Core-issued envelope →
+Synapse attestation → Core authorization → chained receipt path, including expiry, request,
+envelope, authority-version, tool-scope, and replay checks. This is an integration contract
+and deterministic harness, not evidence that a production transformer-level inference
+controller has already been implemented.
 
 ## Reproduce the current build
 

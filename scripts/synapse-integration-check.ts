@@ -100,3 +100,81 @@ assert.equal(blocked.accepted, false, 'Synapse fail-safe block must prevent prot
 assert.match(blocked.reason, /SYNAPSE_FAIL_SAFE_BLOCK/);
 
 console.log('Cranium Synapse integration check passed: admission, hash binding, mismatch rejection, and fail-safe block.');
+
+
+const transactionGate = new (await import('../src/governance/SynapseCoreTransaction')).CraniumCoreTransactionGate();
+const requestPayload = { userId: 'user-42', task: 'read customer report', sessionId: 'session-77' };
+const authorityEnvelope = {
+  principalId: 'agent-support-01',
+  authorityVersion: 14,
+  allowedTools: ['read_customer_record'] as const,
+  maximumRiskTier: 'LOW' as const,
+  requiresHumanApproval: [] as const,
+};
+const synapseEnvelope = transactionGate.issueSynapseEnvelope(
+  requestPayload,
+  authorityEnvelope,
+  {
+    policyVersion: 'policy-v1',
+    modelIdentityHash: 'model-sha256',
+    observationProfileHash: 'profile-sha256',
+    riskTier: 'LOW',
+    monitoredLayers: [12, 8],
+    activeRiskAxes: ['tool-poisoning'],
+    interventionBudget: { maxNormDelta: 0.1, maxInterventions: 2, allowedLayers: [8, 12] },
+    issuedAt: '2026-09-07T10:00:00.000Z',
+    expiresAt: '2026-09-07T11:00:00.000Z',
+    nonce: 'nonce-001',
+  }
+);
+const action = {
+  actionId: 'action-001',
+  tool: 'read_customer_record' as const,
+  args: { customerId: 'customer-7' },
+  requestedAt: '2026-09-07T10:05:00.000Z',
+};
+const requestHash = (await import('../src/governance/SynapseCoreTransaction')).hashTransactionValue(requestPayload);
+const transactionAttestation = {
+  schemaVersion: '1.0' as const,
+  attestationId: 'attestation-001',
+  envelopeId: synapseEnvelope.envelopeId,
+  coreEnvelopeHash: synapseEnvelope.coreEnvelopeHash,
+  requestHash,
+  policyVersion: 'policy-v1',
+  authorityVersion: 14,
+  modelIdentityHash: 'model-sha256',
+  observationProfileHash: 'profile-sha256',
+  monitoredLayers: [8, 12],
+  activeRiskAxes: ['tool-poisoning'],
+  maxRiskScore: 0.04,
+  disposition: 'CONTINUE' as const,
+  interventionApplied: false,
+  interventionCount: 0,
+  traceCommitment: 'trace-sha256',
+  generatedAt: '2026-09-07T10:05:01.000Z',
+  expiresAt: '2026-09-07T11:00:00.000Z',
+  attestationHash: 'attestation-sha256',
+};
+const receipt = transactionGate.authorize(
+  requestPayload,
+  action,
+  authorityEnvelope,
+  synapseEnvelope,
+  transactionAttestation,
+  '2026-09-07T10:05:02.000Z'
+);
+assert.equal(receipt.decision, 'GRANTED', 'valid Synapse/Core transaction should be granted');
+const replayReceipt = transactionGate.authorize(
+  requestPayload,
+  action,
+  authorityEnvelope,
+  synapseEnvelope,
+  transactionAttestation,
+  '2026-09-07T10:05:03.000Z',
+  'receipt-replay'
+);
+assert.equal(replayReceipt.decision, 'DENIED', 'replayed action must be denied');
+assert.equal(replayReceipt.decisionReason, 'DUPLICATE_ACTION_REPLAY');
+assert.equal(replayReceipt.previousReceiptHash, receipt.receiptHash, 'receipts must form a hash chain');
+
+console.log('Cranium Synapse/Core transaction check passed: envelope binding, authorization, replay denial, and receipt chaining.');
