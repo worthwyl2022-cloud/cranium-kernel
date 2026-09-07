@@ -4,7 +4,7 @@
 
 ## Status
 
-**Contract layer committed. First behavioral authority boundary implemented. Not yet security proof.**
+**Contract layer committed. First behavioral authority boundary implemented. Not yet a security proof.**
 
 The repository now contains real behavior for:
 - canonical request hashing (SHA-256)
@@ -12,6 +12,8 @@ The repository now contains real behavior for:
 - boundary validation
 - authority rule evaluation
 - immutable state reduction for granted transitions
+- governed adapter boundary (`GovernedKernelPort`) that cannot bypass the canonical evaluator or reducer
+- deterministic transition identity and receipt timestamps derived from the request contract
 
 This is enough to support real compile-time and test-time verification of the first authority-boundary properties.
 It is not enough to claim correctness, security completeness, or novelty.
@@ -33,28 +35,35 @@ Right now, the source of truth is the committed code in this repository.
 Any external design notes or frozen-contract documents must match the tree that actually exists on `main`.
 If the code and a document disagree, the disagreement itself is a bug that must be fixed explicitly.
 
+## Architecture boundary
+
+The repository has one authority issuer: `DefaultAuthorityTransitionEngine`, committed through
+`KernelStateReducer`. `GovernedKernelPort` is an integration substrate, not a second kernel. It
+accepts proposal context, delegates evaluation to the canonical engine, and refuses to commit a
+failed boundary assessment. See [`GOVERNANCE_BOUNDARY.md`](./GOVERNANCE_BOUNDARY.md).
+
 ## Package structure
 
 ```
-com.example.cranium
-├── kernel        ExecutionState, KernelState, DomainEvent,
-│                 LegalTransitionValidator, KernelInvariant,
-│                 KernelStateReducer
-├── authority     AuthorityClass, AuthorityLevel, AuthoritySource,
-│                 EvidenceRef, AuthorizationScope, TransitionAuthorization,
-│                 AuthorityTransitionRequest, BoundaryViolation,
-│                 BoundaryAssessment, TransitionDecision,
-│                 AuthorityTransition, AuthorityTransitionEngine,
-│                 DefaultBoundaryValidator, DefaultAuthorityRuleEvaluator,
-│                 DefaultAuthorityTransitionEngine
-├── canon         CanonLane
-├── cognition     CognitiveAtom, AtomKind, CognitiveStatus, Provenance
-├── hash          CanonicalEncoder, RequestHash, RequestHasher,
-│                 Sha256RequestHasher, AuthorityTransitionRequestEncoder
-├── replay        ReplayStatus, ReplayGuard, InMemoryReplayGuard
-├── authorization AuthorizationDecision (v1 stub)
-└── immunity      ThreatAssessment (v1 stub)
+src/
+├── kernel/       authority types, canonical encoder, boundary validator,
+│                 transition engine, replay guard, reducer, and stress suite
+├── governance/   GovernedKernelPort integration boundary; delegates to kernel only
+├── components/   review and verification UI surfaces
+└── data/         explicitly labeled receipt and benchmark artifacts
 ```
+
+## Reproduce the current build
+
+```bash
+npm ci
+npm run lint
+npm run build
+```
+
+These commands verify TypeScript compilation and the production UI bundle. They do not claim
+external security certification, independent reproduction, or production authority service
+readiness.
 
 ## Immediate priorities
 
