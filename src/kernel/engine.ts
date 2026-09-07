@@ -26,6 +26,24 @@ export class CanonicalEncoder {
       )
       .join('|');
 
+    const algs = req.algsAttestation
+      ? [
+          `assessmentId=${req.algsAttestation.assessmentId}`,
+          `correlationId=${req.algsAttestation.correlationId}`,
+          `modelId=${req.algsAttestation.modelId}`,
+          `modelWeightsHash=${req.algsAttestation.modelWeightsHash}`,
+          `inferenceRuntime=${req.algsAttestation.inferenceRuntime}`,
+          `policyPackVersion=${req.algsAttestation.policyPackVersion}`,
+          `controllerConfigHash=${req.algsAttestation.controllerConfigHash}`,
+          `riskClass=${req.algsAttestation.riskClass}`,
+          `riskScore=${req.algsAttestation.riskScore.toFixed(6)}`,
+          `confidence=${req.algsAttestation.confidence.toFixed(6)}`,
+          `intervention=${req.algsAttestation.intervention}`,
+          `traceCommitment=${req.algsAttestation.traceCommitment}`,
+          `disposition=${req.algsAttestation.disposition}`,
+        ].join('|')
+      : 'algsAttestation=none';
+
     return [
       `requestId=${req.requestId}`,
       `idempotencyKey=${req.idempotencyKey}`,
@@ -36,6 +54,7 @@ export class CanonicalEncoder {
       `requester=${req.requesterId}`,
       `justification=${req.justification.trim()}`,
       evidenceSorted,
+      algs,
     ].join('::');
   }
 

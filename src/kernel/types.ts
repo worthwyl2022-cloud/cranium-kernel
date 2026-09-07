@@ -65,6 +65,26 @@ export interface EvidenceRef {
   description: string;
 }
 
+/**
+ * Deterministic evidence emitted by a model-native governance adapter.
+ * This is evidence about inference, not an authority grant.
+ */
+export interface AlgsAttestation {
+  assessmentId: string;
+  correlationId: string;
+  modelId: string;
+  modelWeightsHash: string;
+  inferenceRuntime: string;
+  policyPackVersion: string;
+  controllerConfigHash: string;
+  riskClass: 'LOW' | 'ELEVATED' | 'HIGH' | 'CRITICAL';
+  riskScore: number;
+  confidence: number;
+  intervention: 'NONE' | 'STEER' | 'RESTRICT' | 'ABSTAIN' | 'ESCALATE';
+  traceCommitment: string;
+  disposition: 'ALLOW' | 'RESTRICT' | 'ESCALATE' | 'BLOCK';
+}
+
 export interface AuthorityTransitionRequest {
   requestId: string;
   idempotencyKey: string;
@@ -75,6 +95,8 @@ export interface AuthorityTransitionRequest {
   requesterId: string;
   timestamp: number;
   targetAuthorityVersion: number;
+  /** Optional for ordinary kernel transitions; required by protected ALGS adapters. */
+  algsAttestation?: AlgsAttestation;
 }
 
 export interface RequestHash {
@@ -99,6 +121,9 @@ export enum BoundaryViolation {
   STALE_AUTHORITY_VERSION = 'STALE_AUTHORITY_VERSION',
   UNAUTHORIZED_REQUESTER = 'UNAUTHORIZED_REQUESTER',
   INVALID_REQUEST = 'INVALID_REQUEST',
+  MISSING_ALGS_ATTESTATION = 'MISSING_ALGS_ATTESTATION',
+  INVALID_ALGS_ATTESTATION = 'INVALID_ALGS_ATTESTATION',
+  ALGS_FAIL_SAFE_BLOCK = 'ALGS_FAIL_SAFE_BLOCK',
 }
 
 export interface BoundaryAssessment {
