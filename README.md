@@ -87,9 +87,11 @@ action execution boundary that requires a granted receipt, exact action hash, in
 fresh receipt, intact receipt-chain membership, and single-use consumption.
 
 The current implementation is **deterministically and cryptographically integrity-bound** by
-canonical SHA-256 hashes and receipt chaining. It does not yet claim digital authentication;
-signed envelopes, signed Synapse attestations, key rotation, and trusted-key verification are
-future hardening work.
+canonical SHA-256 hashes and receipt chaining. It also includes an Ed25519 signing and
+trusted-key verification path with role separation for Core, Synapse runtime, Gateway, and
+human approver identities. Production key custody, rotation, revocation operations, and
+durable trusted-key distribution remain future hardening work. See
+[`docs/SYNAPSE_CORE_EVIDENCE.md`](./docs/SYNAPSE_CORE_EVIDENCE.md).
 
 ## Reproduce the current build
 

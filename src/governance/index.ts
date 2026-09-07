@@ -29,3 +29,12 @@ export {
   type TransactionJson,
   type TransactionRiskTier,
 } from './SynapseCoreTransaction';
+export {
+  TrustedKeyRegistry,
+  exportPublicKey,
+  generateEd25519KeyPair,
+  signPayload,
+  type SignedPayload,
+  type TrustedKey,
+  type TrustedSubject,
+} from './Signatures';

@@ -228,3 +228,24 @@ const tamperResult = transactionGate.execute(
 );
 assert.equal(tamperResult.reason, 'ACTION_HASH_MISMATCH');
 assert.equal(executedCount, 1, 'tampered action must not execute');
+
+
+const signatures = await import('../src/governance/Signatures');
+const keyPair = await signatures.generateEd25519KeyPair();
+const publicKey = await signatures.exportPublicKey(keyPair.publicKey);
+const keyRegistry = new signatures.TrustedKeyRegistry();
+keyRegistry.register({
+  keyId: 'core-key-001',
+  subject: 'CORE',
+  publicKey,
+  validFrom: '2026-09-07T00:00:00.000Z',
+});
+const signedEnvelope = await signatures.signPayload('core-envelope-payload', 'core-key-001', 'CORE', keyPair.privateKey);
+const validSignature = await keyRegistry.verify(signedEnvelope, '2026-09-07T10:00:00.000Z');
+assert.equal(validSignature.valid, true, 'valid Ed25519 Core signature should verify');
+const tamperedSignature = await keyRegistry.verify({ ...signedEnvelope, payload: 'tampered-payload' }, '2026-09-07T10:00:00.000Z');
+assert.equal(tamperedSignature.reason, 'SIGNATURE_INVALID');
+const wrongRoleSignature = await keyRegistry.verify({ ...signedEnvelope, subject: 'SYNAPSE_RUNTIME' }, '2026-09-07T10:00:00.000Z');
+assert.equal(wrongRoleSignature.reason, 'KEY_ROLE_MISMATCH');
+
+console.log('Cranium signature check passed: valid Ed25519 verification, tamper rejection, and role separation.');
