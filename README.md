@@ -82,7 +82,14 @@ blocking. `SynapseCoreTransaction.ts` additionally implements the Core-issued en
 Synapse attestation → Core authorization → chained receipt path, including expiry, request,
 envelope, authority-version, tool-scope, and replay checks. This is an integration contract
 and deterministic harness, not evidence that a production transformer-level inference
-controller has already been implemented.
+controller has already been implemented. The same transaction gate exposes a controlled
+action execution boundary that requires a granted receipt, exact action hash, in-scope tool,
+fresh receipt, intact receipt-chain membership, and single-use consumption.
+
+The current implementation is **deterministically and cryptographically integrity-bound** by
+canonical SHA-256 hashes and receipt chaining. It does not yet claim digital authentication;
+signed envelopes, signed Synapse attestations, key rotation, and trusted-key verification are
+future hardening work.
 
 ## Reproduce the current build
 

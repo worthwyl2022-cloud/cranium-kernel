@@ -80,6 +80,12 @@ export interface GovernanceReceipt {
   receiptHash: string;
 }
 
+export interface ActionExecutionResult {
+  executed: boolean;
+  reason: string;
+  receipt: GovernanceReceipt;
+}
+
 function canonicalize(value: TransactionJson): string {
   if (value === null || typeof value !== 'object') return JSON.stringify(value);
   if (Array.isArray(value)) return `[${value.map(canonicalize).join(',')}]`;
@@ -93,6 +99,7 @@ function hash(value: TransactionJson | string | object): string {
 export class CraniumCoreTransactionGate {
   private readonly committedActionHashes = new Set<string>();
   private readonly receiptChain: GovernanceReceipt[] = [];
+  private readonly consumedReceiptIds = new Set<string>();
 
   issueSynapseEnvelope(
     request: TransactionJson,
@@ -151,6 +158,36 @@ export class CraniumCoreTransactionGate {
   }
 
   receipts(): readonly GovernanceReceipt[] { return this.receiptChain; }
+
+  execute(
+    receipt: GovernanceReceipt,
+    action: ProposedAction,
+    authority: CoreAuthorityEnvelope,
+    now: string,
+    handler: (action: ProposedAction) => void
+  ): ActionExecutionResult {
+    if (!this.receiptChain.some((entry) => entry.receiptId === receipt.receiptId && entry.receiptHash === receipt.receiptHash)) {
+      return { executed: false, reason: 'RECEIPT_NOT_IN_CHAIN', receipt };
+    }
+    if (receipt.decision !== 'GRANTED') {
+      return { executed: false, reason: 'RECEIPT_NOT_GRANTED', receipt };
+    }
+    if (this.consumedReceiptIds.has(receipt.receiptId)) {
+      return { executed: false, reason: 'RECEIPT_ALREADY_CONSUMED', receipt };
+    }
+    if (receipt.actionHash !== hash(action)) {
+      return { executed: false, reason: 'ACTION_HASH_MISMATCH', receipt };
+    }
+    if (!authority.allowedTools.includes(action.tool)) {
+      return { executed: false, reason: 'TOOL_OUTSIDE_AUTHORITY_SCOPE', receipt };
+    }
+    if (receipt.committedAt > now) {
+      return { executed: false, reason: 'RECEIPT_FROM_THE_FUTURE', receipt };
+    }
+    handler(action);
+    this.consumedReceiptIds.add(receipt.receiptId);
+    return { executed: true, reason: 'ACTION_EXECUTED_ONCE', receipt };
+  }
 
   private evaluate(
     requestHash: string,

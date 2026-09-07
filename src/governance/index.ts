@@ -16,6 +16,7 @@ export {
 export {
   CraniumCoreTransactionGate,
   hashTransactionValue,
+  type ActionExecutionResult,
   type CoreAuthorityEnvelope,
   type CoreDecision,
   type CoreIssuedSynapseEnvelope,

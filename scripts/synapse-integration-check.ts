@@ -178,3 +178,53 @@ assert.equal(replayReceipt.decisionReason, 'DUPLICATE_ACTION_REPLAY');
 assert.equal(replayReceipt.previousReceiptHash, receipt.receiptHash, 'receipts must form a hash chain');
 
 console.log('Cranium Synapse/Core transaction check passed: envelope binding, authorization, replay denial, and receipt chaining.');
+
+
+let executedCount = 0;
+const executed = transactionGate.execute(
+  receipt,
+  action,
+  authorityEnvelope,
+  '2026-09-07T10:06:00.000Z',
+  () => { executedCount += 1; }
+);
+assert.equal(executed.executed, true, 'granted receipt should execute the exact action');
+assert.equal(executedCount, 1);
+const consumedAgain = transactionGate.execute(
+  receipt,
+  action,
+  authorityEnvelope,
+  '2026-09-07T10:06:01.000Z',
+  () => { executedCount += 1; }
+);
+assert.equal(consumedAgain.reason, 'RECEIPT_ALREADY_CONSUMED');
+assert.equal(executedCount, 1, 'consumed receipts must not execute twice');
+const tamperedAction = { ...action, args: { customerId: 'customer-8' } };
+const tampered = transactionGate.execute(
+  replayReceipt,
+  tamperedAction,
+  authorityEnvelope,
+  '2026-09-07T10:06:02.000Z',
+  () => { executedCount += 1; }
+);
+assert.equal(tampered.reason, 'RECEIPT_NOT_GRANTED', 'denied receipts must never reach the handler');
+
+const tamperSourceAction = { ...action, actionId: 'action-002', args: { customerId: 'customer-9' } };
+const tamperReceipt = transactionGate.authorize(
+  requestPayload,
+  tamperSourceAction,
+  authorityEnvelope,
+  synapseEnvelope,
+  transactionAttestation,
+  '2026-09-07T10:05:04.000Z',
+  'receipt-tamper-source'
+);
+const tamperResult = transactionGate.execute(
+  tamperReceipt,
+  { ...tamperSourceAction, args: { customerId: 'customer-10' } },
+  authorityEnvelope,
+  '2026-09-07T10:06:03.000Z',
+  () => { executedCount += 1; }
+);
+assert.equal(tamperResult.reason, 'ACTION_HASH_MISMATCH');
+assert.equal(executedCount, 1, 'tampered action must not execute');
