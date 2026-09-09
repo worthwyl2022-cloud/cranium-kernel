@@ -25,3 +25,5 @@ jobs:
         run: npm run verify:synapse
       - name: Miracle Memory check
         run: npx tsx scripts/miracle-memory-check.ts
+      - name: Atomic recovery check
+        run: npx tsx scripts/atomic-recovery-check.ts
