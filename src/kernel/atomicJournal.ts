@@ -14,8 +14,13 @@ export class AtomicJournalIntegrityError extends Error {
   }
 }
 
+export interface RecoveredAtomicTransaction {
+  prepared: PreparedAuthorityTransaction;
+  committed: CommittedAuthorityTransaction;
+}
+
 export interface RecoveredAtomicJournal {
-  committed: Array<{ prepared: PreparedAuthorityTransaction; committed: CommittedAuthorityTransaction }>;
+  committed: RecoveredAtomicTransaction[];
   lastSequence: number;
   lastJournalHash: string | null;
 }
@@ -52,9 +57,10 @@ export class LocalAtomicJournal {
     const raw = readFileSync(this.journalPath, 'utf8');
     const lines = raw.split('\n').filter((line) => line.trim().length > 0);
     const prepared = new Map<string, PreparedAuthorityTransaction>();
-    const committed: Array<{ prepared: PreparedAuthorityTransaction; committed: CommittedAuthorityTransaction }> = [];
+    const committed: RecoveredAtomicTransaction[] = [];
     const seenTransactions = new Set<string>();
-    const seenReplayKeys = new Set<string>();
+    const requestHashesByIdempotencyKey = new Map<string, string>();
+    const receiptIds = new Set<string>();
     let lastSequence = 0;
     let lastJournalHash: string | null = null;
 
@@ -73,11 +79,18 @@ export class LocalAtomicJournal {
       if (!staged) throw new AtomicJournalIntegrityError(`Committed frame without prepared frame at line ${index + 1}`);
       if (staged.transactionHash !== frame.transactionHash) throw new AtomicJournalIntegrityError(`Prepared/committed hash mismatch at line ${index + 1}`);
       if (seenTransactions.has(frame.transactionId)) throw new AtomicJournalIntegrityError(`Duplicate committed transaction ${frame.transactionId}`);
-      const replayKey = `${staged.replay.idempotencyKey}\u0000${staged.replay.canonicalRequestHash}`;
-      if (seenReplayKeys.has(replayKey)) throw new AtomicJournalIntegrityError(`Duplicate replay identity at line ${index + 1}`);
+      if (staged.receipt.requestHash !== staged.replay.canonicalRequestHash) throw new AtomicJournalIntegrityError(`Receipt/request binding failure at line ${index + 1}`);
+      if (staged.receipt.stateVersion !== staged.nextStateVersion) throw new AtomicJournalIntegrityError(`Receipt/state binding failure at line ${index + 1}`);
+      if (receiptIds.has(staged.receipt.receiptId)) throw new AtomicJournalIntegrityError(`Duplicate receipt ${staged.receipt.receiptId}`);
+      const knownHash = requestHashesByIdempotencyKey.get(staged.replay.idempotencyKey);
+      if (knownHash !== undefined) {
+        if (knownHash !== staged.replay.canonicalRequestHash) throw new AtomicJournalIntegrityError(`Conflicting replay reuse at line ${index + 1}`);
+        throw new AtomicJournalIntegrityError(`Duplicate replay identity at line ${index + 1}`);
+      }
       const prior = committed.at(-1)?.prepared.nextStateVersion;
       if (prior !== undefined && staged.priorStateVersion !== prior) throw new AtomicJournalIntegrityError(`Non-monotonic state version at line ${index + 1}`);
-      seenReplayKeys.add(replayKey);
+      requestHashesByIdempotencyKey.set(staged.replay.idempotencyKey, staged.replay.canonicalRequestHash);
+      receiptIds.add(staged.receipt.receiptId);
       seenTransactions.add(frame.transactionId);
       prepared.delete(frame.transactionId);
       committed.push({ prepared: staged, committed: frame });

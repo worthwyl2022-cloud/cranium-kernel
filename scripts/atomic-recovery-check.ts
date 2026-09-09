@@ -2,42 +2,86 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { LocalAtomicJournal, AtomicJournalIntegrityError } from '../src/kernel/atomicJournal';
-import { commitAuthorityTransaction, prepareAuthorityTransaction } from '../src/kernel/atomicTransaction';
+import { AtomicJournalIntegrityError, LocalAtomicJournal } from '../src/kernel/atomicJournal';
+import { commitAuthorityTransaction, prepareAuthorityTransaction, type PreparedAuthorityTransaction } from '../src/kernel/atomicTransaction';
+
+function makePrepared(id: string, priorStateVersion: number, idempotencyKey = `idem-${id}`, requestHash = `request-${id}`): PreparedAuthorityTransaction {
+  return prepareAuthorityTransaction({
+    transactionId: `tx-${id}`,
+    priorStateVersion,
+    nextStateVersion: priorStateVersion + 1,
+    state: { authorityVersion: priorStateVersion + 1, status: 'ACTIVE' },
+    event: { type: 'AUTHORITY_GRANTED', subjectId: `subject-${id}` },
+    replay: { idempotencyKey, canonicalRequestHash: requestHash },
+    receipt: {
+      receiptId: `receipt-${id}`,
+      requestHash,
+      eventHash: `event-${id}`,
+      stateVersion: priorStateVersion + 1,
+      payload: { decision: 'GRANTED', transaction: id },
+    },
+  });
+}
+
+function expectIntegrityFailure(action: () => void, label: string): void {
+  assert.throws(action, AtomicJournalIntegrityError, label);
+}
 
 const dir = mkdtempSync(join(tmpdir(), 'cranium-atomic-'));
 const journalPath = join(dir, 'journal.ndjson');
 
 try {
   const journal = new LocalAtomicJournal(journalPath);
-  const prepared = prepareAuthorityTransaction({
-    transactionId: 'tx-001',
-    priorStateVersion: 7,
-    nextStateVersion: 8,
-    state: { authorityVersion: 8, status: 'ACTIVE' },
-    event: { type: 'AUTHORITY_GRANTED', subjectId: 'subject-1' },
-    replay: { idempotencyKey: 'idem-001', canonicalRequestHash: 'request-hash-001' },
-    receipt: { receiptId: 'receipt-001', requestHash: 'request-hash-001', eventHash: 'event-hash-001', stateVersion: 8, payload: { decision: 'GRANTED' } },
-  });
+  const first = makePrepared('001', 7);
 
-  journal.appendPrepared(prepared);
-  assert.equal(journal.recover().committed.length, 0, 'prepared-only entry must not recover as committed');
+  journal.appendPrepared(first);
+  assert.equal(journal.recover().committed.length, 0, 'prepared-only crash must not recover as committed');
 
-  const committed = commitAuthorityTransaction(prepared, 1, null);
-  journal.appendCommitted(committed);
-  const recovered = journal.recover();
-  assert.equal(recovered.committed.length, 1, 'matching committed pair must recover');
-  assert.equal(recovered.committed[0].prepared.transactionId, 'tx-001');
+  const firstCommit = commitAuthorityTransaction(first, 1, null);
+  journal.appendCommitted(firstCommit);
+  let recovered = journal.recover();
+  assert.equal(recovered.committed.length, 1, 'committed-before-publish crash must recover exactly one transaction');
+  assert.equal(recovered.committed[0].prepared.transactionId, first.transactionId);
+  assert.equal(recovered.committed[0].prepared.nextStateVersion, 8);
   assert.equal(recovered.lastSequence, 1);
 
+  const second = makePrepared('002', 8);
+  journal.appendPrepared(second);
+  journal.appendCommitted(commitAuthorityTransaction(second, 2, recovered.lastJournalHash));
+  recovered = journal.recover();
+  assert.equal(recovered.committed.length, 2, 'two valid sequential transactions must recover');
+  assert.equal(recovered.committed[1].prepared.priorStateVersion, 8);
+  assert.equal(recovered.committed[1].prepared.nextStateVersion, 9);
+
   const original = readFileSync(journalPath, 'utf8');
+
   writeFileSync(journalPath, original.replace('AUTHORITY_GRANTED', 'AUTHORITY_DENIED'), 'utf8');
-  assert.throws(() => journal.recover(), AtomicJournalIntegrityError, 'tampered prepared payload must fail closed');
+  expectIntegrityFailure(() => journal.recover(), 'prepared payload tampering must fail closed');
 
-  writeFileSync(journalPath, original.replace('"sequence":1', '"sequence":2'), 'utf8');
-  assert.throws(() => journal.recover(), AtomicJournalIntegrityError, 'non-sequential committed frame must fail closed');
+  writeFileSync(journalPath, original.replace('"sequence":2', '"sequence":3'), 'utf8');
+  expectIntegrityFailure(() => journal.recover(), 'sequence tampering must fail closed');
 
-  console.log('Atomic recovery check passed: prepared-only ignored; committed pair recovers; tampering fails closed.');
+  writeFileSync(journalPath, original.replace('"previousJournalHash":"' + recovered.committed[0].committed.journalHash + '"', '"previousJournalHash":"forged"'), 'utf8');
+  expectIntegrityFailure(() => journal.recover(), 'predecessor hash tampering must fail closed');
+
+  writeFileSync(journalPath, original.replace('"requestHash":"request-001"', '"requestHash":"forged-request"'), 'utf8');
+  expectIntegrityFailure(() => journal.recover(), 'receipt/request binding tampering must fail closed');
+
+  const conflictPath = join(dir, 'conflict.ndjson');
+  const conflictJournal = new LocalAtomicJournal(conflictPath);
+  const conflictFirst = makePrepared('conflict-1', 0, 'shared-idempotency', 'request-A');
+  conflictJournal.appendPrepared(conflictFirst);
+  conflictJournal.appendCommitted(commitAuthorityTransaction(conflictFirst, 1, null));
+  const conflictSecond = makePrepared('conflict-2', 1, 'shared-idempotency', 'request-B');
+  conflictJournal.appendPrepared(conflictSecond);
+  conflictJournal.appendCommitted(commitAuthorityTransaction(conflictSecond, 2, conflictJournal.recover().lastJournalHash));
+  expectIntegrityFailure(() => conflictJournal.recover(), 'same key with different request hash must fail closed after restart');
+
+  const duplicatePath = join(dir, 'duplicate.ndjson');
+  writeFileSync(duplicatePath, original + original.split('\n').filter(Boolean)[1] + '\n', 'utf8');
+  expectIntegrityFailure(() => new LocalAtomicJournal(duplicatePath).recover(), 'duplicate committed frame must fail closed');
+
+  console.log('Atomic recovery proof passed: staged crash ignored; committed recovery exact; state continuity, replay conflict, receipt binding, chain, sequence, payload, and duplicate-frame tampering fail closed.');
 } finally {
   rmSync(dir, { recursive: true, force: true });
 }
