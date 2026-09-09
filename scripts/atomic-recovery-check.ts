@@ -58,6 +58,9 @@ try {
   writeFileSync(journalPath, original.replace('AUTHORITY_GRANTED', 'AUTHORITY_DENIED'), 'utf8');
   expectIntegrityFailure(() => journal.recover(), 'prepared payload tampering must fail closed');
 
+  writeFileSync(journalPath, original.replace('tx-002', 'tx-forged'), 'utf8');
+  expectIntegrityFailure(() => journal.recover(), 'transaction ID tampering must fail closed');
+
   writeFileSync(journalPath, original.replace('"sequence":2', '"sequence":3'), 'utf8');
   expectIntegrityFailure(() => journal.recover(), 'sequence tampering must fail closed');
 
@@ -66,6 +69,9 @@ try {
 
   writeFileSync(journalPath, original.replace('"requestHash":"request-001"', '"requestHash":"forged-request"'), 'utf8');
   expectIntegrityFailure(() => journal.recover(), 'receipt/request binding tampering must fail closed');
+
+  writeFileSync(journalPath, original.trimEnd(), 'utf8');
+  expectIntegrityFailure(() => journal.recover(), 'truncated trailing frame must fail closed');
 
   const conflictPath = join(dir, 'conflict.ndjson');
   const conflictJournal = new LocalAtomicJournal(conflictPath);
@@ -81,7 +87,7 @@ try {
   writeFileSync(duplicatePath, original + original.split('\n').filter(Boolean)[1] + '\n', 'utf8');
   expectIntegrityFailure(() => new LocalAtomicJournal(duplicatePath).recover(), 'duplicate committed frame must fail closed');
 
-  console.log('Atomic recovery proof passed: staged crash ignored; committed recovery exact; state continuity, replay conflict, receipt binding, chain, sequence, payload, and duplicate-frame tampering fail closed.');
+  console.log('Atomic recovery proof passed: staged crash ignored; committed recovery exact; state continuity, replay conflict, receipt binding, chain, sequence, payload, transaction-ID, duplicate-frame, and truncated-frame tampering fail closed.');
 } finally {
   rmSync(dir, { recursive: true, force: true });
 }

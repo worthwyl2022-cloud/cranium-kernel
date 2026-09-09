@@ -37,6 +37,17 @@ function parseFrame(line: string, lineNumber: number): AtomicJournalFrame {
   }
 }
 
+function journalLines(raw: string): string[] {
+  const lines = raw.split('\n');
+  if (lines.length > 1 && lines.at(-1) === '') lines.pop();
+  for (let index = 0; index < lines.length; index += 1) {
+    if (lines[index].trim().length === 0) {
+      throw new AtomicJournalIntegrityError(`Blank journal frame at line ${index + 1}`);
+    }
+  }
+  return lines;
+}
+
 export class LocalAtomicJournal {
   constructor(private readonly journalPath: string) {
     if (!journalPath) throw new Error('journalPath is required');
@@ -55,7 +66,9 @@ export class LocalAtomicJournal {
   recover(): RecoveredAtomicJournal {
     if (!existsSync(this.journalPath)) return { committed: [], lastSequence: 0, lastJournalHash: null };
     const raw = readFileSync(this.journalPath, 'utf8');
-    const lines = raw.split('\n').filter((line) => line.trim().length > 0);
+    if (raw.length === 0) return { committed: [], lastSequence: 0, lastJournalHash: null };
+    if (!raw.endsWith('\n')) throw new AtomicJournalIntegrityError('Journal must end with a newline-delimited complete frame');
+    const lines = journalLines(raw);
     const prepared = new Map<string, PreparedAuthorityTransaction>();
     const committed: RecoveredAtomicTransaction[] = [];
     const seenTransactions = new Set<string>();
@@ -97,6 +110,7 @@ export class LocalAtomicJournal {
       lastSequence = frame.sequence;
       lastJournalHash = frame.journalHash;
     }
+
     return { committed, lastSequence, lastJournalHash };
   }
 
