@@ -37,6 +37,7 @@ TypeScript checks run in `.github/workflows/ci-typescript.yml`.
 - Durable replay index across process death (replay guard is in-memory)
 - Equivalence proof between TypeScript and Kotlin trees
 - That `src/data/auditReport50k.ts` is a live CI artifact (it is precompiled)
-- That placeholder strings such as `sig_ed25519_*` in demo state are real signatures
+- `src/data/initialState.ts` value `sig_ed25519_core_98a72b` is
+  non-cryptographic placeholder demo data, not a real Ed25519 signature
 
 If a command is not in this file, it is not an acquisition claim.
