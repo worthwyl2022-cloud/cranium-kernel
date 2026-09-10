@@ -47,53 +47,83 @@ export function canonicalize(value: AtomicJson): string {
   if (typeof value === 'string') return JSON.stringify(value);
   if (Array.isArray(value)) return `[${value.map(canonicalize).join(',')}]`;
   const record = value as { [key: string]: AtomicJson };
-  return `{${Object.keys(record).sort().map((key) => `${JSON.stringify(key)}:${canonicalize(record[key])}`).join(',')}}`;
+  return `{${Object.keys(record).sort().map((k) => `${JSON.stringify(k)}:${canonicalize(record[k])}`).join(',')}}`;
 }
 
-function preparedMaterial(input: Omit<PreparedAuthorityTransaction, 'kind' | 'transactionHash'>): AtomicJson {
+export function prepareTransaction(
+  transactionId: string,
+  state: AtomicJson,
+  event: AtomicJson,
+  replay: AtomicReplayIdentity,
+  receipt: AtomicReceiptBinding & { payload: AtomicJson },
+  priorVersion: number
+): PreparedAuthorityTransaction {
+  const transactionHash = sha256(canonicalize({
+    transactionId,
+    priorStateVersion: priorVersion,
+    nextStateVersion: priorVersion + 1,
+    state,
+    event,
+    replay: replay as unknown as AtomicJson,
+    receipt: receipt as unknown as AtomicJson,
+  } as unknown as AtomicJson));
   return {
-    transactionId: input.transactionId,
-    priorStateVersion: input.priorStateVersion,
-    nextStateVersion: input.nextStateVersion,
-    state: input.state,
-    event: input.event,
-    replay: input.replay,
-    receipt: input.receipt,
+    kind: 'PREPARED',
+    transactionId,
+    priorStateVersion: priorVersion,
+    nextStateVersion: priorVersion + 1,
+    state,
+    event,
+    replay,
+    receipt,
+    transactionHash,
   };
 }
 
-export function prepareAuthorityTransaction(input: Omit<PreparedAuthorityTransaction, 'kind' | 'transactionHash'>): PreparedAuthorityTransaction {
-  if (!input.transactionId) throw new Error('transactionId is required');
-  if (!input.replay.idempotencyKey || !input.replay.canonicalRequestHash) throw new Error('replay identity is required');
-  if (input.nextStateVersion !== input.priorStateVersion + 1) throw new Error('state version must advance by exactly one');
-  if (input.receipt.stateVersion !== input.nextStateVersion) throw new Error('receipt state version must bind next state');
-  const transactionHash = sha256(canonicalize(preparedMaterial(input)));
-  return { kind: 'PREPARED', ...input, transactionHash };
-}
+export class AtomicJournal {
+  private readonly frames: AtomicJournalFrame[] = [];
+  private headHash: string | null = null;
 
-export function commitAuthorityTransaction(prepared: PreparedAuthorityTransaction, sequence: number, previousJournalHash: string | null): CommittedAuthorityTransaction {
-  if (!Number.isSafeInteger(sequence) || sequence < 1) throw new Error('sequence must be a positive safe integer');
-  const material: AtomicJson = { transactionId: prepared.transactionId, transactionHash: prepared.transactionHash, sequence, previousJournalHash };
-  return { kind: 'COMMITTED', transactionId: prepared.transactionId, transactionHash: prepared.transactionHash, sequence, previousJournalHash, journalHash: sha256(canonicalize(material)) };
-}
-
-export function verifyPrepared(frame: PreparedAuthorityTransaction): boolean {
-  try {
-    return frame.kind === 'PREPARED'
-      && frame.transactionHash === sha256(canonicalize(preparedMaterial(frame)));
-  } catch {
-    return false;
+  commit(prepared: PreparedAuthorityTransaction): CommittedAuthorityTransaction {
+    if (prepared.kind !== 'PREPARED') throw new Error('Can only commit PREPARED transactions');
+    const sequence = this.frames.length;
+    const journalPayload = canonicalize({
+      transactionHash: prepared.transactionHash,
+      sequence,
+      previousJournalHash: this.headHash,
+    } as unknown as AtomicJson);
+    const journalHash = sha256(journalPayload);
+    const committed: CommittedAuthorityTransaction = {
+      kind: 'COMMITTED',
+      transactionId: prepared.transactionId,
+      transactionHash: prepared.transactionHash,
+      sequence,
+      previousJournalHash: this.headHash,
+      journalHash,
+    };
+    this.frames.push(committed);
+    this.headHash = journalHash;
+    return committed;
   }
-}
 
-export function verifyCommitted(frame: CommittedAuthorityTransaction): boolean {
-  try {
-    const material: AtomicJson = { transactionId: frame.transactionId, transactionHash: frame.transactionHash, sequence: frame.sequence, previousJournalHash: frame.previousJournalHash };
-    return frame.kind === 'COMMITTED'
-      && Number.isSafeInteger(frame.sequence)
-      && frame.sequence > 0
-      && frame.journalHash === sha256(canonicalize(material));
-  } catch {
-    return false;
+  verify(): { intact: boolean; brokenAtIndex: number } {
+    let previousHash: string | null = null;
+    for (let i = 0; i < this.frames.length; i++) {
+      const frame = this.frames[i];
+      if (frame.kind !== 'COMMITTED') return { intact: false, brokenAtIndex: i };
+      if (frame.previousJournalHash !== previousHash) return { intact: false, brokenAtIndex: i };
+      const expectedHash = sha256(canonicalize({
+        transactionHash: frame.transactionHash,
+        sequence: frame.sequence,
+        previousJournalHash: frame.previousJournalHash,
+      } as unknown as AtomicJson));
+      if (frame.journalHash !== expectedHash) return { intact: false, brokenAtIndex: i };
+      previousHash = frame.journalHash;
+    }
+    return { intact: true, brokenAtIndex: -1 };
   }
+
+  get length(): number { return this.frames.length; }
+  get head(): string | null { return this.headHash; }
+  entries(): readonly AtomicJournalFrame[] { return this.frames; }
 }
