@@ -17,6 +17,13 @@ export interface SignedPayload {
   signature: string;
 }
 
+export interface VerifyResult {
+  valid: boolean;
+  reason: string;
+  subject: TrustedSubject | null;
+  payload: string | null;
+}
+
 function bytes(value: string): ArrayBuffer {
   return new TextEncoder().encode(value).buffer as ArrayBuffer;
 }
@@ -56,20 +63,22 @@ export class TrustedKeyRegistry {
 
   register(key: TrustedKey): void { this.keys.set(key.keyId, key); }
 
-  async verify(signed: SignedPayload, now: string): Promise<{ valid: boolean; reason: string }> {
+  async verify(signed: SignedPayload, now: string): Promise<VerifyResult> {
     const trusted = this.keys.get(signed.keyId);
-    if (!trusted) return { valid: false, reason: 'UNKNOWN_KEY_ID' };
-    if (trusted.subject !== signed.subject) return { valid: false, reason: 'KEY_ROLE_MISMATCH' };
-    if (trusted.revokedAt && trusted.revokedAt <= now) return { valid: false, reason: 'KEY_REVOKED' };
-    if (trusted.validFrom > now || (trusted.validUntil && trusted.validUntil <= now)) return { valid: false, reason: 'KEY_OUTSIDE_VALIDITY_WINDOW' };
-    if (signed.algorithm !== 'Ed25519') return { valid: false, reason: 'UNSUPPORTED_SIGNATURE_ALGORITHM' };
+    if (!trusted) return { valid: false, reason: 'UNKNOWN_KEY_ID', subject: null, payload: null };
+    if (trusted.subject !== signed.subject) return { valid: false, reason: 'KEY_ROLE_MISMATCH', subject: null, payload: null };
+    if (trusted.revokedAt && trusted.revokedAt <= now) return { valid: false, reason: 'KEY_REVOKED', subject: null, payload: null };
+    if (trusted.validFrom > now || (trusted.validUntil && trusted.validUntil <= now)) return { valid: false, reason: 'KEY_OUTSIDE_VALIDITY_WINDOW', subject: null, payload: null };
+    if (signed.algorithm !== 'Ed25519') return { valid: false, reason: 'UNSUPPORTED_SIGNATURE_ALGORITHM', subject: null, payload: null };
 
     try {
       const publicKey = await crypto.subtle.importKey('raw', fromBase64(trusted.publicKey), { name: 'Ed25519' }, false, ['verify']);
       const valid = await crypto.subtle.verify('Ed25519', publicKey, fromBase64(signed.signature), bytes(signed.payload));
-      return valid ? { valid: true, reason: 'SIGNATURE_VALID' } : { valid: false, reason: 'SIGNATURE_INVALID' };
+      return valid
+        ? { valid: true, reason: 'SIGNATURE_VALID', subject: signed.subject, payload: signed.payload }
+        : { valid: false, reason: 'SIGNATURE_INVALID', subject: null, payload: null };
     } catch {
-      return { valid: false, reason: 'SIGNATURE_MALFORMED' };
+      return { valid: false, reason: 'SIGNATURE_MALFORMED', subject: null, payload: null };
     }
   }
 }

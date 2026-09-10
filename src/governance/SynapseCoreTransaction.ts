@@ -1,4 +1,5 @@
 import { sha256 } from '../kernel/sha256';
+import type { TrustedKeyRegistry, SignedPayload } from './Signatures';
 
 export type TransactionJson = null | boolean | number | string | TransactionJson[] | { [key: string]: TransactionJson };
 export type TransactionRiskTier = 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL';
@@ -64,6 +65,7 @@ export interface SynapseTransactionAttestation {
   generatedAt: string;
   expiresAt: string;
   attestationHash: string;
+  signature: SignedPayload;  // Ed25519 over recomputeAttestationHash(), signed by SYNAPSE_RUNTIME
 }
 
 export interface GovernanceReceipt {
@@ -96,10 +98,22 @@ function hash(value: TransactionJson | string | object): string {
   return sha256(typeof value === 'string' ? value : canonicalize(value as TransactionJson));
 }
 
+/**
+ * Recompute the attestation hash from its contents, excluding the hash
+ * and signature fields themselves. If the recomputed hash doesn't match
+ * attestationHash, the attestation has been tampered with.
+ */
+function recomputeAttestationHash(a: SynapseTransactionAttestation): string {
+  const { attestationHash, signature, ...rest } = a;
+  return hash(rest as unknown as TransactionJson);
+}
+
 export class CraniumCoreTransactionGate {
   private readonly committedActionHashes = new Set<string>();
   private readonly receiptChain: GovernanceReceipt[] = [];
   private readonly consumedReceiptIds = new Set<string>();
+
+  constructor(private readonly keys: TrustedKeyRegistry) {}  // inject registry
 
   issueSynapseEnvelope(
     request: TransactionJson,
@@ -127,7 +141,7 @@ export class CraniumCoreTransactionGate {
     return { ...unsigned, coreEnvelopeHash: hash(unsigned) };
   }
 
-  authorize(
+  async authorize(                                            // now async
     request: TransactionJson,
     action: ProposedAction,
     authority: CoreAuthorityEnvelope,
@@ -135,10 +149,10 @@ export class CraniumCoreTransactionGate {
     attestation: SynapseTransactionAttestation,
     committedAt: string,
     receiptId = `receipt-${this.receiptChain.length + 1}`
-  ): GovernanceReceipt {
+  ): Promise<GovernanceReceipt> {
     const requestHash = hash(request);
     const actionHash = hash(action);
-    const decision = this.evaluate(requestHash, action, actionHash, authority, envelope, attestation, committedAt);
+    const decision = await this.evaluate(requestHash, action, actionHash, authority, envelope, attestation, committedAt);
     const unsigned = {
       receiptId,
       previousReceiptHash: this.receiptChain.at(-1)?.receiptHash ?? null,
@@ -189,7 +203,7 @@ export class CraniumCoreTransactionGate {
     return { executed: true, reason: 'ACTION_EXECUTED_ONCE', receipt };
   }
 
-  private evaluate(
+  private async evaluate(                                     // now async
     requestHash: string,
     action: ProposedAction,
     actionHash: string,
@@ -197,7 +211,19 @@ export class CraniumCoreTransactionGate {
     envelope: CoreIssuedSynapseEnvelope,
     attestation: SynapseTransactionAttestation,
     now: string
-  ): { decision: CoreDecision; reason: string } {
+  ): Promise<{ decision: CoreDecision; reason: string }> {
+    // --- integrity: contents must match their own hash ---
+    if (attestation.attestationHash !== recomputeAttestationHash(attestation)) {
+      return { decision: 'ISOLATED', reason: 'ATTESTATION_HASH_MISMATCH' };
+    }
+
+    // --- authenticity: signature must verify, be from Synapse, and cover THIS hash ---
+    const sig = await this.keys.verify(attestation.signature, now);
+    if (!sig.valid)                              return { decision: 'ISOLATED', reason: 'ATTESTATION_SIGNATURE_INVALID' };
+    if (sig.subject !== 'SYNAPSE_RUNTIME')       return { decision: 'ISOLATED', reason: 'ATTESTATION_WRONG_SIGNER' };
+    if (sig.payload !== attestation.attestationHash) return { decision: 'ISOLATED', reason: 'ATTESTATION_SIGNATURE_PAYLOAD_MISMATCH' };
+
+    // --- existing checks (unchanged) ---
     if (envelope.expiresAt <= now) return { decision: 'DENIED', reason: 'CORE_ENVELOPE_EXPIRED' };
     if (attestation.expiresAt <= now) return { decision: 'ISOLATED', reason: 'SYNAPSE_ATTESTATION_EXPIRED' };
     if (envelope.requestHash !== requestHash) return { decision: 'ISOLATED', reason: 'REQUEST_HASH_MISMATCH' };
