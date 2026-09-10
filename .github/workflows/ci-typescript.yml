@@ -5,6 +5,7 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+  workflow_dispatch: {}
 
 jobs:
   typescript:
@@ -21,9 +22,13 @@ jobs:
         run: npm ci
       - name: Typecheck
         run: npm run lint
+      - name: Production build
+        run: npm run build
       - name: Synapse integration check
         run: npm run verify:synapse
       - name: Miracle Memory check
         run: npx tsx scripts/miracle-memory-check.ts
       - name: Atomic recovery check
         run: npx tsx scripts/atomic-recovery-check.ts
+      - name: Complete verification gate
+        run: npm run verify

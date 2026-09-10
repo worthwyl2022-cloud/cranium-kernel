@@ -80,6 +80,79 @@ export function prepareTransaction(
   };
 }
 
+export function verifyPrepared(frame: PreparedAuthorityTransaction): boolean {
+  if (frame.kind !== 'PREPARED') return false;
+  if (!frame.transactionId || frame.priorStateVersion < 0 || frame.nextStateVersion !== frame.priorStateVersion + 1) return false;
+  if (!frame.replay.idempotencyKey || !frame.replay.canonicalRequestHash) return false;
+  if (frame.receipt.requestHash !== frame.replay.canonicalRequestHash) return false;
+  if (frame.receipt.stateVersion !== frame.nextStateVersion) return false;
+  const expectedHash = sha256(canonicalize({
+    transactionId: frame.transactionId,
+    priorStateVersion: frame.priorStateVersion,
+    nextStateVersion: frame.nextStateVersion,
+    state: frame.state,
+    event: frame.event,
+    replay: frame.replay as unknown as AtomicJson,
+    receipt: frame.receipt as unknown as AtomicJson,
+  } as unknown as AtomicJson));
+  return frame.transactionHash === expectedHash;
+}
+
+export function verifyCommitted(frame: CommittedAuthorityTransaction): boolean {
+  if (frame.kind !== 'COMMITTED') return false;
+  if (!frame.transactionId || !frame.transactionHash || frame.sequence < 1) return false;
+  const expectedHash = sha256(canonicalize({
+    transactionHash: frame.transactionHash,
+    sequence: frame.sequence,
+    previousJournalHash: frame.previousJournalHash,
+  } as unknown as AtomicJson));
+  return frame.journalHash === expectedHash;
+}
+
+export function prepareAuthorityTransaction(input: {
+  transactionId: string;
+  priorStateVersion: number;
+  nextStateVersion: number;
+  state: AtomicJson;
+  event: AtomicJson;
+  replay: AtomicReplayIdentity;
+  receipt: AtomicReceiptBinding & { payload: AtomicJson };
+}): PreparedAuthorityTransaction {
+  if (input.nextStateVersion !== input.priorStateVersion + 1) {
+    throw new Error('nextStateVersion must advance exactly one version');
+  }
+  return prepareTransaction(
+    input.transactionId,
+    input.state,
+    input.event,
+    input.replay,
+    input.receipt,
+    input.priorStateVersion
+  );
+}
+
+export function commitAuthorityTransaction(
+  prepared: PreparedAuthorityTransaction,
+  sequence: number,
+  previousJournalHash: string | null
+): CommittedAuthorityTransaction {
+  if (!verifyPrepared(prepared)) throw new Error('Cannot commit invalid prepared transaction');
+  if (sequence < 1) throw new Error('Journal sequence must start at one');
+  const journalHash = sha256(canonicalize({
+    transactionHash: prepared.transactionHash,
+    sequence,
+    previousJournalHash,
+  } as unknown as AtomicJson));
+  return {
+    kind: 'COMMITTED',
+    transactionId: prepared.transactionId,
+    transactionHash: prepared.transactionHash,
+    sequence,
+    previousJournalHash,
+    journalHash,
+  };
+}
+
 export class AtomicJournal {
   private readonly frames: AtomicJournalFrame[] = [];
   private headHash: string | null = null;
