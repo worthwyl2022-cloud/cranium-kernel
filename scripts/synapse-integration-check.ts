@@ -102,7 +102,23 @@ assert.match(blocked.reason, /SYNAPSE_FAIL_SAFE_BLOCK/);
 console.log('Cranium Synapse integration check passed: admission, hash binding, mismatch rejection, and fail-safe block.');
 
 
-const transactionGate = new (await import('../src/governance/SynapseCoreTransaction')).CraniumCoreTransactionGate();
+// ═══════════════════════════════════════════════════════════════════
+// SIGNATURE-GATED TRANSACTION AUTHORIZATION
+// ═══════════════════════════════════════════════════════════════════
+
+const signatures = await import('../src/governance/Signatures');
+const synapseKeys = await signatures.generateEd25519KeyPair();
+const synapsePublic = await signatures.exportPublicKey(synapseKeys.publicKey);
+const gateRegistry = new signatures.TrustedKeyRegistry();
+gateRegistry.register({
+  keyId: 'synapse-key-001',
+  subject: 'SYNAPSE_RUNTIME',
+  publicKey: synapsePublic,
+  validFrom: '2026-09-07T00:00:00.000Z',
+});
+
+const gateMod = await import('../src/governance/SynapseCoreTransaction');
+const transactionGate = new gateMod.CraniumCoreTransactionGate(gateRegistry);
 const requestPayload = { userId: 'user-42', task: 'read customer report', sessionId: 'session-77' };
 const authorityEnvelope = {
   principalId: 'agent-support-01',
@@ -133,8 +149,10 @@ const action = {
   args: { customerId: 'customer-7' },
   requestedAt: '2026-09-07T10:05:00.000Z',
 };
-const requestHash = (await import('../src/governance/SynapseCoreTransaction')).hashTransactionValue(requestPayload);
-const transactionAttestation = {
+const requestHash = gateMod.hashTransactionValue(requestPayload);
+
+// Build attestation core (without hash/sig), then hash + sign
+const attestationCore = {
   schemaVersion: '1.0' as const,
   attestationId: 'attestation-001',
   envelopeId: synapseEnvelope.envelopeId,
@@ -153,99 +171,144 @@ const transactionAttestation = {
   traceCommitment: 'trace-sha256',
   generatedAt: '2026-09-07T10:05:01.000Z',
   expiresAt: '2026-09-07T11:00:00.000Z',
-  attestationHash: 'attestation-sha256',
 };
-const receipt = transactionGate.authorize(
-  requestPayload,
-  action,
-  authorityEnvelope,
-  synapseEnvelope,
-  transactionAttestation,
-  '2026-09-07T10:05:02.000Z'
+const attestationHash = gateMod.hashTransactionValue(attestationCore);
+const attestationSignature = await signatures.signPayload(
+  attestationHash, 'synapse-key-001', 'SYNAPSE_RUNTIME', synapseKeys.privateKey
 );
-assert.equal(receipt.decision, 'GRANTED', 'valid Synapse/Core transaction should be granted');
-const replayReceipt = transactionGate.authorize(
-  requestPayload,
-  action,
-  authorityEnvelope,
-  synapseEnvelope,
-  transactionAttestation,
-  '2026-09-07T10:05:03.000Z',
-  'receipt-replay'
+const transactionAttestation = { ...attestationCore, attestationHash, signature: attestationSignature };
+
+// GRANTED: signed, in-scope, valid attestation
+const receipt = await transactionGate.authorize(
+  requestPayload, action, authorityEnvelope, synapseEnvelope,
+  transactionAttestation, '2026-09-07T10:05:02.000Z'
+);
+assert.equal(receipt.decision, 'GRANTED', 'signed, in-scope transaction should be granted');
+console.log('  ✅ Signed attestation → GRANTED');
+
+// REPLAY: same action replayed must be denied
+const replayReceipt = await transactionGate.authorize(
+  requestPayload, action, authorityEnvelope, synapseEnvelope,
+  transactionAttestation, '2026-09-07T10:05:03.000Z', 'receipt-replay'
 );
 assert.equal(replayReceipt.decision, 'DENIED', 'replayed action must be denied');
 assert.equal(replayReceipt.decisionReason, 'DUPLICATE_ACTION_REPLAY');
 assert.equal(replayReceipt.previousReceiptHash, receipt.receiptHash, 'receipts must form a hash chain');
+console.log('  ✅ Replay denied, receipt chain intact');
 
-console.log('Cranium Synapse/Core transaction check passed: envelope binding, authorization, replay denial, and receipt chaining.');
+console.log('Cranium Synapse/Core transaction check passed: signed authorization, replay denial, receipt chaining.');
 
+
+// ═══════════════════════════════════════════════════════════════════
+// EXECUTION CHECKS (exact-once, tamper, hash binding)
+// ═══════════════════════════════════════════════════════════════════
 
 let executedCount = 0;
 const executed = transactionGate.execute(
-  receipt,
-  action,
-  authorityEnvelope,
-  '2026-09-07T10:06:00.000Z',
+  receipt, action, authorityEnvelope, '2026-09-07T10:06:00.000Z',
   () => { executedCount += 1; }
 );
 assert.equal(executed.executed, true, 'granted receipt should execute the exact action');
 assert.equal(executedCount, 1);
 const consumedAgain = transactionGate.execute(
-  receipt,
-  action,
-  authorityEnvelope,
-  '2026-09-07T10:06:01.000Z',
+  receipt, action, authorityEnvelope, '2026-09-07T10:06:01.000Z',
   () => { executedCount += 1; }
 );
 assert.equal(consumedAgain.reason, 'RECEIPT_ALREADY_CONSUMED');
 assert.equal(executedCount, 1, 'consumed receipts must not execute twice');
 const tamperedAction = { ...action, args: { customerId: 'customer-8' } };
 const tampered = transactionGate.execute(
-  replayReceipt,
-  tamperedAction,
-  authorityEnvelope,
-  '2026-09-07T10:06:02.000Z',
+  replayReceipt, tamperedAction, authorityEnvelope, '2026-09-07T10:06:02.000Z',
   () => { executedCount += 1; }
 );
 assert.equal(tampered.reason, 'RECEIPT_NOT_GRANTED', 'denied receipts must never reach the handler');
 
 const tamperSourceAction = { ...action, actionId: 'action-002', args: { customerId: 'customer-9' } };
-const tamperReceipt = transactionGate.authorize(
-  requestPayload,
-  tamperSourceAction,
-  authorityEnvelope,
-  synapseEnvelope,
-  transactionAttestation,
-  '2026-09-07T10:05:04.000Z',
-  'receipt-tamper-source'
+const tamperReceipt = await transactionGate.authorize(
+  requestPayload, tamperSourceAction, authorityEnvelope, synapseEnvelope,
+  transactionAttestation, '2026-09-07T10:05:04.000Z', 'receipt-tamper-source'
 );
 const tamperResult = transactionGate.execute(
-  tamperReceipt,
-  { ...tamperSourceAction, args: { customerId: 'customer-10' } },
-  authorityEnvelope,
-  '2026-09-07T10:06:03.000Z',
+  tamperReceipt, { ...tamperSourceAction, args: { customerId: 'customer-10' } },
+  authorityEnvelope, '2026-09-07T10:06:03.000Z',
   () => { executedCount += 1; }
 );
 assert.equal(tamperResult.reason, 'ACTION_HASH_MISMATCH');
 assert.equal(executedCount, 1, 'tampered action must not execute');
+console.log('  ✅ Execution: exact-once, consumption guard, tamper rejection');
 
 
-const signatures = await import('../src/governance/Signatures');
-const keyPair = await signatures.generateEd25519KeyPair();
-const publicKey = await signatures.exportPublicKey(keyPair.publicKey);
-const keyRegistry = new signatures.TrustedKeyRegistry();
-keyRegistry.register({
+// ═══════════════════════════════════════════════════════════════════
+// SIGNATURE PRIMITIVES (Core key, tamper, role separation)
+// ═══════════════════════════════════════════════════════════════════
+
+const coreKeys = await signatures.generateEd25519KeyPair();
+const corePublic = await signatures.exportPublicKey(coreKeys.publicKey);
+const coreRegistry = new signatures.TrustedKeyRegistry();
+coreRegistry.register({
   keyId: 'core-key-001',
   subject: 'CORE',
-  publicKey,
+  publicKey: corePublic,
   validFrom: '2026-09-07T00:00:00.000Z',
 });
-const signedEnvelope = await signatures.signPayload('core-envelope-payload', 'core-key-001', 'CORE', keyPair.privateKey);
-const validSignature = await keyRegistry.verify(signedEnvelope, '2026-09-07T10:00:00.000Z');
+const signedEnvelope = await signatures.signPayload('core-envelope-payload', 'core-key-001', 'CORE', coreKeys.privateKey);
+const validSignature = await coreRegistry.verify(signedEnvelope, '2026-09-07T10:00:00.000Z');
 assert.equal(validSignature.valid, true, 'valid Ed25519 Core signature should verify');
-const tamperedSignature = await keyRegistry.verify({ ...signedEnvelope, payload: 'tampered-payload' }, '2026-09-07T10:00:00.000Z');
+assert.equal(validSignature.subject, 'CORE');
+assert.equal(validSignature.payload, 'core-envelope-payload');
+const tamperedSignature = await coreRegistry.verify({ ...signedEnvelope, payload: 'tampered-payload' }, '2026-09-07T10:00:00.000Z');
 assert.equal(tamperedSignature.reason, 'SIGNATURE_INVALID');
-const wrongRoleSignature = await keyRegistry.verify({ ...signedEnvelope, subject: 'SYNAPSE_RUNTIME' }, '2026-09-07T10:00:00.000Z');
+assert.equal(tamperedSignature.subject, null);
+const wrongRoleSignature = await coreRegistry.verify({ ...signedEnvelope, subject: 'SYNAPSE_RUNTIME' }, '2026-09-07T10:00:00.000Z');
 assert.equal(wrongRoleSignature.reason, 'KEY_ROLE_MISMATCH');
+console.log('  ✅ Ed25519 primitives: verify, tamper rejection, role separation');
 
-console.log('Cranium signature check passed: valid Ed25519 verification, tamper rejection, and role separation.');
+
+// ═══════════════════════════════════════════════════════════════════
+// FORGED ATTESTATION NEGATIVE TESTS (the ones people skip)
+// ═══════════════════════════════════════════════════════════════════
+
+// 1. Tampered field with stale hash → ATTESTATION_HASH_MISMATCH
+const forgedAttestation1 = { ...transactionAttestation, maxRiskScore: 0.99 };
+const forgedReceipt1 = await transactionGate.authorize(
+  requestPayload,
+  { ...action, actionId: 'action-forged-1' },
+  authorityEnvelope, synapseEnvelope,
+  forgedAttestation1, '2026-09-07T10:05:05.000Z', 'receipt-forged-1'
+);
+assert.equal(forgedReceipt1.decision, 'ISOLATED');
+assert.equal(forgedReceipt1.decisionReason, 'ATTESTATION_HASH_MISMATCH');
+console.log('  ✅ Forged attestation (tampered field) → ATTESTATION_HASH_MISMATCH');
+
+// 2. Valid signature over WRONG payload → ATTESTATION_SIGNATURE_PAYLOAD_MISMATCH
+const wrongPayloadSig = await signatures.signPayload(
+  'completely-different-payload', 'synapse-key-001', 'SYNAPSE_RUNTIME', synapseKeys.privateKey
+);
+const forgedAttestation2 = { ...transactionAttestation, signature: wrongPayloadSig };
+const forgedReceipt2 = await transactionGate.authorize(
+  requestPayload,
+  { ...action, actionId: 'action-forged-2' },
+  authorityEnvelope, synapseEnvelope,
+  forgedAttestation2, '2026-09-07T10:05:06.000Z', 'receipt-forged-2'
+);
+assert.equal(forgedReceipt2.decision, 'ISOLATED');
+assert.equal(forgedReceipt2.decisionReason, 'ATTESTATION_SIGNATURE_PAYLOAD_MISMATCH');
+console.log('  ✅ Valid sig over wrong payload → ATTESTATION_SIGNATURE_PAYLOAD_MISMATCH');
+
+// 3. Unsigned attestation (no valid key) → ATTESTATION_SIGNATURE_INVALID
+const rogueKeys = await signatures.generateEd25519KeyPair();
+const rogueSig = await signatures.signPayload(
+  attestationHash, 'synapse-key-001', 'SYNAPSE_RUNTIME', rogueKeys.privateKey
+);
+const forgedAttestation3 = { ...transactionAttestation, signature: rogueSig };
+const forgedReceipt3 = await transactionGate.authorize(
+  requestPayload,
+  { ...action, actionId: 'action-forged-3' },
+  authorityEnvelope, synapseEnvelope,
+  forgedAttestation3, '2026-09-07T10:05:07.000Z', 'receipt-forged-3'
+);
+assert.equal(forgedReceipt3.decision, 'ISOLATED');
+assert.equal(forgedReceipt3.decisionReason, 'ATTESTATION_SIGNATURE_INVALID');
+console.log('  ✅ Rogue key signature → ATTESTATION_SIGNATURE_INVALID');
+
+console.log('\nAll checks passed. Signature-gated authorization is live.');

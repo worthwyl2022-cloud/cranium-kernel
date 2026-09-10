@@ -1,37 +1,37 @@
-name: Cranium CI
+# Legacy CI — Gradle/JVM
+#
+# This workflow certified the Kotlin-era build (JDK 21 / Gradle 8.10).
+# The canonical codebase is now TypeScript — see ci-typescript.yml.
+# Preserved as lineage; will not run (no Gradle project in this repo).
+#
+# To remove: delete this file once the Kotlin tree is confirmed dead.
+
+name: Cranium CI (Legacy Gradle)
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
   workflow_dispatch: {}
 
 permissions:
   contents: read
 
 jobs:
-  test:
-    name: Test and build
+  legacy-gradle:
+    name: Legacy Kotlin build (disabled)
     runs-on: ubuntu-latest
-
+    if: false
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-
       - name: Set up JDK 21
         uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: "21"
-
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: "8.10"
-
       - name: Run tests
         run: gradle test --no-daemon --stacktrace
-
       - name: Build
         run: gradle build --no-daemon --stacktrace
