@@ -62,7 +62,7 @@ console.log(`\n[EXPORT] Full JSON Audit Receipt saved to: ${jsonPath}`);
 const mdReport = `# CRANIUM CORE — 50,000-CYCLE ADVERSARIAL STRESS TEST & DILIGENCE DOSSIER
 
 **Document Type:** Cryptographic Verification Receipt & Diligence Artifact  
-**Date:** 2026-09-04  
+**Date:** ${report.timestampIso.slice(0, 10)}  
 **Campaign ID:** \`${report.campaignId}\`  
 **Execution Mode:** Deterministic In-Kernel State Reducer + Pure SHA-256 (Live Execution, No Mocks)  
 **Status:** **PASSED (100% Invariant Defense)**  
