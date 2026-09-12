@@ -1,6 +1,6 @@
 {
-  "campaignId": "CRANIUM-STRESS-50K-MTYLIOQ2",
-  "timestampIso": "2026-09-12T16:24:53.605Z",
+  "campaignId": "CRANIUM-STRESS-50K-MTYLLFVQ",
+  "timestampIso": "2026-09-12T16:27:02.842Z",
   "totalTestsRun": 50000,
   "overallPassed": true,
   "totalGranted": 5000,
@@ -60,8 +60,8 @@
     "CONSTITUTION_VIOLATION": 5000,
     "CANON_CONTRADICTION_QUARANTINE": 5000
   },
-  "throughputOpsSec": 25278.1,
-  "totalDurationMs": 1978,
+  "throughputOpsSec": 18463.8,
+  "totalDurationMs": 2708,
   "masterMerkleRoot": "d1f1446c0e2feba5a9153014270b982576d46591da61ba037fd63711e4424da3",
   "batches": [
     {
@@ -75,12 +75,12 @@
         "MISSING_SUBJECT": 1000
       },
       "batchMerkleRoot": "d1cd456916361be7dd35f3fbb3eec42582aa1c216c91c0c6d160cdf8210155df",
-      "durationMs": 74,
-      "avgLatencyMicros": 56,
-      "p50LatencyMicros": 29,
-      "p95LatencyMicros": 355,
-      "p99LatencyMicros": 529,
-      "maxLatencyMicros": 1307,
+      "durationMs": 80,
+      "avgLatencyMicros": 60,
+      "p50LatencyMicros": 32,
+      "p95LatencyMicros": 369,
+      "p99LatencyMicros": 497,
+      "maxLatencyMicros": 1203,
       "samples": [
         {
           "index": 0,
@@ -94,8 +94,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "a85146305ca0da24882f929f109c13819a91ab297d0e7c42ef0397c4a8dcedb1",
-          "receiptSignature": "63b5eb8f2fa7a0bc782cea42fc66802133d1ccebac8d776b39e2acbe7de6bb6c",
-          "latencyMicros": 993,
+          "receiptSignature": "a1f1d9fe81c951f6d11d98447b0d41bfa9d2b1215d4940ba7971b3f54bbaeee6",
+          "latencyMicros": 1102,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -110,8 +110,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "6c9c0a8b306d1cc237dcd912f7d73f9a6cb30780fdcd163ce283536ba36221d9",
-          "receiptSignature": "72e8944524db01fc803bfc8e495f4cd9ce2ec38214a79949a33569f3314cad96",
-          "latencyMicros": 414,
+          "receiptSignature": "b27ee4fce2d9725d32750192d4ee9f93d8a615a1b1197c4dd8df1ae5cf725e6b",
+          "latencyMicros": 473,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -126,7 +126,7 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "2be9b315a00dd6d5551e456b08c1b5babe69915ce7238934107091f6579dc77a",
-          "receiptSignature": "556a5802ee58b2c85766453b15b11a160c5e513d1739d1433aedfda196587768",
+          "receiptSignature": "3c8d53c6b05037eccccbcf9a460cc8da368dfc70b3c85742a2c026d29ff77b8b",
           "latencyMicros": 404,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
@@ -142,8 +142,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "55a8485f3664db4e2bcb25e0b6ac143a7edbc3f50553e0b19cc9e7413b8a068f",
-          "receiptSignature": "38dffa9bc934701bcb4de71999660de8cb039cea51ce3a477428f9003b6d5cd8",
-          "latencyMicros": 388,
+          "receiptSignature": "b60730298b9ec5bc6c70124a2213387f606dad14bcaf56d28ac81465cfa8d0f4",
+          "latencyMicros": 439,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -158,8 +158,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "77903f0a83e8144ccb143451ecb75fef7ea45c61fb3a94bb4a665aca6ebf24c9",
-          "receiptSignature": "37802e9b76476a11a38781a9e621dc28a2655d8308f12dfb917458e45b16330d",
-          "latencyMicros": 441,
+          "receiptSignature": "f827a0e97e22e8a2898878b99364959923c28fd781d682ee630c5b6f7e6c6682",
+          "latencyMicros": 425,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -174,8 +174,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "65be9e56cdc25f6869dd9fac455c76e8a1c04e81634c9d4215643d52b71d1f8d",
-          "receiptSignature": "0de35cda9973c97c6fa1b0d6ab2cba9764382dbe8d81cfd3c9fa9ccbf9472c0b",
-          "latencyMicros": 30,
+          "receiptSignature": "239a159d80f580a86edfec2538b496396645f8b5e19429c293dbcfae37f212b2",
+          "latencyMicros": 47,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         }
       ]
@@ -191,12 +191,12 @@
         "MISSING_SUBJECT": 1000
       },
       "batchMerkleRoot": "048e31bd7399206a07c5d5215009fed95c4e4cff9f6f3e1d0e12e5cc1bd8a132",
-      "durationMs": 46,
-      "avgLatencyMicros": 33,
-      "p50LatencyMicros": 28,
-      "p95LatencyMicros": 44,
-      "p99LatencyMicros": 79,
-      "maxLatencyMicros": 810,
+      "durationMs": 65,
+      "avgLatencyMicros": 44,
+      "p50LatencyMicros": 33,
+      "p95LatencyMicros": 62,
+      "p99LatencyMicros": 105,
+      "maxLatencyMicros": 1540,
       "samples": [
         {
           "index": 1000,
@@ -210,8 +210,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "6b037780ea6fe358c9880cee37431d445c45b24e182d6abf4c4c68d6b3d59a69",
-          "receiptSignature": "79ff08d7b977e36877b67c9ac4eaac09b7f94b36118e88fe69faeeb6a914eb56",
-          "latencyMicros": 89,
+          "receiptSignature": "8c70105d3bc86ac190ab32959a371bb684a29d93688705ac412c0e47122729dd",
+          "latencyMicros": 133,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -226,8 +226,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "9a4f19575de9904ede33e36c1cb5e215c90eb2b1d2c2e2887497f2acd73424a3",
-          "receiptSignature": "2537f6df6da10db1558c78fc6b1e62166a0e3b83925ffc7c4a373618cbe0fbe5",
-          "latencyMicros": 74,
+          "receiptSignature": "db211a2a22467a16dfd875c2f3f4c529f9db9223d5500fa9d6d57c17c061acea",
+          "latencyMicros": 105,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -242,7 +242,7 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "d9b3bfe746a0e6ecbe0a3df479783939492903733a9949a67f1878a03a560709",
-          "receiptSignature": "3a967c10991acab1a3b8fc37a346b65cd7876c3031456903637748572b2ca126",
+          "receiptSignature": "f5a636f346706373baa9c67fd4b2d650cc9431fb498d3d2b6ed604254f733fd9",
           "latencyMicros": 36,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
@@ -258,8 +258,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "04b2b832e065f96dbd4f8c2c60f8189034a45aabb103c0650ab6b2c73c3443a8",
-          "receiptSignature": "84f7354a9c18758c5a746489aaee6308c1ccb823beff1103bcab0955590a0e4d",
-          "latencyMicros": 68,
+          "receiptSignature": "829270b5b6d5510e905b4463ae8fbc4e199c470dd2fcad22f668eabb337d8f17",
+          "latencyMicros": 31,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -274,8 +274,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "9af932960dd304f4e8d58b37cfe9bcd8141bcc3ea2f81701d1db53c1936eb8b8",
-          "receiptSignature": "d9c4fe48eb12b27381df5f826fd68cd8ba96f9be17f4023cd44e69d754332c09",
-          "latencyMicros": 34,
+          "receiptSignature": "53e8441a6c398dc8a3a2bd4817fd7c2fec8d0cc82d3ab84358f1e617bd418229",
+          "latencyMicros": 29,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -290,8 +290,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "07dde5353aac742f5c5c5d2cc2c329cbaa0b315f0b3a77cbcd6317f2520e7e39",
-          "receiptSignature": "79b1123630dd0e68a71a8217a9dfd7b25d98c9e01516631fcc7eabf67e5b4dfa",
-          "latencyMicros": 29,
+          "receiptSignature": "6d0f64203b570bcc8cf092b7336de5a53645d3a94febce8725651a1e0a034f49",
+          "latencyMicros": 43,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         }
       ]
@@ -307,12 +307,12 @@
         "MISSING_SUBJECT": 1000
       },
       "batchMerkleRoot": "66d34e1d95c87d687e8c34aaf8a9f3e5e147303eb5b7afd2e8c5475c2b06e445",
-      "durationMs": 44,
-      "avgLatencyMicros": 33,
-      "p50LatencyMicros": 28,
-      "p95LatencyMicros": 44,
-      "p99LatencyMicros": 63,
-      "maxLatencyMicros": 910,
+      "durationMs": 62,
+      "avgLatencyMicros": 49,
+      "p50LatencyMicros": 36,
+      "p95LatencyMicros": 59,
+      "p99LatencyMicros": 74,
+      "maxLatencyMicros": 6053,
       "samples": [
         {
           "index": 2000,
@@ -326,8 +326,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "db52675849bccbf82f0fd1f4898eda7de342a3eefa7c179312a088cdca7399b7",
-          "receiptSignature": "69755f86a6a1b14930ce109179dab986998907fb9f7d7ae2df69f0753a78c69d",
-          "latencyMicros": 79,
+          "receiptSignature": "a4ac5ac981f3ff45655c0b059cddb4b95e839503c167929caf89707cdc9d7836",
+          "latencyMicros": 142,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -342,8 +342,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "c1abcd9be74122f5432170b05d0caeb828f287824417fc5e571ca6e78ff38bb5",
-          "receiptSignature": "583377f4358bd8ebcedc5ad85ff1a1d336dc7f94da756a8b02d336dae49db0c4",
-          "latencyMicros": 31,
+          "receiptSignature": "305ff99523a5d8298aa1d8edd93b7894317cccba4a970ec88cce6627554ab7ff",
+          "latencyMicros": 64,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -358,8 +358,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "b1e0cd09639cdf41448bffdd5f62aac375236c2bd32c21f99d1aec8ee7725544",
-          "receiptSignature": "e1c79f42d594662a04685e3e43fd37707efbe0f55c9d77e9a5677b57f608a975",
-          "latencyMicros": 42,
+          "receiptSignature": "c000de805faa27ac0b11113559e2bc84c5474ce8ad3c47b5e58297c64bd1a75b",
+          "latencyMicros": 114,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -374,8 +374,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "63500b16029bec20a81b283769849848362c14304c74d388abbfd0981042e52b",
-          "receiptSignature": "5d7c1cb6a6f6a36cdbb2b7d99990794c6e8f76e4db3b450401c5b4453eb83991",
-          "latencyMicros": 32,
+          "receiptSignature": "b191e879305cd69a0bcf3b9d5664a6338f0c0bd3a4196d048932ab277f45faba",
+          "latencyMicros": 62,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -390,8 +390,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "c39730ad7888f7a00a67046845b9ea2578514d171ad02d4754e61539053313fd",
-          "receiptSignature": "df4253d0e8a56406b1d5e1293918f771b3abc922ccb55fd1619a7940390e7fc2",
-          "latencyMicros": 28,
+          "receiptSignature": "72fcd80209cfd9b96b15b40ec4e82528a15a80d9c90c5b78fe003aeabda8894a",
+          "latencyMicros": 58,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -406,8 +406,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "9c4efb22bb6a9b86289ba478ae88de7155e183fe5461b3194bf5b907079dc1df",
-          "receiptSignature": "74c5905fac169fb3bde9a536f756618855049f137898ab77fe9d58572d74c0e0",
-          "latencyMicros": 28,
+          "receiptSignature": "becd4c7f3c63eac46683ed60a0b28568d2a4430e96859f819b5c13d59349a73d",
+          "latencyMicros": 31,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         }
       ]
@@ -423,12 +423,12 @@
         "MISSING_SUBJECT": 1000
       },
       "batchMerkleRoot": "777bacc52574db3ca1f3af7d515b0316f4b35131751452d4b2686f4eba622e4f",
-      "durationMs": 49,
-      "avgLatencyMicros": 35,
-      "p50LatencyMicros": 32,
-      "p95LatencyMicros": 49,
-      "p99LatencyMicros": 86,
-      "maxLatencyMicros": 755,
+      "durationMs": 58,
+      "avgLatencyMicros": 43,
+      "p50LatencyMicros": 37,
+      "p95LatencyMicros": 57,
+      "p99LatencyMicros": 114,
+      "maxLatencyMicros": 1281,
       "samples": [
         {
           "index": 3000,
@@ -442,8 +442,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "a5735f74d9a3ef83e99a19cb68f2c19b49d8dcad39c35ee281ed5a01b3f24ca2",
-          "receiptSignature": "53c90341bfb5a4ba6c85db54a2c55e1519c7798d9cdc93b94b114e3ca37d9665",
-          "latencyMicros": 71,
+          "receiptSignature": "6247329c74fd8ff58d7ff40c61eb24721ffcb621521b6fa3060de1bb6a012628",
+          "latencyMicros": 114,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -458,8 +458,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "ace3f38ef63a5970b3c799dd301cf87b367e57593e1dcd6d18e224049b0a1e0d",
-          "receiptSignature": "301e193bc0f09493c9a93d59f61ad899bb4a081bae63a10913647763f49810a2",
-          "latencyMicros": 39,
+          "receiptSignature": "3eabf4cff989e0478b3ae9e262365d8bd643d85dc8463f7b227d30bbf1f336ad",
+          "latencyMicros": 59,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -474,8 +474,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "b77418603b6b4f58fbb9708404520cc97050c894bfd72b82c870eac0b4b83d72",
-          "receiptSignature": "f32a233141acd12f4c49b991e28b96f1727c64faaaf1636362d6c3bb434c8a8d",
-          "latencyMicros": 31,
+          "receiptSignature": "7907dadacb19139b52b048b5de4a9a07ea1f84a62bd07bde34f2628a3d214e35",
+          "latencyMicros": 34,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -490,8 +490,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "a0335387e117284b90344b0427e61ef0145fefb2732b3240b89ff0523a649323",
-          "receiptSignature": "ae54cdf72a385ad0175ee09b5396d160948935f48c177bd0594221b15681c121",
-          "latencyMicros": 37,
+          "receiptSignature": "05337afb46b49df3bc23fe7f1a11647f44038bf636c6f339c6cb85dc4717a52a",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -506,8 +506,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "0f6b5ba3bfd4f85664a0173e790026d7734192f0ed7688a19301c55df4da6515",
-          "receiptSignature": "018940b1010b3b4688e5f220cc7a5d3e9d580c6c607e26fdae3a0f1448d3a178",
-          "latencyMicros": 29,
+          "receiptSignature": "2c0c98b7d3976bc614ea880cbd403c91a1cdb7df7889e71c830f9d8de8282bf3",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -522,8 +522,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "1af03e563530b633b46914f56f39f864e8e9d4f9fa959c7777960756360f6132",
-          "receiptSignature": "e9638b8c3d3a284510c212ff35d0a0c7429f629ccf79472691475132f31fd28b",
-          "latencyMicros": 46,
+          "receiptSignature": "b5292aef03d3605e976c75c1d676946ab3a54b7c89e8df2c8dabd4cb8d78ce1c",
+          "latencyMicros": 41,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         }
       ]
@@ -539,12 +539,12 @@
         "MISSING_SUBJECT": 1000
       },
       "batchMerkleRoot": "ca4fdd90ebf97e664a1def9577a649bf7a5daee55a1bcfce8d353edb43ca5211",
-      "durationMs": 41,
-      "avgLatencyMicros": 32,
-      "p50LatencyMicros": 27,
-      "p95LatencyMicros": 41,
-      "p99LatencyMicros": 68,
-      "maxLatencyMicros": 1456,
+      "durationMs": 54,
+      "avgLatencyMicros": 39,
+      "p50LatencyMicros": 30,
+      "p95LatencyMicros": 51,
+      "p99LatencyMicros": 69,
+      "maxLatencyMicros": 5321,
       "samples": [
         {
           "index": 4000,
@@ -558,8 +558,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "20339e000ab93343ecfb4c7df6c01bb5a8a4f19651ba69498384c394cf956d5e",
-          "receiptSignature": "5fb2c483bb97e80ed2b4de65b2bb44b26f702858ea4ccac5ff5328273d37d703",
-          "latencyMicros": 83,
+          "receiptSignature": "b343025b54589969e797345122a9f18ef9f75d5c0bc3162c950f20e334e46ecf",
+          "latencyMicros": 114,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -574,8 +574,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "5da52104e149d54f10f7a35040c1055a2ed65ad1bdb0f1395b52147942ebb913",
-          "receiptSignature": "d003210d0c7111587a313c924310c127c16a35aed019510018504f3d92dce31e",
-          "latencyMicros": 32,
+          "receiptSignature": "94365dc1c783a54adead5d9af0c7bca4a8578cec5aaef06884182e64cf1e80b5",
+          "latencyMicros": 38,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -590,8 +590,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "8537ef4050aa47f0cf4ee7fe6ab5d2a1fdfb583a7309a8f513b84bdc82efc69c",
-          "receiptSignature": "26be6ab887508103591c16e00ce8dfafb132e532cacbf4c5d4a435c3fd5b8377",
-          "latencyMicros": 41,
+          "receiptSignature": "e846ca2f32fb20ef14e95973f65b04628cd0fa832c105cadc3307118c7ef8563",
+          "latencyMicros": 33,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -606,8 +606,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "7a5c5d99e71b22c5a0fa31339017ad0516318dbb47fb9ef3e15d4c489eb70198",
-          "receiptSignature": "e9629880ab8f3f1bd857f942063e32ef3ccab7b44e903e8ee5a198bf49d92afb",
-          "latencyMicros": 31,
+          "receiptSignature": "0843ffcea3d0ad9359d4dd4ee996097014cef3121161db2d381390fc4a55ab27",
+          "latencyMicros": 33,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -622,8 +622,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "25009fcb6d801e99d27b396fd477104e7f5249a27fa2b1963fbb162095ad4b47",
-          "receiptSignature": "3b478094e0114c071b9aa0324e26d49a66744e98483ec064220ce4c3655346c8",
-          "latencyMicros": 36,
+          "receiptSignature": "8579e9eb7500ff40b1c7d9972d82c329322c64d457ea57be33da3123943264a4",
+          "latencyMicros": 31,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -638,8 +638,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "23499df22a04fdd019f747fb0c50451e462a7ed133c71b0566b083c4d6819c22",
-          "receiptSignature": "372a5a96da8f2c684109b594ed3210c0cca479d1fa00391baf14449dc2e01fa0",
-          "latencyMicros": 28,
+          "receiptSignature": "577c69a4c3727ef5e5bcafdf4b2b8df44103d52a80df7a8db723dc8c6a538e02",
+          "latencyMicros": 43,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         }
       ]
@@ -655,12 +655,12 @@
         "MISSING_SUBJECT": 1000
       },
       "batchMerkleRoot": "5b0c5ae6b1942182e0e7e3497233c4076ab8a2f68e27ad01f862345346c6db44",
-      "durationMs": 42,
-      "avgLatencyMicros": 32,
-      "p50LatencyMicros": 27,
-      "p95LatencyMicros": 41,
-      "p99LatencyMicros": 69,
-      "maxLatencyMicros": 1599,
+      "durationMs": 62,
+      "avgLatencyMicros": 50,
+      "p50LatencyMicros": 31,
+      "p95LatencyMicros": 63,
+      "p99LatencyMicros": 92,
+      "maxLatencyMicros": 6484,
       "samples": [
         {
           "index": 5000,
@@ -674,8 +674,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "6d1f5aad64c9cd76bbb511626090e110672d8ba9b54a0fa95cd9f234977953db",
-          "receiptSignature": "1283fc136059231d2b410ea84e2de4697800d54d8429fe2162686e8f2433c5e1",
-          "latencyMicros": 64,
+          "receiptSignature": "42891d70c0117d05b6a476b00da3989f775109a892d5276e2da30e4a5cfc0238",
+          "latencyMicros": 91,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -690,8 +690,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "84dc749fcadcdb04bb7831614468e0f937d72a5aed3504882fb14c16533b6f53",
-          "receiptSignature": "dbd67f61c496c1087c6ebd0a83287f7e790eb2c45079c61e645b4671bd32ae62",
-          "latencyMicros": 29,
+          "receiptSignature": "85678c8a15d3e79fa229c8149ce504edab04c40e8f401c6fe24de33a037d5298",
+          "latencyMicros": 35,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -706,8 +706,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "2dda8572a3a5f2412a8d70986a056f2b68f8cea78595a647f46c916f472eede6",
-          "receiptSignature": "be4aff9c8328499a5aa64dfcb9d457a7c8dd70e5452c94f8b46f151ff4357d5d",
-          "latencyMicros": 30,
+          "receiptSignature": "24038f823c654b8d35eb73c2a94bd122023d093fc7db85b0002c5c81a27dc667",
+          "latencyMicros": 32,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -722,8 +722,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "9c4838208cb496055662905262516f61c36baa55567b950cf75266318768c6cf",
-          "receiptSignature": "005e0aa79f2ec1e9fca487c8024921f5f93b6177942e4e9832a9bbec9adbe07b",
-          "latencyMicros": 28,
+          "receiptSignature": "5faac581186e377e2b2f3ddaeca9de04aa3bdbeaee75458b662d3cd582501959",
+          "latencyMicros": 31,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -738,8 +738,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "6b00854fae34a91437894af34d2d1497259c9aa2cf4bc418c7264a2b4fe7bb0f",
-          "receiptSignature": "3c982c7a776cdb0ebf85284d61cf6d84b22ae126b7710c88b090daeb9ae69152",
-          "latencyMicros": 27,
+          "receiptSignature": "2f5f1777215b6ef1dd1617f07f93f43b9393502cf38a829d348578bf3b57ab7c",
+          "latencyMicros": 32,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -754,8 +754,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "0098a6e5e631aca626c8d6e7b726309a57b0582d65b84c3e230cd1e2bf75a028",
-          "receiptSignature": "d7336c4c98623225c3bb95d4eb1578e662559f467374ace59daca33f483e8900",
-          "latencyMicros": 28,
+          "receiptSignature": "0809ca5d312bfa128140f5023aa1bc85fe15c4f2c8394afeb72dd63bb894bbc7",
+          "latencyMicros": 48,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         }
       ]
@@ -771,12 +771,12 @@
         "MISSING_SUBJECT": 1000
       },
       "batchMerkleRoot": "82d394500f0b610190b45808cff32e44a844850189f7fed27a4ac5588afeb4e0",
-      "durationMs": 46,
-      "avgLatencyMicros": 33,
-      "p50LatencyMicros": 26,
-      "p95LatencyMicros": 49,
-      "p99LatencyMicros": 113,
-      "maxLatencyMicros": 992,
+      "durationMs": 64,
+      "avgLatencyMicros": 47,
+      "p50LatencyMicros": 28,
+      "p95LatencyMicros": 47,
+      "p99LatencyMicros": 408,
+      "maxLatencyMicros": 4077,
       "samples": [
         {
           "index": 6000,
@@ -790,8 +790,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "a58a15d5e117d21fef05c4b4752391a8b34c39c241d4aa4ad19db0148a984e5f",
-          "receiptSignature": "2d5fc692aeddf6478e12ba03267d8e17f9e6a4dd157db98050007a3c0d64ac0c",
-          "latencyMicros": 64,
+          "receiptSignature": "322967156be92795ffbf63cfb44d36e2928de52c6d1ddfaa482259e38a8e8871",
+          "latencyMicros": 87,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -806,8 +806,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "5e355c77386d8310ee94d255f5699ebf66994ac94e76ae6d2016600c2c999e01",
-          "receiptSignature": "0ecd3ac42da3245732452a74a6c6c6f504af02ab72244e5522fedaf5d9ca6bd0",
-          "latencyMicros": 30,
+          "receiptSignature": "357ca4f9f6e6e0e5b92df3863d10bc4e3d8c50c554039e9bdf2768e0f0f7db18",
+          "latencyMicros": 32,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -822,8 +822,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "bfc220d2fe652cee9a083ce2a2ce9a2538fd2d8556b0c96ecbd689749de51eb3",
-          "receiptSignature": "a828ebbec863288fbc3e88213318204ec4b6df2c972cb0d66535aa73cb662bfc",
-          "latencyMicros": 30,
+          "receiptSignature": "fe8300a3fa4a379e726fc2a54b2e9e7d73eaeb053e0cfa72c422729fc1aee2da",
+          "latencyMicros": 34,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -838,8 +838,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "a03500912c9b62c913e00fbd516932cbaf6612d9bc0d64fd3f6954ab89a7e446",
-          "receiptSignature": "35ebea77c2ff9d9dfd5d6d0870c036c8f3a26090c64f636b61f78c7858e332b4",
-          "latencyMicros": 29,
+          "receiptSignature": "b8c93434dc047aac4df76e584bf2a99023c90a015abc35ea711eafc76d39c485",
+          "latencyMicros": 28,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -854,8 +854,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "e5568616d5845ad07a8a88a1defaca07bcb6d4134217152d43a721b091182577",
-          "receiptSignature": "dde2d994b62472bd910d80b81014383ea0b7c9c505b569b5634cd368cf917d19",
-          "latencyMicros": 27,
+          "receiptSignature": "875e348d7d389fdd110a619cd9622743c4d77cad1259bc1d65bc6bed1e07c393",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -870,8 +870,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "65a138f94149c9723a59c08be4f7f8199159167f205af1244d104b9cbc349971",
-          "receiptSignature": "e0b4601eb0cf062717438bbd06772bdda93a2c127277592af4771a4674a02de4",
-          "latencyMicros": 24,
+          "receiptSignature": "14c9a406338d92cad53758c194d297fcb9f84ba2b9e9d0f890ce348005af2f94",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         }
       ]
@@ -889,12 +889,12 @@
         "INSUFFICIENT_EVIDENCE": 368
       },
       "batchMerkleRoot": "f91a61222c3c42282221e81a06bad49d29789fa9e46ef9f0fd2d30ba171addb8",
-      "durationMs": 45,
-      "avgLatencyMicros": 30,
-      "p50LatencyMicros": 26,
-      "p95LatencyMicros": 48,
-      "p99LatencyMicros": 80,
-      "maxLatencyMicros": 854,
+      "durationMs": 47,
+      "avgLatencyMicros": 31,
+      "p50LatencyMicros": 27,
+      "p95LatencyMicros": 44,
+      "p99LatencyMicros": 79,
+      "maxLatencyMicros": 1056,
       "samples": [
         {
           "index": 7000,
@@ -908,8 +908,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "f7b511dca0f596b003dc70ec5c8ee38bb1ac106d90585a49ec08934de37fd864",
-          "receiptSignature": "af5b1245e75ac3fdae4b30163f32c3ec500e3182c0f43401bcc2e5da3b4a4609",
-          "latencyMicros": 69,
+          "receiptSignature": "87611695e5103ffc833a8642e94d8bfa2fd6964cc6e3edc9876ef7b3c6f896de",
+          "latencyMicros": 81,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -924,8 +924,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "f83d63401a981185741f668f55985b77632d1ca2629d9b9f01cc652ea33a3145",
-          "receiptSignature": "71fa5aa880cb505a9354958e2650d0058e9933611db5b7276c580b49510ccec3",
-          "latencyMicros": 28,
+          "receiptSignature": "7d79a15a541dace822e1f269e60eb11dd11e4c6dbb6d77bc8626e3dc80c91849",
+          "latencyMicros": 56,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -940,8 +940,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "5ab427f95868bc0de5c98e2327249f2a80cd666507703072ff7bbb28dc764f87",
-          "receiptSignature": "4139167e7fb5c8644c5ed17efb054f2d17fd2743a8fa24129c6113142ca156ae",
-          "latencyMicros": 35,
+          "receiptSignature": "1b0954c0bdfe1d7654d924a5b9e9f2f09eedb77681bdda3c7b29971eb0d71c6f",
+          "latencyMicros": 44,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -956,8 +956,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "c8a460942da4436546c018a4b28ac6a60c4401be3b3d8bd42bd319ab747bc0ca",
-          "receiptSignature": "ca708dd8f7f9538b009935f9368b27d847f1f0092d26f55d021f6f50ca3c6473",
-          "latencyMicros": 27,
+          "receiptSignature": "8c87b687baa72f11cc0ae41196600bfbfcf3caef784593a0f58c216a7a3188ae",
+          "latencyMicros": 35,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -972,8 +972,8 @@
             "MISSING_SUBJECT"
           ],
           "canonicalHash": "45393c8ed9bfd6f5c7fc11e910d494df7639c5fdcbcc7ae0a3430d3746061df3",
-          "receiptSignature": "e39901a432104dfaaa07a71e83e6ef0b7917a30844848afe7ce00232e9ff7f71",
-          "latencyMicros": 27,
+          "receiptSignature": "d0569378e2c91ee4a0bf5128a6b06b83d55b394b09cf29a38607f920dd5b38a0",
+          "latencyMicros": 35,
           "explanation": "Boundary checks failed with violations: MISSING_SUBJECT"
         },
         {
@@ -989,8 +989,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "19d4dcde2fff10edad2711d3ff31429a4e890f2cd8348632b0da7a3ccbf5cbe7",
-          "receiptSignature": "25a2c3e36dda5913ca300b143f13442b6e79ee136e6ef8508c8a06eeaa30e147",
-          "latencyMicros": 26,
+          "receiptSignature": "f502758cbdbd05da23c4782280e724dac12a18225992834a86bad5b6a41a095c",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -1008,11 +1008,11 @@
       },
       "batchMerkleRoot": "83d1723697df81a31c53afe53664380877b441620a3ea144126f822b306708cb",
       "durationMs": 48,
-      "avgLatencyMicros": 35,
+      "avgLatencyMicros": 34,
       "p50LatencyMicros": 27,
-      "p95LatencyMicros": 54,
-      "p99LatencyMicros": 75,
-      "maxLatencyMicros": 1418,
+      "p95LatencyMicros": 47,
+      "p99LatencyMicros": 76,
+      "maxLatencyMicros": 2034,
       "samples": [
         {
           "index": 8000,
@@ -1027,8 +1027,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "e5902ff169cba334ba26ab8a9e4bfe254209d66a59bd15c8868f1059b9109d70",
-          "receiptSignature": "8654ca71da6aee67ed27d06d29e6b56f2f4cef0efa02b2c77af1cb3a9e39f089",
-          "latencyMicros": 80,
+          "receiptSignature": "ff801be3c5286e2370b57b56c69b7d377876d1c421594fa0280400a8e3dccfdd",
+          "latencyMicros": 117,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1044,8 +1044,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "b6353bd86325aabedc3a87aef1c7d9aefe23963a18e263e6109cb689ee2d7b19",
-          "receiptSignature": "5967e3968508a2324b9e61d5ff98b0c3e6061fb13e6ee47d07344a0e4dbc279b",
-          "latencyMicros": 63,
+          "receiptSignature": "3be4e010cde2d192bf29e4f85ffa46775d6c432e864baa60109d0146d93b1181",
+          "latencyMicros": 56,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1061,8 +1061,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "68d278cd247d62467f57e8b3be26e9c0541a922c56466cca7122c6855523034e",
-          "receiptSignature": "4d33f16ec520fdc17d240f21077e318d722cccdb5bd6508f7f229541056103da",
-          "latencyMicros": 46,
+          "receiptSignature": "1099eb855c53c3c5519b72c63c595bfc93b2e10d518fe4dba333386fde308fcb",
+          "latencyMicros": 45,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1078,8 +1078,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "55668dae96bcae96155c7e743f14c65fd16803135f3691491e75cf7b498504bc",
-          "receiptSignature": "2787adb1a3737c8a6b91e95f8b5b51c5a1d49536549263e270cc8ebfad6f217b",
-          "latencyMicros": 38,
+          "receiptSignature": "2ede2a055bff7cf1136f46de295b30a5a83076bf3e0e928a9ebcd92f158318bc",
+          "latencyMicros": 37,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1095,8 +1095,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "ed7b6f8327e0a6e2a01175cf14f0effd301044aaeaf61860742945e84167f27b",
-          "receiptSignature": "f0a6648f9d51eedeb625dbcc0f6f33a1e50c421e8bf552fc56803775fae44376",
-          "latencyMicros": 47,
+          "receiptSignature": "69917bb5c7df5b1e6cea3ab10a98bb2fdf89d7643bba706e83ea214119289b89",
+          "latencyMicros": 29,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1111,8 +1111,8 @@
             "INVALID_AUTHORITY_JUMP"
           ],
           "canonicalHash": "fcbe3cbc2d5819755c53142eeef2f1ffb8221b1b98ad294150878d7864fa2649",
-          "receiptSignature": "fceb3b03572d0fc6a6d5b9d6c88cc3651e562844fa0f93e1ee38a7c70f724d10",
-          "latencyMicros": 25,
+          "receiptSignature": "646bec364594ee6daca63955cef3b0e88d392dcb13bd3a9bf4878a0f5936dff7",
+          "latencyMicros": 62,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP"
         }
       ]
@@ -1129,12 +1129,12 @@
         "INSUFFICIENT_EVIDENCE": 742
       },
       "batchMerkleRoot": "778ed9f6fc039df93e17070125a3eb4a63c252ac312f78bef6ab669b517eb3ea",
-      "durationMs": 41,
-      "avgLatencyMicros": 29,
-      "p50LatencyMicros": 25,
-      "p95LatencyMicros": 37,
-      "p99LatencyMicros": 51,
-      "maxLatencyMicros": 2475,
+      "durationMs": 46,
+      "avgLatencyMicros": 34,
+      "p50LatencyMicros": 27,
+      "p95LatencyMicros": 49,
+      "p99LatencyMicros": 70,
+      "maxLatencyMicros": 2100,
       "samples": [
         {
           "index": 9000,
@@ -1149,8 +1149,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "03d9ac0e667df3d6421e323bf2f9311fb6004f5a39bc23a62e9ff9fda6f41959",
-          "receiptSignature": "36b48e5f5f6be52e000cfb5d772f6eac692d949f32bd53caa70bd21affabec06",
-          "latencyMicros": 52,
+          "receiptSignature": "52ab6a247c98ae88301aed5700111a5398df5f93895a8c20ba9303b5622dad1c",
+          "latencyMicros": 78,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1165,8 +1165,8 @@
             "INVALID_AUTHORITY_JUMP"
           ],
           "canonicalHash": "cfa331ef869c7fdd4f4bee50a10adb7fc9691ab41d698510245423b98cb81a9b",
-          "receiptSignature": "7623b771e78386a54079449d0668e315382f5f77abb1ede446f303cb78bde35f",
-          "latencyMicros": 33,
+          "receiptSignature": "d12915412f122c3f43b5bd99055e42c2c607a61447edfd52fcc49447959c741e",
+          "latencyMicros": 38,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP"
         },
         {
@@ -1182,8 +1182,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "4c69e4cd63fad48a5d36f5c4371b9dc29d9993c120d6870564d856db2a93bbc4",
-          "receiptSignature": "8188d88c518e0c67a35a792107a1372427a6be6935b1302dab0ea42dd809101a",
-          "latencyMicros": 25,
+          "receiptSignature": "a31fa83a2f7849b52fa112d03918613fae0416f769a7940933d43004c1351397",
+          "latencyMicros": 28,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1199,8 +1199,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "da36c78b272372a6b40290a7cae707d7eb82a493614205a321fb4234a3e1cd2e",
-          "receiptSignature": "5f266a3726d421205e51dd8a925fad961370296af2594692c818a0a9ca1a2cbd",
-          "latencyMicros": 22,
+          "receiptSignature": "c5ca22befcde0c5e7ede6221240b72d3c0abd9483ddcfe6aadab83fec87fa930",
+          "latencyMicros": 23,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1216,8 +1216,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "1208739f5e7f720b48c32f0b154b097c31f559cd608ed60ad585d0e05522b42a",
-          "receiptSignature": "dd0aeb93794400f192c7f036a4b5905eb764507d488dfd8364d97ac114ce0f2e",
-          "latencyMicros": 37,
+          "receiptSignature": "8bc8277d7a4c1f333b791d0fe9e78ba6609d881d461397240fc1011a05419214",
+          "latencyMicros": 21,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1233,8 +1233,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "73aa541acad71c56d08def1650b38a200fcfcd0471552401e5162da7d521c494",
-          "receiptSignature": "5ebfa9273fca17edf22c00bab987268c56003b842b52d9aebb889f06de501651",
-          "latencyMicros": 22,
+          "receiptSignature": "77d3a47f7b3a9e4c1892d38a5a73d77249e1df38e7942607a914992939775f52",
+          "latencyMicros": 23,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -1251,12 +1251,12 @@
         "INSUFFICIENT_EVIDENCE": 748
       },
       "batchMerkleRoot": "b251f25dc0f56b7da797789761d4fb0d50127439a64df024c7600d77d7e0c14b",
-      "durationMs": 57,
-      "avgLatencyMicros": 35,
+      "durationMs": 54,
+      "avgLatencyMicros": 34,
       "p50LatencyMicros": 28,
-      "p95LatencyMicros": 41,
-      "p99LatencyMicros": 76,
-      "maxLatencyMicros": 5848,
+      "p95LatencyMicros": 51,
+      "p99LatencyMicros": 84,
+      "maxLatencyMicros": 1374,
       "samples": [
         {
           "index": 10000,
@@ -1270,8 +1270,8 @@
             "INVALID_AUTHORITY_JUMP"
           ],
           "canonicalHash": "b6005049b84e947adbfbe3a54ce4fd232286cb58f9a7b4ac23223d829ad55dd2",
-          "receiptSignature": "4862dca53456fdf1d688f97ec83f76dc3b0b6273082fec9fc5af556b828c4eaf",
-          "latencyMicros": 77,
+          "receiptSignature": "3f5a60a90a192334f318756addaa665d5e5fd6e39ef1eac282613ee3af582371",
+          "latencyMicros": 118,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP"
         },
         {
@@ -1287,8 +1287,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "8c82a6349527b67beb27193dc677296ba2c254ce68c14e9a9eb0ef0f79c4d041",
-          "receiptSignature": "b17b261e506f606026e0822f55aec5bee0633e0d3e55d75c1ae48970375bc556",
-          "latencyMicros": 31,
+          "receiptSignature": "d9f9087de2275b0af0651d0c4af84fc68db1ffd0b76811914d8671232dfca660",
+          "latencyMicros": 50,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1304,8 +1304,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "f15d2a9c2c4eb4047485964991b503b37a0b589bfd8321df2aef9e4cfdc1519b",
-          "receiptSignature": "84085c23622eea0a3be56cd70c761ce0d51ea05b9a7b61a6710965ee084ad630",
-          "latencyMicros": 30,
+          "receiptSignature": "615efa733fcd964cb909f9b93c4234b47ccba0099377a9c5c2478a9184c15a06",
+          "latencyMicros": 43,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1320,8 +1320,8 @@
             "INVALID_AUTHORITY_JUMP"
           ],
           "canonicalHash": "121cc5d62f7f6e75314fd1895d8625a78a2403f8e37e16eecf8eb81945939a00",
-          "receiptSignature": "33c91287e5408ae923b55900d81950eb50e635b7082d50d7a869acf011d05d94",
-          "latencyMicros": 29,
+          "receiptSignature": "f00088254ef50568f8a3b38ebcbc63049793646441109074844e21084490c4fb",
+          "latencyMicros": 42,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP"
         },
         {
@@ -1336,8 +1336,8 @@
             "INVALID_AUTHORITY_JUMP"
           ],
           "canonicalHash": "3d6e6e325ea18a82af5f9d5d935a5fc7197a98e4f13bbf9c7915b927ba1c0b88",
-          "receiptSignature": "2786309fc4d41762d11d7f24f717dc8a9e510b5f7e6373cbbf8d46d3d2540b33",
-          "latencyMicros": 28,
+          "receiptSignature": "21478a953e57b21db38390c6f8de0bf7063a13c4b7a7752a19596802ac0fc744",
+          "latencyMicros": 43,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP"
         },
         {
@@ -1353,8 +1353,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "ce4d8909204da96583e83c701128460aa43cdb55ee40ab2ab37309ab54c019ba",
-          "receiptSignature": "7f4d200441aa3c5eb6644cc59a23863862c7040344c4b7179d454c204a3bf7db",
-          "latencyMicros": 20,
+          "receiptSignature": "9b6d09ae36984123af7ab7f1592736dbd8dda6ac7a468c941cc6875650dea69b",
+          "latencyMicros": 40,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -1371,12 +1371,12 @@
         "INSUFFICIENT_EVIDENCE": 752
       },
       "batchMerkleRoot": "7a39610dfd1854546ebea4cdcf8e168cb056b07209e20607777a73c703014210",
-      "durationMs": 34,
-      "avgLatencyMicros": 22,
-      "p50LatencyMicros": 22,
-      "p95LatencyMicros": 26,
-      "p99LatencyMicros": 40,
-      "maxLatencyMicros": 74,
+      "durationMs": 75,
+      "avgLatencyMicros": 62,
+      "p50LatencyMicros": 33,
+      "p95LatencyMicros": 63,
+      "p99LatencyMicros": 77,
+      "maxLatencyMicros": 14969,
       "samples": [
         {
           "index": 11000,
@@ -1390,8 +1390,8 @@
             "INVALID_AUTHORITY_JUMP"
           ],
           "canonicalHash": "94420061c4460d0859fce3f1e11fca931a71eec0b4e11c1b01e0b06ee178bb9c",
-          "receiptSignature": "0725e251a80ce75a30c1f7ce8fcb896454f5f6914c6f18973662f68570d4890c",
-          "latencyMicros": 57,
+          "receiptSignature": "257d255ea9dc81c3f8980d6826ca3430f2edcbd85c9df3ca5bc7e436d3cbec2a",
+          "latencyMicros": 99,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP"
         },
         {
@@ -1407,8 +1407,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "f5f89abaeec4762b43b4b6af6586a90b60bc27c6ce5adaa23e8539764605ad37",
-          "receiptSignature": "d2b3f06c41c5ade8cfd21ae2fa9387b89328813bbfcf3275ead2e078cceb7a34",
-          "latencyMicros": 26,
+          "receiptSignature": "93305ea1921f919fe3887759bde652e2dc7482c2e3aa097a94be0fb5b46aaa62",
+          "latencyMicros": 44,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1423,8 +1423,8 @@
             "INVALID_AUTHORITY_JUMP"
           ],
           "canonicalHash": "a826f2e9cde60c95eca3abc44df781ccf160e7ae34817948989318870fca35ce",
-          "receiptSignature": "a0d3967c2ffdf767baaf293da6a7791603261f6ae00e2db0e2f08557b9f38033",
-          "latencyMicros": 26,
+          "receiptSignature": "25e3505a175df9c39fc4db7f4b0b148e4e50a2e12e7873b275e65ac504eadd33",
+          "latencyMicros": 37,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP"
         },
         {
@@ -1440,8 +1440,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "38bda1da5b8aad69ca4c993bd4d85bbc9ba33ed2a5d3ba342557e6c4c5718b30",
-          "receiptSignature": "e23883612f90536b9e1c9959266b7d26184feef4666c58b8cc948c15318a1466",
-          "latencyMicros": 24,
+          "receiptSignature": "51bba9980a56e8d0037bf39b83a441ced2677ceccc77d2b0285273de095c576c",
+          "latencyMicros": 38,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1457,8 +1457,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "f391d356ec898583f0ba4be8c8af3e255e33bc9c3d1b0aed03a7cd193983353e",
-          "receiptSignature": "c2846992fe9b4b4141374c1671dd03a90c3a8b2694499762913ed49a7512d2b1",
-          "latencyMicros": 24,
+          "receiptSignature": "c43380dd76d66919534a8c69dc11f0de9a72bfb65c5eff463c3d69bd3fd3019f",
+          "latencyMicros": 47,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1474,8 +1474,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "5b15fce9ffa93e8b23d613ee2bea45b203420e28ce3983f68bd0dd23b6fb0650",
-          "receiptSignature": "68702f031c452c999db0f310d63c1f458c3f77c4e6f9956c49d4b280413809d7",
-          "latencyMicros": 21,
+          "receiptSignature": "ef152f926569ab79814a7aa87f3d7de26eb9140bf2ab84317269d3659ed74199",
+          "latencyMicros": 22,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -1492,12 +1492,12 @@
         "INSUFFICIENT_EVIDENCE": 744
       },
       "batchMerkleRoot": "9a3b7a33e94b77c05b900726381d9551422f147183f4466a1bf1ea71817364cd",
-      "durationMs": 43,
-      "avgLatencyMicros": 27,
-      "p50LatencyMicros": 26,
-      "p95LatencyMicros": 39,
-      "p99LatencyMicros": 52,
-      "maxLatencyMicros": 184,
+      "durationMs": 40,
+      "avgLatencyMicros": 29,
+      "p50LatencyMicros": 25,
+      "p95LatencyMicros": 41,
+      "p99LatencyMicros": 60,
+      "maxLatencyMicros": 1741,
       "samples": [
         {
           "index": 12000,
@@ -1512,8 +1512,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "321a4e65727670128c0c2ad8d9c9c807f5003b29d6772d3b0f1f7d6c91e580bc",
-          "receiptSignature": "b4a7dc40a80d60804939b186847cfbc1b5b51fc277cb663086c09a30b0083abd",
-          "latencyMicros": 184,
+          "receiptSignature": "6b7d99b119ff68aa76886ae572399573757fa2af7e570c4cf9a076f010942679",
+          "latencyMicros": 69,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1529,8 +1529,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "debc63f54094783ebacf97c46e0cf77887eb8e2736ab83d0410564fa971ccae6",
-          "receiptSignature": "31b24df1749f5bcf4df7a5ccc8da89a0ccf51dd41fb696b2388b375526ca09ad",
-          "latencyMicros": 30,
+          "receiptSignature": "62943ff8250ee50a0d855acf7b216cda9a1fac2e71bbb2e2ccf010c35c8a32f7",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1545,8 +1545,8 @@
             "INVALID_AUTHORITY_JUMP"
           ],
           "canonicalHash": "e2c6241df425cca2955e30e623393cb1de4abda0f5556c66dd01a9ae1c1fb442",
-          "receiptSignature": "1ec86100c7be83b6f97a3f3a847d77ff9651d27b75d05fb483a9d666938ab93a",
-          "latencyMicros": 28,
+          "receiptSignature": "c548c2cc99a8aae2c35b8adf21a39dcecf726802bc5583b1790c94809d62cba9",
+          "latencyMicros": 44,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP"
         },
         {
@@ -1562,8 +1562,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "df58003d56d54f19df593a47229ab2a2c9df1cd5c0bb4300e1fe4ac7addd1263",
-          "receiptSignature": "66f716dbf8abf80f23e70e6d550b494838c72e68db4eeb4de45e5a170637d782",
-          "latencyMicros": 25,
+          "receiptSignature": "f0b23e31a6cccc67c5af5c700d8057cca2dc8587aa37bdeaadf3f65f42e5b76d",
+          "latencyMicros": 29,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1579,8 +1579,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "bc51d38c2e5a0f02585ece0ed2c2b61194f5862a50958ddc4028c2381d1b86a2",
-          "receiptSignature": "c89abe77ccbfac54002e912bf37525a99051b7029c5490d5c8bbde9ec61bfcec",
-          "latencyMicros": 25,
+          "receiptSignature": "9eb8164116f5e549ecc62f426d318fcce3f898f5378250087661224a5c0c9ac5",
+          "latencyMicros": 28,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1596,7 +1596,7 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "7ba55913687bd3483f3245a46ce32b35a6e5eb337a257c2a4cca840745819448",
-          "receiptSignature": "b576854082142580b480f749141419a6cb065bb77f4f0d619107fd5119509a03",
+          "receiptSignature": "1f7b98ea2f17f4272d8a44b3b3fa67c051da9665408e917eb551e8e36f7e2c21",
           "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         }
@@ -1614,12 +1614,12 @@
         "INSUFFICIENT_EVIDENCE": 754
       },
       "batchMerkleRoot": "224bbac8c04fa62d8330a2f08cf5fcc4f1929ebbad08b0327b6d49c702df9b80",
-      "durationMs": 37,
-      "avgLatencyMicros": 26,
-      "p50LatencyMicros": 24,
-      "p95LatencyMicros": 37,
-      "p99LatencyMicros": 67,
-      "maxLatencyMicros": 146,
+      "durationMs": 71,
+      "avgLatencyMicros": 56,
+      "p50LatencyMicros": 43,
+      "p95LatencyMicros": 87,
+      "p99LatencyMicros": 176,
+      "maxLatencyMicros": 3023,
       "samples": [
         {
           "index": 13000,
@@ -1634,8 +1634,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "80006e2899bfc87875d62fbab92ff1df3ef85b49fc60609ce47568ca6b82de0f",
-          "receiptSignature": "77ffeb84de52041f42704aa9090c276e404eaf8a7183c2a3e3180b7a634c8bb8",
-          "latencyMicros": 146,
+          "receiptSignature": "a5844a2362470a4452aebb823e9692d0d111be7918ca7d4d943a74ca5be16e38",
+          "latencyMicros": 88,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1651,8 +1651,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "084f93bbf58740d05f9179279531ca50824b1c01266f53d5f176b3e504a58b1e",
-          "receiptSignature": "b98c3884a0f7f3e7d1d498bb48b5f30b575e1ed331e05ae7f8062486f23ff841",
-          "latencyMicros": 43,
+          "receiptSignature": "964bb2874ff127c8a84f7a166f17c5f316471580155cf66303523ee0a0f70ef4",
+          "latencyMicros": 28,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1668,8 +1668,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "9fd0e7f9726ec75231c0b17ee11f706dc078112140f742dac75783eed44b0363",
-          "receiptSignature": "77d1a34fb46e11ca9c27ef53df1ac92d77decd5aedf24ab44effbb1d8ed495f2",
-          "latencyMicros": 108,
+          "receiptSignature": "2c9eebabcea74647d9c5700df4e288e08b38a4ada821c1f44976e45e97229e39",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1685,8 +1685,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "8a6e826c07d52b6c7eb3da8a60d99620a1b7389cf12d49f875cd5302c2a7508d",
-          "receiptSignature": "a5e2cee3d1004dd83ebf8b1627bf3ffae90d740e42d8c4907bfdb030cf476af1",
-          "latencyMicros": 51,
+          "receiptSignature": "df27fc26d46b2236528679bda7ad865be3d700cd77eed021e6a2d11634adaa0f",
+          "latencyMicros": 33,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1702,8 +1702,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "ebadf4099d52d10da59b3d5490d87233461a7ee09980346c3a1f2fae94d475c1",
-          "receiptSignature": "7f3f4d66516c59ecc7e4bde574eb71bba6c78de2d6fe17854c1230f3e5ec8a89",
-          "latencyMicros": 49,
+          "receiptSignature": "e075ec876e69c749e31195c247e24107b1cb6b6f15a28bf6cebb621adaf64c9c",
+          "latencyMicros": 37,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1719,8 +1719,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "d68ed6dbd30d5bb69c9207603671206e5e653ff0f3ec899ce6d0e91515bc009b",
-          "receiptSignature": "a68b0ad028673cdf54b55d66bc80f2649b70d90505172c944f51c609519ae404",
-          "latencyMicros": 22,
+          "receiptSignature": "a9b87ca234b73922f728de4bfbd78510466a095eb4addef55cbe780f10507eff",
+          "latencyMicros": 39,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -1737,12 +1737,12 @@
         "INSUFFICIENT_EVIDENCE": 777
       },
       "batchMerkleRoot": "7dbe076a248b7ccac37864a41b42b2e7f5f1b6eb67b2e496ba411e7a4880eb06",
-      "durationMs": 36,
-      "avgLatencyMicros": 25,
-      "p50LatencyMicros": 24,
-      "p95LatencyMicros": 36,
-      "p99LatencyMicros": 52,
-      "maxLatencyMicros": 190,
+      "durationMs": 67,
+      "avgLatencyMicros": 46,
+      "p50LatencyMicros": 32,
+      "p95LatencyMicros": 68,
+      "p99LatencyMicros": 99,
+      "maxLatencyMicros": 8762,
       "samples": [
         {
           "index": 14000,
@@ -1757,8 +1757,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "81f37acd4a912efdac6bb7a1e9012a0c1f837d92b3e2868cb333984168cbf213",
-          "receiptSignature": "1aa45615b7ad2a36974add35ab2e94370d7bf5b2813f322a5851cb724f406abf",
-          "latencyMicros": 103,
+          "receiptSignature": "1ec0e104a399b584d9f07428081f72ce8cc5480dc7cd5c55cc71fd38b4458fab",
+          "latencyMicros": 81,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1774,8 +1774,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "6034553468c1eb4abfd83f9ea6ee05c4d68bf17fabac181f7e96c88014fa8933",
-          "receiptSignature": "d8f45ba8ea35317099490dca7627d3c706397c0763e72ef9551aab35d048d44a",
-          "latencyMicros": 28,
+          "receiptSignature": "9138277254e1c66dcc7b5e9882f6962170bd77e9595a90a390e1eb29383fd953",
+          "latencyMicros": 23,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1791,8 +1791,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "b2adedc7e9779a134556078f99a9e0ee7d6442201a3597bc6d2a35a5542b34de",
-          "receiptSignature": "e0c21d36ac7fd6fa282e0402e0a7259fb3c151bc3ff9fa13f864f643ad71abc7",
-          "latencyMicros": 51,
+          "receiptSignature": "739a840baf65097486dd0aca7d0a59d89ca3c58b97533db9a3197b8e90ed487c",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1808,8 +1808,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "bee571568fd2546fef8745136fac8a77933c0e85baf614d06f151da79ca81051",
-          "receiptSignature": "869080579af89b6f32ffe9b02f374c317d7ef2a7310c63b308ffacbf3ef5a950",
-          "latencyMicros": 28,
+          "receiptSignature": "8838f1756e9e146a5f5e38e619769b5168d3049bd5ad973b509582667426d65d",
+          "latencyMicros": 20,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1825,8 +1825,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "7a508e50d473e6864ab5245bf9b52254142ff4e10905a80273be83fb54d74755",
-          "receiptSignature": "fb7f35ed76eb704c85cfa0837fe9bae6add952c36db381351b8daa3f37a73eb7",
-          "latencyMicros": 30,
+          "receiptSignature": "feba6ae8a4c3528a79515f6782638ba00a5cfb41582a157fac675f4625cbfdcb",
+          "latencyMicros": 20,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1842,8 +1842,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "cf3cf12c90cee0f3d0d3cc771b07085ab0c1b471c51bca2094f2cba0957d559e",
-          "receiptSignature": "695f4299e078fd7a91ab230ae95b2217b0db7cb2e1a469d70f3bc0ea45b3b5ca",
-          "latencyMicros": 21,
+          "receiptSignature": "a1dea6ca8aec3c9591a109ab10a163da9366a13f11ed35b16e3a53dcc68bf36e",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: INVALID_AUTHORITY_JUMP, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -1861,12 +1861,12 @@
         "INSUFFICIENT_EVIDENCE": 1000
       },
       "batchMerkleRoot": "97487ee6d0207c3e636aa3011b60bac2629297bb3f40f4c0fe8181c1b946d2a8",
-      "durationMs": 44,
-      "avgLatencyMicros": 25,
-      "p50LatencyMicros": 21,
-      "p95LatencyMicros": 38,
-      "p99LatencyMicros": 52,
-      "maxLatencyMicros": 180,
+      "durationMs": 64,
+      "avgLatencyMicros": 41,
+      "p50LatencyMicros": 29,
+      "p95LatencyMicros": 69,
+      "p99LatencyMicros": 120,
+      "maxLatencyMicros": 3626,
       "samples": [
         {
           "index": 15000,
@@ -1882,8 +1882,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "e23a02a738e97889d4b5f56901688105566c0b7f6f37b8bcb95a2a3ce4e912af",
-          "receiptSignature": "93193852b3a0d5f83cbe6da48fd4ecd9039d571551fcc80b36d89c399f75e536",
-          "latencyMicros": 180,
+          "receiptSignature": "5ca1f0fe852d7d716e10dafb8daa29e20adee25e84153513271f39af1c3abe87",
+          "latencyMicros": 254,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1900,8 +1900,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "97335d53ef5b556559ece2d35ce76c1bc7793a68ca44aa240e89ef2035181ba1",
-          "receiptSignature": "f4772e8bfa01bcd469d9a9a1ccf418dafd3f4509123270cb35aa3f656e3a5fab",
-          "latencyMicros": 36,
+          "receiptSignature": "8e6e2f059e05bb7b8972db2560c4d076c1d836a4fd38d8de0a772471a06cb804",
+          "latencyMicros": 46,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1918,8 +1918,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "fda4e73b4a38ffefd07e835c85f15c8c8bd6ff2bb6d9c12fd8067cd35793fab3",
-          "receiptSignature": "001f0f8af4b7d3f5ddc2325be0046a6ed1faaf7f25927c67c6d98d790817649f",
-          "latencyMicros": 26,
+          "receiptSignature": "ef4fa92d77814c98826b870ef080a0c74c5e849896925c49ca880bfd60de4b69",
+          "latencyMicros": 61,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1936,8 +1936,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "e654606bce1244c5d52701a08c19c8455e027b8939e2a6df49a5dfa736f5919e",
-          "receiptSignature": "507b10bd8cc032800c5cbdce7b2ba744014f451b423d844c35a0b5804eed239c",
-          "latencyMicros": 24,
+          "receiptSignature": "12a12068e07a2c5ccbe9b8abba4202510aed44b4520d23d69d2333dc6e1790a9",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1954,8 +1954,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "13a15cbc94e1b3417da0ae8263bbe3aebae55c77ddac08f7237872bf57ed43a5",
-          "receiptSignature": "2eef917d302b03cd8334c5cadd26a02020fe79b0566baf593b644f19f28c1cb2",
-          "latencyMicros": 22,
+          "receiptSignature": "7cf8f9a7adb074c31cd963113627624759175cba9a7746e4a83524507d887604",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -1972,8 +1972,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "09279d01a93850c15eb29ad5d51857697127f735008d4cb8634851212333f946",
-          "receiptSignature": "55de785bb4d9f8a442fd99259e0c748d60e2cbffc96f5ee09fe49c184a1c08f8",
-          "latencyMicros": 19,
+          "receiptSignature": "40730aa7ba77999a5b405aef64b10e355aa36d59e8938da68624297ad1a03bc4",
+          "latencyMicros": 37,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -1991,12 +1991,12 @@
         "INSUFFICIENT_EVIDENCE": 1000
       },
       "batchMerkleRoot": "04894d223378383ecf33bcb5fdf328ab3ae2bb1072560bb626983fef8bef4921",
-      "durationMs": 34,
-      "avgLatencyMicros": 23,
-      "p50LatencyMicros": 22,
-      "p95LatencyMicros": 31,
-      "p99LatencyMicros": 41,
-      "maxLatencyMicros": 184,
+      "durationMs": 55,
+      "avgLatencyMicros": 35,
+      "p50LatencyMicros": 26,
+      "p95LatencyMicros": 45,
+      "p99LatencyMicros": 60,
+      "maxLatencyMicros": 5341,
       "samples": [
         {
           "index": 16000,
@@ -2012,8 +2012,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "34de3892dfdc1ed993c3442f708e4a4480b135251e19987e805a91722759cd9e",
-          "receiptSignature": "edfbaec6ca4828d4c539ca8d55b8ba7b802c31aa8d13f3f0b241c7ea440ebac9",
-          "latencyMicros": 75,
+          "receiptSignature": "7e4801a5479feba4b5f078e03474fdb9b1f5c3dee1169d1ca118a9ecf6289725",
+          "latencyMicros": 130,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2030,8 +2030,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "0862dc8fcaf8b6bd90165b41713cf1840cd236753b9e45e8f39b47a50722f38f",
-          "receiptSignature": "47d43d80a63e7bc9768f7097d75c2196ca3372b1a9fe87387e4ad03d6fa60891",
-          "latencyMicros": 30,
+          "receiptSignature": "8953fc9beab6898d0ef03472fea6d064380febc615527345fa26bef49b1760ff",
+          "latencyMicros": 43,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2048,8 +2048,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "18acc4b127f0d1a5f80a42d43e5e4c4ff519e84a08cf36403cb4ff8675c9c861",
-          "receiptSignature": "2b50c66e9b369c3ac9bad04706d008e9b681e6f03629e3df287079a19479f43d",
-          "latencyMicros": 32,
+          "receiptSignature": "a5d84295e0377bbc81308f4217b3ae10d44ecd1d561de5e95af94dfad47269c0",
+          "latencyMicros": 45,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2066,8 +2066,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "4c87699badb721ae516feba7a87d6a142ca62483ca9b28cb9173b4d76c15d528",
-          "receiptSignature": "9cb5700b1f8308f6bc418bc664eec3f928952691d77499ecbbedb15d6a6cd85c",
-          "latencyMicros": 33,
+          "receiptSignature": "47985647bd54094673be9498abac5f851b950dd81f15d3ea96edf06a9440dbed",
+          "latencyMicros": 39,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2084,8 +2084,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "58a44f22e5632ae26902756cb98e5cfdbfb62d29db198487a8181aaa7913cdc5",
-          "receiptSignature": "2e6128b4a71f248307a9c51a5a8181d71f0973499fec3cb6be961e4bbf7a235a",
-          "latencyMicros": 27,
+          "receiptSignature": "debc49e7b4972c61531e612613ec3e86dbc7e816853654b756f2a8f0ad572236",
+          "latencyMicros": 41,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2102,8 +2102,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "fcbb0fa81c9c54898024f6a8f370c0af05827f8bf027fafccf172a1702f6905a",
-          "receiptSignature": "67fc4262e577f70d37b3ab22f879fa85e0e7b798773e3a2eb7356a705d80060f",
-          "latencyMicros": 21,
+          "receiptSignature": "f550bbff0ea3d3917a858c938ef957dd9862b78d752d31c42d0b67395b0176da",
+          "latencyMicros": 49,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -2121,12 +2121,12 @@
         "INSUFFICIENT_EVIDENCE": 1000
       },
       "batchMerkleRoot": "a8d73a5bd45a8d7799b21a2fb612a0423f30e1c59f116220df06b0ef0efcb9dd",
-      "durationMs": 36,
-      "avgLatencyMicros": 26,
-      "p50LatencyMicros": 21,
-      "p95LatencyMicros": 35,
-      "p99LatencyMicros": 57,
-      "maxLatencyMicros": 1649,
+      "durationMs": 65,
+      "avgLatencyMicros": 37,
+      "p50LatencyMicros": 27,
+      "p95LatencyMicros": 56,
+      "p99LatencyMicros": 75,
+      "maxLatencyMicros": 4698,
       "samples": [
         {
           "index": 17000,
@@ -2142,8 +2142,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "be494a52e5f1e84d281558a17d6cd43eed99a739f000bfbb5b0dd783097289d4",
-          "receiptSignature": "63e4206ac6c9b46f623e4e64a8b39d978ba34e33bf8453f2bc9d5f6c6a91c6e9",
-          "latencyMicros": 68,
+          "receiptSignature": "79c86c400ae668316fed0b61efc41ea2da124d9d7050702a6f01aa9c9652a999",
+          "latencyMicros": 88,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2160,8 +2160,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "6e0a5f0d7e0d4f1a5323559585821535b64d3a9c13a0486a02bbc3dfbe3c0fec",
-          "receiptSignature": "1c2022a3d306e38379e901cc9ad6b606444e59b4df030f4be9bb937208adbbfb",
-          "latencyMicros": 22,
+          "receiptSignature": "17cc3ab5a32b829bf13eefb883519bf39e978b72eaccbc54a46a9f332606586f",
+          "latencyMicros": 35,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2178,8 +2178,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "48fd88028de42bb9705d661dce925551ec8317d1ca18d20a9e4ee511b8256505",
-          "receiptSignature": "d638dd5ad58ed687f4fd6e7b2bcdcb86a6cb7a65bd8ff638a1aebaf1b8b78389",
-          "latencyMicros": 22,
+          "receiptSignature": "12ce9261f826381a1f1a96a6f807685b62a54e0f7589c0ff1abe829bad8916eb",
+          "latencyMicros": 28,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2196,8 +2196,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "4c70133427d747c6ad80044c09c87f2ead7c2aefa6b620da07dfced40165a0a4",
-          "receiptSignature": "3e27288e4364a3114d1c88f52453e9c1b7732629d3442b9e0d5f2b173449e4c9",
-          "latencyMicros": 21,
+          "receiptSignature": "7892943978ce24a545d3163ee023e54679c1657758a04ed04353d63ca43a96f8",
+          "latencyMicros": 24,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2214,8 +2214,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "e0c4ab85e8155698e0fe83303d57c72055aa073c3c83d4761f2773402c8ed82a",
-          "receiptSignature": "1773b47634b540ca3ba82152b34917c32a1665b53199f952614891323bd841ff",
-          "latencyMicros": 21,
+          "receiptSignature": "231ef60f08b7fbcde370df1fe1235938296f8384cbbc2005d099d9f696dfefc1",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2232,8 +2232,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "524a338ef8da864b12264c6014c62a04b368d316ce430a0bacfaf67bcedeea90",
-          "receiptSignature": "bc2f21518a201881a0021fc69824c5e16b85279d5437ec888ddcd4966b74187a",
-          "latencyMicros": 20,
+          "receiptSignature": "69c818656dbe0f71f2dbca253ed6f096ea4fdc08fd33d2fa8e83f0e08ad133c3",
+          "latencyMicros": 45,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -2251,12 +2251,12 @@
         "INSUFFICIENT_EVIDENCE": 1000
       },
       "batchMerkleRoot": "4c6d2904fae6d8b96da4e6100976935d864affb06d56789e8b99fd5305e03030",
-      "durationMs": 35,
-      "avgLatencyMicros": 25,
-      "p50LatencyMicros": 19,
-      "p95LatencyMicros": 42,
-      "p99LatencyMicros": 74,
-      "maxLatencyMicros": 961,
+      "durationMs": 74,
+      "avgLatencyMicros": 61,
+      "p50LatencyMicros": 44,
+      "p95LatencyMicros": 69,
+      "p99LatencyMicros": 92,
+      "maxLatencyMicros": 15522,
       "samples": [
         {
           "index": 18000,
@@ -2272,8 +2272,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "ee7091cc3982278db865a049799d57da2d9b5d5287982ff5176cec50743a4a7f",
-          "receiptSignature": "14041fb0c1bffe35ec1acdcf36f1209da5ff62ad126a41261de6082182107a41",
-          "latencyMicros": 86,
+          "receiptSignature": "8f41316963789f7af2eec7a496bf9b11eb1f25ed3da166d53caf52424b9233fb",
+          "latencyMicros": 158,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2290,8 +2290,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "cc76a024f95a044c6b481627d7ba4ecd476292f977d1abd23a3ba284acb8ee68",
-          "receiptSignature": "6b9a6f331ab2ba6943d71ccbf5f3e488bd8cf6d0f2e360bdbb170a4c07a81a4d",
-          "latencyMicros": 85,
+          "receiptSignature": "da097bfdf745968e5847e864b3b486a5e00da3f6ca943cca752f1772227b3592",
+          "latencyMicros": 15522,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2308,8 +2308,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "d41f24ca36081497a30a23aaf419cf9c8e0026e79a0e73234ebcdc63b28e2d2e",
-          "receiptSignature": "c78a4b028fa8a340fb8d6751229093e16ab319eb55f232db7ed88cec86b45d51",
-          "latencyMicros": 24,
+          "receiptSignature": "8999a89f7d841f9f8ce77b60dd2edfc680b983566e8eaaec9a40ed20e98271e3",
+          "latencyMicros": 93,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2326,8 +2326,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "7b628154cb949c878aaf5ed3e370bcbe681df9d70eb18f1a2bd536c8f4fcb155",
-          "receiptSignature": "f0cc3268483437d6a68a572db6f58e04b0cfb8d2e17ebf50a1265a162117dd3f",
-          "latencyMicros": 23,
+          "receiptSignature": "7c6c707c951ccc0e2e1143d8f09b819c6a5ccbe447514b133b7cc49443421158",
+          "latencyMicros": 49,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2344,8 +2344,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "bde32bed5c395e9a6d7ecf481d1bf411c9ea8f650e323ea5b00b14772a5ea9d3",
-          "receiptSignature": "bacaea7333c879f70a4bb09b3e3e83e53a37f39d54beed833b32ad3970728545",
-          "latencyMicros": 21,
+          "receiptSignature": "d74eb558e603474f2b59a95f16325d527bda354b156db28f202149e212454c67",
+          "latencyMicros": 56,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2362,8 +2362,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "2f5d78048d490a6128b9e3689bf6b6d52863aed6ff740d79aa63cb4853893c18",
-          "receiptSignature": "02915dbde67705766c348fe2d828752ed2ade45d45e3123c69f958ee9079d790",
-          "latencyMicros": 19,
+          "receiptSignature": "845041587faa8bde80dc1ea1181a3ca009083197aedc962dc0099162235d21aa",
+          "latencyMicros": 37,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -2381,12 +2381,12 @@
         "INSUFFICIENT_EVIDENCE": 1000
       },
       "batchMerkleRoot": "e0f274a44099d0de2c3e64c35a3b8768be48adebe492d6a6d659f783ece90a0c",
-      "durationMs": 32,
-      "avgLatencyMicros": 21,
-      "p50LatencyMicros": 18,
-      "p95LatencyMicros": 30,
-      "p99LatencyMicros": 43,
-      "maxLatencyMicros": 86,
+      "durationMs": 46,
+      "avgLatencyMicros": 33,
+      "p50LatencyMicros": 27,
+      "p95LatencyMicros": 53,
+      "p99LatencyMicros": 70,
+      "maxLatencyMicros": 1287,
       "samples": [
         {
           "index": 19000,
@@ -2402,8 +2402,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "411c51e2e38355cd9308f7729798117f7e5b77649cb6c52d4b949cc1776cab38",
-          "receiptSignature": "9618e7019e41506b45c96c8d041b37dfe055c1450b15bea6c37bef5e3c9b9067",
-          "latencyMicros": 43,
+          "receiptSignature": "bb6a9eb35ce6e18ca390455870650c37c12047e1d7327879a6ba1fa3d4ca1dd7",
+          "latencyMicros": 59,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2420,8 +2420,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "96b0d2002f905210ed2498884d3ec6c81f31e81a93ef508d4c81f05009308490",
-          "receiptSignature": "003fa587a6f6c04b9a4a13669d5a446f99ee42993060ca31ab9615044131e11c",
-          "latencyMicros": 20,
+          "receiptSignature": "6a077c2750a347e678c7fb6c2688619d0aedb07014c6627be995c42b7fa14440",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2438,8 +2438,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "254828ca7eeaad0755e05559406c57204cff5e4d360330c8025a40f3fd5ea24d",
-          "receiptSignature": "edab6224a0d0297ff770c509d60ade057869b9e3b1653b978228c7d0d2581bdc",
-          "latencyMicros": 20,
+          "receiptSignature": "bd7794af5f2f006d49eaf89c275b5ca2506c07c1cafa1a447ef7b26cb3cb8aea",
+          "latencyMicros": 18,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2456,8 +2456,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "9fddb35182da431317def5fe96dc5846d109143eb49bdf8adcd577d78b3ab985",
-          "receiptSignature": "346597aff91e9660fa808049a256c8635ca205756d09141b1117ccae96b1be20",
-          "latencyMicros": 21,
+          "receiptSignature": "4bcf1871b173dfcb1d163ff4914544ca1d026b7148563e5669380e17147f9a02",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2474,7 +2474,7 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "f3e1a859d4ecd91eb97f351134f6a4a75450b282b24a2ba195f6ec23969e7a31",
-          "receiptSignature": "44b07c9b15b96eb3fc9d28d66973966050d43553e18b1a0a502ac5763f31e765",
+          "receiptSignature": "c98cb937191af5806f4f655f7a8edfe87416394bbe9df29105f455b968aee788",
           "latencyMicros": 19,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
@@ -2492,8 +2492,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "e0520abf71200e515118696e93ca246f41e0e214012c7fb5e091755fae6b6362",
-          "receiptSignature": "8b73f9676aa4e0e419bde2601879b422bb0534e8a2de1dc636e096c3015abb12",
-          "latencyMicros": 28,
+          "receiptSignature": "1971bb2fb9f6bed2f4550fa04238fdff774c29f9b37c3738fa8d408a97248cf5",
+          "latencyMicros": 24,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -2511,12 +2511,12 @@
         "INSUFFICIENT_EVIDENCE": 1000
       },
       "batchMerkleRoot": "9104f54f18157f3ce936bf4312402e4448048a3dbf4ecb6112f2434039445f8d",
-      "durationMs": 36,
-      "avgLatencyMicros": 22,
-      "p50LatencyMicros": 20,
-      "p95LatencyMicros": 29,
-      "p99LatencyMicros": 42,
-      "maxLatencyMicros": 1131,
+      "durationMs": 63,
+      "avgLatencyMicros": 42,
+      "p50LatencyMicros": 37,
+      "p95LatencyMicros": 67,
+      "p99LatencyMicros": 96,
+      "maxLatencyMicros": 2357,
       "samples": [
         {
           "index": 20000,
@@ -2532,8 +2532,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "4296223d2999960c46dc03dd5bd781448cec2d2279abcf9c0096105bc808e55b",
-          "receiptSignature": "fc7dfa496d29eadfdc55d95a822178f0a7a1abe50a621ad73f3af43584747096",
-          "latencyMicros": 48,
+          "receiptSignature": "33404e96a5a37513da055a962711987393b1c41c302595eafd2682c960be13d7",
+          "latencyMicros": 53,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2550,8 +2550,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "66bc345119582641f73e8646da7eba53e80b2b523ed02d233d8ff417cc2c9969",
-          "receiptSignature": "53dc63c170c91a818daf68d2e11804b4ab70cbc62e03bcac023cb05a70822ef6",
-          "latencyMicros": 21,
+          "receiptSignature": "123f030b4e7fd11c4ecdb630c5c379afb1cd4dfbb0e32b0eb714d16b7c60fceb",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2568,8 +2568,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "6293097e934e45f80dd1eaee1da3c36eca75b2ccb32c111c2d642300120123df",
-          "receiptSignature": "d0d8a2c258e3eb53a7cf5e3dd1303a3966c8e436cf7de99f8ec28644fc48f46e",
-          "latencyMicros": 20,
+          "receiptSignature": "26e475b1d8c971801f37e654e3ed9e20d20109d09e099ab5e7192ade1d42a1c1",
+          "latencyMicros": 35,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2586,8 +2586,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "2a9295f51141c9b557b88109962a6ad58d4627794bc3ed49196b63479beb5642",
-          "receiptSignature": "ca1fda679eff2ebe7833f69bfbb0384f1d1aa5c74f7d9d8db49095c6aef6dd0d",
-          "latencyMicros": 20,
+          "receiptSignature": "0c89e79377bb008054c1e1849729aa65e594f0d3b027fd9db5baac71e93043ff",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2604,8 +2604,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "320fc7b13c1793f4b92f559b2d4be4e0c8573dd97948eb19379eca68a5aa4b11",
-          "receiptSignature": "daf17f923dd6d0654599597bd9ffd992631fe13ba8340a18cab8841840cd6bc8",
-          "latencyMicros": 20,
+          "receiptSignature": "08bc458330f1daaf7d3f8631ccd9bae3eed0bd0a23ca75aa2e205c72b7a72a3b",
+          "latencyMicros": 24,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2622,8 +2622,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "e544cbe8c62ed3de1083c3c265d9b3d8110319b7c8c391c14013bc41ece2dd93",
-          "receiptSignature": "53c28e664722899122e5c71c10219957bf8d951c7d4daf2e85c6be4475d51f48",
-          "latencyMicros": 42,
+          "receiptSignature": "8eedcf7d791d8d321cd8e83de180813642fa7e2f0ad9ee79da08e72f47ae4ad6",
+          "latencyMicros": 48,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -2641,12 +2641,12 @@
         "INSUFFICIENT_EVIDENCE": 1000
       },
       "batchMerkleRoot": "48be35a0d9de83ef64abd79746bf21fd3d8dd8972286a21809bc93ce5b0d40d8",
-      "durationMs": 31,
-      "avgLatencyMicros": 21,
-      "p50LatencyMicros": 19,
-      "p95LatencyMicros": 30,
-      "p99LatencyMicros": 42,
-      "maxLatencyMicros": 198,
+      "durationMs": 73,
+      "avgLatencyMicros": 53,
+      "p50LatencyMicros": 40,
+      "p95LatencyMicros": 65,
+      "p99LatencyMicros": 91,
+      "maxLatencyMicros": 3152,
       "samples": [
         {
           "index": 21000,
@@ -2662,8 +2662,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "9d3d9b72dc7e9d0059ae3844a56c1b94512608b74b723f4604eb817d010ca640",
-          "receiptSignature": "9ff83c7bcabb5bbd7007076d93a84925ec9a6338aefa8cdd6248156774456496",
-          "latencyMicros": 76,
+          "receiptSignature": "dda923701ea64f1ba646f63bf99e197e82849f4c876ccf89601fdeba613058f5",
+          "latencyMicros": 87,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2680,8 +2680,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "d392990f39705b31571310e8d4721f167eac25dc21923bb4373fd5bc6e3f6e71",
-          "receiptSignature": "2848500025c0e184b31f2b00cc3a4f92e5c4ddd427b177bd5bc62bd3143cd17e",
-          "latencyMicros": 20,
+          "receiptSignature": "692e1e3959ea43e4a146e1588db8c0566dab37d4ea18590745e70dc2bb120956",
+          "latencyMicros": 44,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2698,8 +2698,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "3138a54e9522bbb5ee489eec7f55ea35deb9e99ce607c2a5b0bd91689d3dda53",
-          "receiptSignature": "adc757cc7f24c5d92972d51c32a919e6a4d98486bf26f9caa0ed606ae3a32846",
-          "latencyMicros": 20,
+          "receiptSignature": "b565c0049b949f74c6d1e92ecee72e914e24bac5b9ba4ecf261ecc04716b5f4d",
+          "latencyMicros": 71,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2716,8 +2716,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "9d44107261ef81e40b431b2a0732474521e293339d86c861f8456b97a86ba598",
-          "receiptSignature": "17ea9a59fc18078106cce81bf63089739d235ccb00048d03950e5d82d43c550c",
-          "latencyMicros": 30,
+          "receiptSignature": "aeb786145100a5bdec1bfb0bf383bc715213f196d6139bbcb48f38a806c09902",
+          "latencyMicros": 46,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2734,8 +2734,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "124801c3711677b978e22c5c18c4eb550a7ff4ff67fe017e10fafc8e91ede1de",
-          "receiptSignature": "af56efa8448c844b6f3bc897b6ee358ae89bab04f60677182e353edf65bef3d1",
-          "latencyMicros": 19,
+          "receiptSignature": "0d202a19ff6f3d94c6c8ee6b9315083a28bdaf3a61aa7d764020db63f3af4c16",
+          "latencyMicros": 45,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2752,8 +2752,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "5df699296e0d3d572f1f2c354cc337e78c631e7446fb8cd459b902c008c623c2",
-          "receiptSignature": "01ae0d4c39ea2117ce5fc5b3f84de0b6f7e682fc5a03b74409f684f732a9c517",
-          "latencyMicros": 20,
+          "receiptSignature": "5dea186b4225d92ffa9a82758801d430a73e2c647b1b84397e0fae0d95ecf9e4",
+          "latencyMicros": 40,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         }
       ]
@@ -2772,12 +2772,12 @@
         "STALE_AUTHORITY_VERSION": 500
       },
       "batchMerkleRoot": "368a4c0eb1e044db5895f787040423e4f9d4e9c7c8940231fe890897793370fb",
-      "durationMs": 38,
-      "avgLatencyMicros": 29,
-      "p50LatencyMicros": 24,
-      "p95LatencyMicros": 48,
-      "p99LatencyMicros": 104,
-      "maxLatencyMicros": 823,
+      "durationMs": 93,
+      "avgLatencyMicros": 56,
+      "p50LatencyMicros": 47,
+      "p95LatencyMicros": 101,
+      "p99LatencyMicros": 162,
+      "maxLatencyMicros": 503,
       "samples": [
         {
           "index": 22000,
@@ -2793,8 +2793,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "b39bdc2dd739d7b4245f6a8617078e5416e67f5bfc73bed10f9eb702fd732141",
-          "receiptSignature": "59a7e09b591c97a570408825fc54b1b7be9f4571c188198fac17e677f70d827c",
-          "latencyMicros": 823,
+          "receiptSignature": "662dd6839748879e0014193d7f82248c8072070ad99e044b07df7f0e5988d80e",
+          "latencyMicros": 106,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2811,8 +2811,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "4618afe3d708becad2258389b1205e94f2e6e8b7b71de87f6bf7ca8980838165",
-          "receiptSignature": "f873f82df280f8d9131a324ef8add3f1e9bac2e159214acc64e0770c2c2888a6",
-          "latencyMicros": 28,
+          "receiptSignature": "219265eb4ef65d36d7ee05ac411a475336a7a6a8e525652d9e28424d53792042",
+          "latencyMicros": 51,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2829,8 +2829,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "b088faa5b2d64f2f2a2dc9e19af67f7ab683fa86fc986fd086c5167a49f2ddcc",
-          "receiptSignature": "23cc3ccbd45ac49ad0e509528bca7d98b09db676bf3206cfdbd0e0766ffff7c8",
-          "latencyMicros": 53,
+          "receiptSignature": "df691ef394ae6af7f19901ae7a4b940eedb89fbc9ab58d3a71bb664f8fdc361d",
+          "latencyMicros": 42,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2847,8 +2847,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "3a338ac432b2030f22c23add6f54d7807f22a5bc7a183b8f08f0cf6a6e33b69c",
-          "receiptSignature": "849dd08c1564b52fe5b89248469b2c23c6404ea12c38a1065eb6f5aa6a8fda67",
-          "latencyMicros": 53,
+          "receiptSignature": "f28031c24a021feced79c140c4a34d3dbea510f151c96f160e9c5da026208901",
+          "latencyMicros": 36,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2865,8 +2865,8 @@
             "INSUFFICIENT_EVIDENCE"
           ],
           "canonicalHash": "148cb130a529858a146cacc216debbce19b2143538181515afda463462f73b4b",
-          "receiptSignature": "122c8059cc69805316cac9d6be6554d53a6705938250469bc0266b1dccd3cd3d",
-          "latencyMicros": 26,
+          "receiptSignature": "2968fddda6f013dfb2cf4246ff4d1e0a75cf7f43a7d3b73dc6d3c3395d2903ff",
+          "latencyMicros": 58,
           "explanation": "Boundary checks failed with violations: REPLAY_CONFLICT, UNAUTHORIZED_REQUESTER, INSUFFICIENT_EVIDENCE"
         },
         {
@@ -2881,8 +2881,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "415041690b3c6922a83214d0b95366c1ba341deb94b9ee72b8504d88b9a76abb",
-          "receiptSignature": "8895698a75f2eeef5b93a5a9d05bc948948e522932ef74bf472b5fdd46eb7527",
-          "latencyMicros": 24,
+          "receiptSignature": "4b130c169f5931e2d15eb720c84a93c8a6faf583c3917aa290ac95ad72edfabd",
+          "latencyMicros": 119,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         }
       ]
@@ -2898,12 +2898,12 @@
         "STALE_AUTHORITY_VERSION": 1000
       },
       "batchMerkleRoot": "10d4cb985d6ae6881f8bd62fe7adb97d43c363fb860612df9a5752d86befbc43",
-      "durationMs": 41,
-      "avgLatencyMicros": 30,
-      "p50LatencyMicros": 25,
-      "p95LatencyMicros": 43,
-      "p99LatencyMicros": 78,
-      "maxLatencyMicros": 957,
+      "durationMs": 75,
+      "avgLatencyMicros": 52,
+      "p50LatencyMicros": 46,
+      "p95LatencyMicros": 63,
+      "p99LatencyMicros": 102,
+      "maxLatencyMicros": 4025,
       "samples": [
         {
           "index": 23000,
@@ -2917,8 +2917,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "80edab0bc9b05b4d3fa29e319979c6859c6ad52ba0a4ec3ea56b93c5dcf3c911",
-          "receiptSignature": "9c9117968a3add45792bb7b7bc2ba14f248b66aedf7954b37277975568bc0de3",
-          "latencyMicros": 66,
+          "receiptSignature": "c8fca7207c66efbf6d8f6ed690a9269d60b4ad91aac381040b6dcf04c46805d1",
+          "latencyMicros": 125,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -2933,8 +2933,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "a82584c3a54bfb9b7a0d1bef87eb36b1941dffc41fc3701c6fc7e955cd33eb12",
-          "receiptSignature": "97219c974f5ad2a4d97181f037c3f441888b08f58ef0be4da96011dbf066e802",
-          "latencyMicros": 30,
+          "receiptSignature": "eeffccef28201771797f9294920d85e331de5bb4a22a768b7d0105c0e5f30376",
+          "latencyMicros": 799,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -2949,8 +2949,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "8364f0b5809df142fc48887f7c6d2d183297325b4b86d79e7c1a5ce3e72988ad",
-          "receiptSignature": "4cbd5f064da6e26db450abff47f8c1d862af9285a7c21945b87cae2643234176",
-          "latencyMicros": 26,
+          "receiptSignature": "c17587515192bb03c478f2bf8e32825cfe2299b3b3d0a62c5c13a358a82dfbae",
+          "latencyMicros": 64,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -2965,8 +2965,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "11f6bf4ca5d035e96512d733702a841eb4be91baf75cea9810f46f34993e051f",
-          "receiptSignature": "4ffbcc5513c079a1c053bad95426b5822f87d938773903679d9cc51f7e1f2089",
-          "latencyMicros": 25,
+          "receiptSignature": "9f4d61c74874293b3377835bf65f7ad75d476e27f9b212b3bf3cdf6c39df3ed1",
+          "latencyMicros": 47,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -2981,8 +2981,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "2e9c7c7f53b91c47bf5f2ebffe5903f19313eae02976b23f6d3cf26dbfef3ed8",
-          "receiptSignature": "c97eaa2846a6379811cb6339e17189fdaa4294e88c210ed87ab13aeeff502241",
-          "latencyMicros": 27,
+          "receiptSignature": "331421f3fadce9f28f30613f46504d065df00158ca0dc483732c04f1d90c2afb",
+          "latencyMicros": 42,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -2997,8 +2997,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "1fb913ef78df7fcdca86a64c2cb269a841b2c4d7ba4b560f419284a623c8bbf0",
-          "receiptSignature": "3c1a7b55d9b58de4d7fba3f4049001b7dfa3abc2d9a805ce3b4ac751595cfff2",
-          "latencyMicros": 24,
+          "receiptSignature": "8940b68cb85564d84ecaef686897f215576f0e27adb9b66ff4e80b2dbf14f936",
+          "latencyMicros": 58,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         }
       ]
@@ -3014,12 +3014,12 @@
         "STALE_AUTHORITY_VERSION": 1000
       },
       "batchMerkleRoot": "c0ad8a62c43db9510aadc559df3c7713b7aed7316ca0486cd941da75122c51b5",
-      "durationMs": 40,
-      "avgLatencyMicros": 31,
-      "p50LatencyMicros": 25,
+      "durationMs": 54,
+      "avgLatencyMicros": 36,
+      "p50LatencyMicros": 29,
       "p95LatencyMicros": 51,
-      "p99LatencyMicros": 108,
-      "maxLatencyMicros": 1271,
+      "p99LatencyMicros": 119,
+      "maxLatencyMicros": 525,
       "samples": [
         {
           "index": 24000,
@@ -3033,8 +3033,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "d01390f30448685fbafdd587721739759ce4a6648223e9ff7149f175c37f7eb4",
-          "receiptSignature": "82d9c6517583f6fdc45d735aa53b60bf812e875d32b6dc3d77fe4067f2bdede4",
-          "latencyMicros": 59,
+          "receiptSignature": "8f32cc31100d1116cda110959c67713b90d2113ea36e30b6b9ec7c7ea145b60d",
+          "latencyMicros": 84,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3049,8 +3049,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "91b92effcda8527500f98bc9523221fbce670df64a00caa4e719f0b6338d7622",
-          "receiptSignature": "5d0d1ce11bc65cab59415cbce85ae1cbafd0994c5530246af968179a6741dd1f",
-          "latencyMicros": 30,
+          "receiptSignature": "198cb95eb690a992b61dc9d2088543f436e72c8d3ad67c5ce245cc1916754ca4",
+          "latencyMicros": 33,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3065,8 +3065,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "c89bcb5afdac9ce0a90f7208f781ba3e5d92273e71440e41bcdc9131154158b7",
-          "receiptSignature": "c646a08821d139e4f9ab40e814b6f8a4bbeae1588ed7d47eabaeab77752363d9",
-          "latencyMicros": 41,
+          "receiptSignature": "64ca747551f959b70f33445125df7c9260a40febdac179a86e43c7ade713722e",
+          "latencyMicros": 29,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3081,8 +3081,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "1ce79eed9f47b1e89ed7d9e1599725839bddecd4bd0351efae175e7b85415afb",
-          "receiptSignature": "1b0c94bba52990a9bdaf6c1babe739f8045fee6e18fae623b557bf6b298f206e",
-          "latencyMicros": 26,
+          "receiptSignature": "3a4d2a5d47a37220b8f8a6a8f21ad165b64bb7d0ea9805cbfb3a0c7d1c093687",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3097,8 +3097,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "fa11b9f958f8c5b613695051d69f2069c65e3ac2b562e0ff4559918a0da04281",
-          "receiptSignature": "1b6777c1571deab3a779a2d2e36ebf0b6adafcf0a435704ebb0916ad9379b739",
-          "latencyMicros": 25,
+          "receiptSignature": "a74c1d45330d1df03d65bed63d363707615f590005223c68c3f3769c1ca9d63d",
+          "latencyMicros": 29,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3113,8 +3113,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "82d09eec63db581d9ed30820046d452d6e22301f9c721c6cf320a13f1e5194e1",
-          "receiptSignature": "2749e0872c3c5dde9ad8da5fed06f157dc4bfa37abe1333c41aa4469cffe90c8",
-          "latencyMicros": 26,
+          "receiptSignature": "ac4e2d3c786e184fb9257008e039ee6741d5e26cd12622325a4c8c9c52dc24df",
+          "latencyMicros": 33,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         }
       ]
@@ -3130,12 +3130,12 @@
         "STALE_AUTHORITY_VERSION": 1000
       },
       "batchMerkleRoot": "b79af260abba79a5e5a063fb2d1982d11f69b7ff2201ff5fa0b6c48b5fbe9b9e",
-      "durationMs": 41,
-      "avgLatencyMicros": 29,
-      "p50LatencyMicros": 24,
-      "p95LatencyMicros": 38,
-      "p99LatencyMicros": 95,
-      "maxLatencyMicros": 1354,
+      "durationMs": 56,
+      "avgLatencyMicros": 44,
+      "p50LatencyMicros": 29,
+      "p95LatencyMicros": 55,
+      "p99LatencyMicros": 182,
+      "maxLatencyMicros": 4254,
       "samples": [
         {
           "index": 25000,
@@ -3149,8 +3149,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "17913b064f11fafb9b9d21dcacc200c7c5d01e130281d23304998f076ca9fd3b",
-          "receiptSignature": "7d490990ecb7e1682eb555b2c8262eaa6d47d711247f444d7b5ce0da03e26091",
-          "latencyMicros": 60,
+          "receiptSignature": "159565d3adfd4c4ad84ed4b936594f84c9baef750cd3571061c9506d6166c5ee",
+          "latencyMicros": 77,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3165,8 +3165,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "a60370a8c9abe7db6afb4af79c0efd507dcb039c63bdf29aefa72d5fc3834d8f",
-          "receiptSignature": "b3b16bb20a48a8122c1788ee8c60bd6c0f3016f278c1397ae72d84319566d0fb",
-          "latencyMicros": 27,
+          "receiptSignature": "eed965027e67bfc79ba94465ed4347320f3776aef3fed60856b06a7c9d7e7562",
+          "latencyMicros": 33,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3181,8 +3181,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "1025a87c163237821d4ba2b0a76eaa97dba816957604720b647aec5153c91a06",
-          "receiptSignature": "a324928bc373e85fc39685b4414e7827d2b657af707b090bdc032525c1b68184",
-          "latencyMicros": 27,
+          "receiptSignature": "f811f6aaedf50529c9aa24edbe7434ebac814798c848185a205ea859a09c3257",
+          "latencyMicros": 33,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3197,8 +3197,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "526556b7869e8776b532efa72ac7625ed5509d1aff353f2d1cde734bb0adc856",
-          "receiptSignature": "3d8e7f244d80b81372f1720ae75cd0b3aeeb16ba2401afd7f7e074065aaebea3",
-          "latencyMicros": 24,
+          "receiptSignature": "2c3727c83ea27a1fc92b666ad38d7fe1ee9792199a5f72be641b42b6697c24f3",
+          "latencyMicros": 32,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3213,8 +3213,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "7e45054927df6f372edffc01d6fe2457b3ca08686279730a7c98665e42bf9f83",
-          "receiptSignature": "dfe22c6108aac5108886191839093011b8cde024ccbe032dded58c2169b3719c",
-          "latencyMicros": 25,
+          "receiptSignature": "412343736715876b1ea5f9d6c7bbf49b10bcb0676fbd45b636e2007be31d26b7",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3229,8 +3229,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "41527166c3aa6ccad402722eca4a2d50208570c85402e9e9f8b8077e7f9025a9",
-          "receiptSignature": "6550f4164ac2c3b9c625229ef72cf2374debd83b411854be00707b90b27e9755",
-          "latencyMicros": 23,
+          "receiptSignature": "fb25995f9b00a83a34156a2011c64435f0c05164d28c2b739696a39381e58b9b",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         }
       ]
@@ -3246,12 +3246,12 @@
         "STALE_AUTHORITY_VERSION": 1000
       },
       "batchMerkleRoot": "b402dc568d515d29f874a94a05e4ccd5708adeea6a2a55defb7dc2bce444e2cc",
-      "durationMs": 37,
-      "avgLatencyMicros": 24,
-      "p50LatencyMicros": 22,
-      "p95LatencyMicros": 33,
-      "p99LatencyMicros": 49,
-      "maxLatencyMicros": 257,
+      "durationMs": 45,
+      "avgLatencyMicros": 32,
+      "p50LatencyMicros": 25,
+      "p95LatencyMicros": 53,
+      "p99LatencyMicros": 72,
+      "maxLatencyMicros": 541,
       "samples": [
         {
           "index": 26000,
@@ -3265,8 +3265,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "615b3410fbc009c2873bc8e00e5599245b0850569c0935b6b5585bfdd00541ae",
-          "receiptSignature": "149bb19c980fe9e9a8ac2c32474689203789e45c1c4e879dee2a06f0753b5cab",
-          "latencyMicros": 153,
+          "receiptSignature": "945aa30723d05cfbe65abd98e418dc4319c5aef1e2a29294ce7b31e63e3ae1cd",
+          "latencyMicros": 73,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3281,8 +3281,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "4e11758001fe09e4dc7ad7a489b700661ce14e2345b1a1a135bf6446dec6646e",
-          "receiptSignature": "8b21b936c19949ef9b14381d591701919b8e103ac0c699f4278c83766b9588a3",
-          "latencyMicros": 36,
+          "receiptSignature": "c8cd69c351f70083ac544f4927ba37f847382eb42fa08f134dcb8aa9003eaa18",
+          "latencyMicros": 28,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3297,8 +3297,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "4c3f05bf654180a31655ef229dad0ebfe4c72d909f9a937c96e0349ce374e9e2",
-          "receiptSignature": "25b07ea32801472aca8b1f655430b4ac17aded4ede0a5317797fb66d0ca8ec40",
-          "latencyMicros": 35,
+          "receiptSignature": "586afde27ec1a6ebbc348e45355e529bde79708fe5f70aeee2cac43a2ab4e2c0",
+          "latencyMicros": 41,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3313,8 +3313,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "dae4cb37ec0ae57481169af077db9b153421c2e0efd018929036633981597b4b",
-          "receiptSignature": "fa8999aa7e19a89bc0daa1d63e600e2bb8d89bd691e1af7c4e4707093512ca08",
-          "latencyMicros": 30,
+          "receiptSignature": "8d83ea6c589d9a11d04687f710c2ee9f13854a533dc887d018874c4198fd4516",
+          "latencyMicros": 41,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3329,8 +3329,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "a0b0c4d72d220c74a9e206b6a651b36aab9b8c02f5ac045cc2e34778c29e9cbc",
-          "receiptSignature": "6ebe726caee48aaabec471ba541108b19541e0fff13d4f2dafa78e077501de67",
-          "latencyMicros": 42,
+          "receiptSignature": "b82a437abd0fdc71af92cfda28071c66f1b1bceaa194d58fc153153825e260b7",
+          "latencyMicros": 119,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3345,8 +3345,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "89a958493aebc0c1472bc463825628f3a47a5843380a502ae552c04dfc081d34",
-          "receiptSignature": "45821800f14ba7c93b26382e40a925400fa5d889b7a5b69daf6fcfd922a9298d",
-          "latencyMicros": 21,
+          "receiptSignature": "1de81b403849bab3f1ba798262f2d117507c4ca1539e9dacd1c3c202625b4e39",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         }
       ]
@@ -3362,12 +3362,12 @@
         "STALE_AUTHORITY_VERSION": 1000
       },
       "batchMerkleRoot": "e5c8539f59efc9682a284c269d2c608054a6e354b9a57e2926de4d272e95ae9d",
-      "durationMs": 37,
-      "avgLatencyMicros": 24,
-      "p50LatencyMicros": 22,
-      "p95LatencyMicros": 33,
-      "p99LatencyMicros": 44,
-      "maxLatencyMicros": 435,
+      "durationMs": 48,
+      "avgLatencyMicros": 36,
+      "p50LatencyMicros": 28,
+      "p95LatencyMicros": 65,
+      "p99LatencyMicros": 87,
+      "maxLatencyMicros": 1654,
       "samples": [
         {
           "index": 27000,
@@ -3381,7 +3381,7 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "65c1749b9f16fba3c511dfc620e62d544a3043fe9c85fbe37a9ac7b9142427e0",
-          "receiptSignature": "84d46a94706669e0a803b7fa62ef9aaaf3a79f27eeed9a4ab2ba54e3ea7a692b",
+          "receiptSignature": "6c8ec1420e16b5838660c019012b3fd2f85142ebefa889da6e338579fd79dda6",
           "latencyMicros": 62,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
@@ -3397,8 +3397,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "8f6971c7a89e4a47e9e47066359a81289f22e4ccf6479631c7df519cee2d5c2f",
-          "receiptSignature": "bf23acb44db43c1e6b8bab6b042dcb81f320b252602bdb43b458fa8472cec44c",
-          "latencyMicros": 47,
+          "receiptSignature": "9602710d6d3e1afdc2fa5ddad021b4353be023f2859648ea8887ca14dda9ae86",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3413,8 +3413,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "e4c5727b152a380274415c8d6db026f38e07f020f0b174ea67006cfc3bf81c4a",
-          "receiptSignature": "a67e5bb71072912cfa6308bf9e1ef2418c8a496d9709ccaeda1abaeb3031e281",
-          "latencyMicros": 35,
+          "receiptSignature": "7a3ab25d13c4363826cf8d710b88b3b68704c7c8ca484fd58dfdf66c78a1b2f8",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3429,8 +3429,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "e401cba6af9481e302eb23da9197eaa41c121ffaa16df6faeff1d65bd66c8319",
-          "receiptSignature": "ca41a7d31473d75b2525550610d46f8cbc671e51b43f41119b60a57566ff6897",
-          "latencyMicros": 32,
+          "receiptSignature": "ac03b3a701135de99513ac130af9f267907de0928e49eb59de39bcfd55adc9dd",
+          "latencyMicros": 29,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3445,8 +3445,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "037856578fc274017a7aa22245ab006588f0cfc395ad16ba7247f8397e7068b4",
-          "receiptSignature": "f6c82978cbbc5c5828abd7a76f7f4d04b563b4a070181d8e7033dd9fbd545223",
-          "latencyMicros": 33,
+          "receiptSignature": "943c359ef52c8bfba51b17e4e090d59f33e2b8a273ba5220ea294f2b241f7e92",
+          "latencyMicros": 36,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3461,8 +3461,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "36a37429e965eb94a7263e851a162ff090c734ce72ffccc10b3fbe0ff4affb4e",
-          "receiptSignature": "22cccb034a29046fc8143652fff346287d4034b2a3ca233ece476da6486107fe",
-          "latencyMicros": 20,
+          "receiptSignature": "5407c16be6cedf2ee54c3ed299f0e001373e94ebfa888a0252b1f16f2f46eaea",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         }
       ]
@@ -3478,12 +3478,12 @@
         "STALE_AUTHORITY_VERSION": 1000
       },
       "batchMerkleRoot": "7559eb6392684f820c0e34ed48c83f5e623acff63ef8d2e26c943f5040539ed0",
-      "durationMs": 37,
-      "avgLatencyMicros": 24,
-      "p50LatencyMicros": 23,
-      "p95LatencyMicros": 28,
-      "p99LatencyMicros": 41,
-      "maxLatencyMicros": 142,
+      "durationMs": 51,
+      "avgLatencyMicros": 36,
+      "p50LatencyMicros": 26,
+      "p95LatencyMicros": 53,
+      "p99LatencyMicros": 197,
+      "maxLatencyMicros": 1948,
       "samples": [
         {
           "index": 28000,
@@ -3497,8 +3497,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "fc718382a0a0f488b44dce89a5660d05077c26774adcd4243148176ab447c427",
-          "receiptSignature": "24e4493af64de1722c19d7cedd93fb34ee16ca06f7cb192e548b350a0a5da0e5",
-          "latencyMicros": 58,
+          "receiptSignature": "a8118052bc2c680cea931b31a3d159e45ce2ba7e5abe2143864e1c4bae411f4b",
+          "latencyMicros": 96,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3513,8 +3513,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "5e970b169a546b5cd34eb7f2ce0074d926a05574d98d275d2d197c5fa302fea1",
-          "receiptSignature": "49206882826cb49b44c1cc48e09b6fcb0e54495fa2a71ac2c2977779af6f3dad",
-          "latencyMicros": 25,
+          "receiptSignature": "9443ca57a0673d28853fe6c6b10033cb59ca60c38be2ad77a73f1d256789e48f",
+          "latencyMicros": 28,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3529,8 +3529,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "32e3dccf5131730fbe11ae60a8eb8784a559281758be1468c0eb73072153c414",
-          "receiptSignature": "751e8802f843cf84d96cde38c282d0d8d58912b710094ec7371d3baa3be709d0",
-          "latencyMicros": 23,
+          "receiptSignature": "a4cfd1c87d181586ffd12da08728ac15d130a53ca536b0afdea179c3d9a2ae52",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3545,8 +3545,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "b77b597508129ff6f7a3424b2cd2bed98b31323ae7b2db7c0a5069dec2cae03a",
-          "receiptSignature": "8741e69283592423045e90a1c4fb43cf80266ee2b27cd8d71d8067407907e53b",
-          "latencyMicros": 23,
+          "receiptSignature": "a24282d0ae643f69d81a30d6a98d1e8c98b374f4d7669d291382c55dfb5ee1fe",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3561,8 +3561,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "a9e6f1df160dde79e74ab5f491e592f9c6ac39ae5fcaeb225930afec73feb99d",
-          "receiptSignature": "e00296eb5035d69926ee12b0aeb04a462a492ff9c0429dd7926405bcbae10c71",
-          "latencyMicros": 24,
+          "receiptSignature": "e48b8d972748076c53aa1bb15110fdf4acf887bd4a744ccd88e34aca6020aeac",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3577,8 +3577,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "0d6f43edb9de3015eb1d95337ea7308486dfb4356b6cc253b97cf967976538b5",
-          "receiptSignature": "d91533ee596c3b34ff347d82f2ec4defb1064908875822dba8b5ee1ce8f12fbd",
-          "latencyMicros": 22,
+          "receiptSignature": "c393b74539273492ac0323944d04dd4757bc79b5275cdeb15c7fd7b3ea0d295d",
+          "latencyMicros": 33,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         }
       ]
@@ -3594,12 +3594,12 @@
         "STALE_AUTHORITY_VERSION": 1000
       },
       "batchMerkleRoot": "3f615234604037eee196c234e02b40bb4a074c464e8ddd85b9d9021195cdd55c",
-      "durationMs": 38,
-      "avgLatencyMicros": 25,
-      "p50LatencyMicros": 24,
-      "p95LatencyMicros": 32,
-      "p99LatencyMicros": 43,
-      "maxLatencyMicros": 66,
+      "durationMs": 40,
+      "avgLatencyMicros": 29,
+      "p50LatencyMicros": 25,
+      "p95LatencyMicros": 39,
+      "p99LatencyMicros": 52,
+      "maxLatencyMicros": 1578,
       "samples": [
         {
           "index": 29000,
@@ -3613,8 +3613,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "c49fe54290882388f8900bd23de012bb1cbc9f83feeccaf915089b6ace3054e8",
-          "receiptSignature": "c4486ccf49a5ef9cee4086ca8ae3d4369c5f7fd39ccc84890feb2fb5c00c5c5a",
-          "latencyMicros": 66,
+          "receiptSignature": "7806f20184646e4835d38db63ab11b2d7afba8a909beb632f7f9bfeda4d46296",
+          "latencyMicros": 75,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3629,8 +3629,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "6cfc9096c22305123942556a9cb49309236df8d219a3398aca5ddd486b2ef353",
-          "receiptSignature": "9ff5c8e8fcfb0a98bb2919168b4f0765953ca6e810db44670486b08ca70b579c",
-          "latencyMicros": 35,
+          "receiptSignature": "c4d2bcac4663066f93e18e557c15292d4c6d54c16732bf475ba4634378a76cf7",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3645,8 +3645,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "6b865a0cb3f37c6c71b84668e15b357738f63437dec2b4706777f48853f9436e",
-          "receiptSignature": "affb830078391cfd8d7874c83d6ce526ea095053bbe77f0b96a26afb483aff90",
-          "latencyMicros": 31,
+          "receiptSignature": "67ac59023c0c2dbb0900d48a842363b807c37fe01e4899678091e5ae44761e19",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3661,8 +3661,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "bef1f92266f785c4f991f56424fa34e222fcd673a7524cc72f94b75183ed3643",
-          "receiptSignature": "f2c8b9c28a78adc7da1c75f998b0dea406c2d581b55ba47c5140538d33bbc9aa",
-          "latencyMicros": 48,
+          "receiptSignature": "72637241ba5ed903b277bec5f505bd665425ddaccbe4c869801771611aa9de59",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3677,8 +3677,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "73b481a16945d42a8d3a219b12f02439bac993275df35087f8fbc75405d579d7",
-          "receiptSignature": "356c611f703af4caf02801a9db1f25cb2b920a642e88a00764dcf0a1c136be2b",
-          "latencyMicros": 35,
+          "receiptSignature": "c4409ae854269e3a540a63f3af55e5367af6add92274bde728e8faa5cc046b47",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         },
         {
@@ -3693,8 +3693,8 @@
             "STALE_AUTHORITY_VERSION"
           ],
           "canonicalHash": "4f642f3570036e09c3807c0e9bc3ebfdac534da28a37c43c9c2ec5ed0983ab28",
-          "receiptSignature": "e8c4773d76eef0cfed20975afc88807be11b9b1bfc410e40f565bb5451c8186b",
-          "latencyMicros": 22,
+          "receiptSignature": "ce0093c98605f3805a37a0331cfe103e1db9191282038d47885097f2c003f460",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: STALE_AUTHORITY_VERSION"
         }
       ]
@@ -3710,12 +3710,12 @@
         "DEGRADATION_WITHOUT_REASON": 1000
       },
       "batchMerkleRoot": "c3eb2c34da4fb8b1ef54d07a583f169347467c3613c9f894e0ed332268e5a01c",
-      "durationMs": 30,
-      "avgLatencyMicros": 20,
-      "p50LatencyMicros": 19,
-      "p95LatencyMicros": 25,
-      "p99LatencyMicros": 37,
-      "maxLatencyMicros": 145,
+      "durationMs": 44,
+      "avgLatencyMicros": 30,
+      "p50LatencyMicros": 21,
+      "p95LatencyMicros": 46,
+      "p99LatencyMicros": 86,
+      "maxLatencyMicros": 5066,
       "samples": [
         {
           "index": 30000,
@@ -3729,8 +3729,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "3b9b2f163e6ae4411bfbc4c0c22364aa9e463a2d22db1b08418471bab2b5c7ad",
-          "receiptSignature": "af2285dc94f2d9e5354e2b8c296c7037407e60a32de49e0d751b131bddc2cee4",
-          "latencyMicros": 145,
+          "receiptSignature": "6b3ff12c923cdfb0d7012d1ba479802005bbf03dc43a44debcb6c9dc2cfe4370",
+          "latencyMicros": 141,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3745,8 +3745,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "ad907fee11be37b5a5e048e1ba4c852f805a320a58bc76f3dc4dc74d9cbbc29a",
-          "receiptSignature": "e9652199b2e77361a18363d4a73dbcdb239a4acaba2cb83cc856b9eabb10e441",
-          "latencyMicros": 42,
+          "receiptSignature": "10dcf6df648a4b1c2f522e174087fb1b6f1f33c78a42e41f472bd654bd6a82c4",
+          "latencyMicros": 35,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3761,8 +3761,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "fd51006943ffc8d21a125fafd5f32e5ae97cc867f3a8c3d6edea393d67162d03",
-          "receiptSignature": "3d299bdf3c9c356bc0ccb9eb67c03516628188d16c0f7ced962d58b0ba177095",
-          "latencyMicros": 27,
+          "receiptSignature": "209ecb0bebbd91d26c0508c3ef63e721be3582d0726800974143aa58701e0c15",
+          "latencyMicros": 31,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3777,8 +3777,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "de563a7e20f2d7f31ce678c6bce1d3d92e6ed637ee4f210dd2697211b3c08f7b",
-          "receiptSignature": "8f1b7c85364819d643e60885b7416f72e63f8daf5f22c792b6e744d1ace99c9b",
-          "latencyMicros": 86,
+          "receiptSignature": "8dfa3a1aac3f59491e956b4971fecb695a65d0f4e1a6cccd3c385231f2663819",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3793,8 +3793,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "5c274bfb8cc835d5e90d857651f6e4507f796eb1d79d52cc6c4caf564ea9f80d",
-          "receiptSignature": "b8949218dd899c8aa74de0ab9347fa607ea07898d90deac0caa37e930028d927",
-          "latencyMicros": 19,
+          "receiptSignature": "bd525e467447c75ebb1d35618b5ae2bb669efbb4605b52415e29ef2d5fe0b01f",
+          "latencyMicros": 21,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3809,7 +3809,7 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "381e73a8891c7d9831973ea62c26df6a24208db2e5466e1c9177332cccdaae76",
-          "receiptSignature": "c7f78931e610d9815158c781704dc2ef1d1608c065ddc5b173e68ab23736c315",
+          "receiptSignature": "fa9cf08aa5f92a53fa321761aabb48cc1d6c8168ab1bb1c712658b16b8274961",
           "latencyMicros": 19,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         }
@@ -3826,12 +3826,12 @@
         "DEGRADATION_WITHOUT_REASON": 1000
       },
       "batchMerkleRoot": "eeab1dae2f812fc48edab35b547862351f94fb61047ab0bc8ff3e44e96c8fd22",
-      "durationMs": 34,
-      "avgLatencyMicros": 24,
-      "p50LatencyMicros": 19,
-      "p95LatencyMicros": 36,
-      "p99LatencyMicros": 82,
-      "maxLatencyMicros": 504,
+      "durationMs": 56,
+      "avgLatencyMicros": 32,
+      "p50LatencyMicros": 34,
+      "p95LatencyMicros": 43,
+      "p99LatencyMicros": 61,
+      "maxLatencyMicros": 150,
       "samples": [
         {
           "index": 31000,
@@ -3845,8 +3845,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "2c9b0ef6f01eea32ed098fb4ed193bf2fb099bd9a280107a583cef88499bd62a",
-          "receiptSignature": "39e423ed41e7ef52c623b58d42f624f67f9384cb672d07409171a0bec710e477",
-          "latencyMicros": 51,
+          "receiptSignature": "1b518401cc994e20b84f58e81ef1b542fcdc44a758693109dff8151df4c01521",
+          "latencyMicros": 68,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3861,8 +3861,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "31f7655ed4021f2d0aa351cdcfd3726888f4f7b3eaa32b97a17c63cb06e76b2e",
-          "receiptSignature": "515120f561d1bad2487c6dc22f0264281a8805905a5088744ac4078dab371297",
-          "latencyMicros": 20,
+          "receiptSignature": "65d5390622ab5d68840a74df06a9c7ca107e19d899c0e8753f8af5e40608ad7c",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3877,8 +3877,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "9114fd063b61f29120c1815cca7678c7656a4565970c36d6bcd6192de1672f55",
-          "receiptSignature": "91c273cb62b6ec1712b40c1c6e974ead3d7e7b3a5abe3485aa5b4c7943c69305",
-          "latencyMicros": 19,
+          "receiptSignature": "7900b88d95ab2f0e98c14ec20ba02c80c9beabf8dedf105c4c86aab0f8832636",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3893,8 +3893,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "48b49b02ade62c4c4f3c7484bda648b1db57145b238dc26ee7575a9a678830d8",
-          "receiptSignature": "16720e155c17b1d9d8bdcebc29fab677dfbd713d3f53e8a9de71d4fe158e808f",
-          "latencyMicros": 17,
+          "receiptSignature": "6eedc139e1b14e052869519a56a5d4c57127275fc8ff45ebff60cff0744a532c",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3909,8 +3909,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "a5e28c3cca0d03a7b617c18fc669d637c024e07c8846a91fff364ae6406dbe1d",
-          "receiptSignature": "a871181fd6dd86acc53b4dfdfe60f47bf75c37c56b0284544469f95247034b47",
-          "latencyMicros": 19,
+          "receiptSignature": "d1826d1595db28587237a05880e12b73ca245a98670e6b7f8ebc24e7efa755e4",
+          "latencyMicros": 23,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3925,8 +3925,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "f65dd4abdea3ff74bdcf6ee23a5c7f1ed91b5a96c4f965d418e92288133745d3",
-          "receiptSignature": "3f97e20fb951c407ff011877676d37ea33b01d7acf34b6c2ed70b1ccb5d9bedf",
-          "latencyMicros": 18,
+          "receiptSignature": "a074319c78a1c2b8ddec9791de0b3f6cf5f3f9f32d72f4317144a879fa3f07d0",
+          "latencyMicros": 120,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         }
       ]
@@ -3942,12 +3942,12 @@
         "DEGRADATION_WITHOUT_REASON": 1000
       },
       "batchMerkleRoot": "073152653932a91ae9a74287cfa146f0094a71700b460ca9b09236dfa7abb4f8",
-      "durationMs": 34,
-      "avgLatencyMicros": 23,
-      "p50LatencyMicros": 19,
-      "p95LatencyMicros": 35,
-      "p99LatencyMicros": 67,
-      "maxLatencyMicros": 482,
+      "durationMs": 35,
+      "avgLatencyMicros": 24,
+      "p50LatencyMicros": 24,
+      "p95LatencyMicros": 28,
+      "p99LatencyMicros": 38,
+      "maxLatencyMicros": 67,
       "samples": [
         {
           "index": 32000,
@@ -3961,8 +3961,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "851df0fe1fbf158827b23d6a893e80831ecd6a0d69025fbc19faec079bb20e78",
-          "receiptSignature": "77810cdf832024b432f1a893db0ffd0a6bcb50fd32d47f0a8ad34c8a8b3b739b",
-          "latencyMicros": 45,
+          "receiptSignature": "817aed4e2397d40f0754d6df97101685d82c3583913c27fb5206d606642d81f8",
+          "latencyMicros": 67,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -3977,7 +3977,7 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "56c776a31410c60f0476f899dd9a85468a91a5223a1bffa3b0f7e3213dd01615",
-          "receiptSignature": "4f59890e4dba81d802643bd54fdaf40ef8cc7bea0db54050dc24db7e2615d4c4",
+          "receiptSignature": "02a44d9ceb440b0d235306efa90f87399f11e46e18f2b6d0a4c13cdd88b6a7f5",
           "latencyMicros": 22,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
@@ -3993,8 +3993,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "58e17141902304f54ea3d99950470f1717f2f58f30b0b25e89d22e99a86d57ab",
-          "receiptSignature": "aa357ffb3546d2b7f48adb113695ccd96fda45e590c12d4a71ac565666b5bcfe",
-          "latencyMicros": 19,
+          "receiptSignature": "a3f6663e949a389f0378e56a9f7261c6947216fa776015b4ab344295b7a87d9b",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4009,8 +4009,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "67678bd727eed46c59ecd71e48057b61d3a1ed7e69a476cdeb277e5222190aa1",
-          "receiptSignature": "ba09f092dc8b9653bf6784257f562a20295e7283b132cc7d5f5c6e2efefccac4",
-          "latencyMicros": 20,
+          "receiptSignature": "45e30147210c0cc4191b69324d4de8f618dee1fc73e4bf51d973217662ed77cb",
+          "latencyMicros": 23,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4025,8 +4025,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "ffd225fda2e3f65cc8152b61af08af087c23307939803f0cbc43d4e111dc6c01",
-          "receiptSignature": "c3e7fd79cab16c21f1e048bca2b50f31c11ac2b85fc9373473b6aabe7a5b9f35",
-          "latencyMicros": 20,
+          "receiptSignature": "6e4c540760b1552738c335efb4c6dd3893f4c0ed936bba0c3c260e3ce756a380",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4041,8 +4041,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "8610daad877cc6864e7414dc0ac23ffc92ec3871d3eb098ca1dead03c71121d0",
-          "receiptSignature": "701c9e017b3239e281fc8d45f753db80bbde7054d8c78893fb27affe1049a3bb",
-          "latencyMicros": 20,
+          "receiptSignature": "5619f490509d084f7cc3930899d3b1d476cd079d586b5fb8b122307c97aa881a",
+          "latencyMicros": 23,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         }
       ]
@@ -4058,12 +4058,12 @@
         "DEGRADATION_WITHOUT_REASON": 1000
       },
       "batchMerkleRoot": "2ec27a3d7e1a04b22b4b262f33566e86112b3da719e14e1e67b6fe0b51c7ea54",
-      "durationMs": 33,
-      "avgLatencyMicros": 22,
-      "p50LatencyMicros": 19,
-      "p95LatencyMicros": 29,
-      "p99LatencyMicros": 42,
-      "maxLatencyMicros": 1553,
+      "durationMs": 54,
+      "avgLatencyMicros": 39,
+      "p50LatencyMicros": 24,
+      "p95LatencyMicros": 86,
+      "p99LatencyMicros": 331,
+      "maxLatencyMicros": 2186,
       "samples": [
         {
           "index": 33000,
@@ -4077,8 +4077,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "d429db192fae9ab0c8cd267fca065564056324279d65a39ce3fb008b49bfc887",
-          "receiptSignature": "392267e1df4e98f297ce6f95dca77d8ef50de1041f5024e9cb34e4e8df881296",
-          "latencyMicros": 49,
+          "receiptSignature": "0150ac714bb4c85b8c2929566ec304b93a912ae4257ddd359a565bce2f258992",
+          "latencyMicros": 64,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4093,8 +4093,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "91212b9637db8a0fa861f916211f2d76914823a50a6b669b0a28d82865bb1d2a",
-          "receiptSignature": "5219df5a41e1a9500d0752721c190c03bf81dee8afca1a00f86693192ae20c59",
-          "latencyMicros": 95,
+          "receiptSignature": "f850539b010221784297c2199316cea6ac75d6acbb2103369258ee9737ad2349",
+          "latencyMicros": 166,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4109,8 +4109,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "6d77d560af5f906b7c7478c21016f2aab73437428fb130a37f7367b9e13fafdc",
-          "receiptSignature": "1a6bfafb766a6f9242139805887aa433d01b726d194eb227c24adf028bf488be",
-          "latencyMicros": 22,
+          "receiptSignature": "db2a33883b5de08e391c2ed347494492fb5b67caeec43b4f9b369c57d3092842",
+          "latencyMicros": 24,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4125,8 +4125,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "59e00fc8f341f68d5983d9df7a9bcc3997299c27ba6251f65387d237dabcdf5f",
-          "receiptSignature": "d92bb1ea93130f8288c019fbedede349e178a745d43760081b15500ae0dec189",
-          "latencyMicros": 21,
+          "receiptSignature": "8dfb0b22cdfd971f5a04a5987b3feb562857c8b8d7104235141e8aca04949902",
+          "latencyMicros": 23,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4141,7 +4141,7 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "acca9a8c55246a76cc4c07d89b7a237079d33fbcc30db55db2047e8303dd1565",
-          "receiptSignature": "f539c2847edf9ca525ae2f75970ecc5cea5f1830914e21f442dfd25245d54328",
+          "receiptSignature": "908462deb3a2cfb016d08c227772ec5d0ff32e07f6a51710fb51a7f73f93b38d",
           "latencyMicros": 21,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
@@ -4157,8 +4157,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "4f51df901049ec78ac0d8a541dc740dddf8998c16d3cb8603b36f794957014af",
-          "receiptSignature": "156032622e8cbe1aab15f59d13d81bbc7e85a84646145741a4ffbb2207bf36de",
-          "latencyMicros": 18,
+          "receiptSignature": "159d0458365630ea2317de14e932464be0449ac1de1b60916916575b933e3ec1",
+          "latencyMicros": 22,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         }
       ]
@@ -4174,12 +4174,12 @@
         "DEGRADATION_WITHOUT_REASON": 1000
       },
       "batchMerkleRoot": "3d402a8aa04723ef52052ead57b0ff7002584edd0315be8db9348e754e5aac85",
-      "durationMs": 36,
-      "avgLatencyMicros": 24,
-      "p50LatencyMicros": 20,
-      "p95LatencyMicros": 31,
-      "p99LatencyMicros": 41,
-      "maxLatencyMicros": 1725,
+      "durationMs": 42,
+      "avgLatencyMicros": 29,
+      "p50LatencyMicros": 25,
+      "p95LatencyMicros": 42,
+      "p99LatencyMicros": 53,
+      "maxLatencyMicros": 1604,
       "samples": [
         {
           "index": 34000,
@@ -4193,8 +4193,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "7dd93c4dc06d8fd5d832d241c07bc13fdd15f38b8a61b4297caf28f80b39d500",
-          "receiptSignature": "7adfc404a74ca1993e3acc1210fce10be512a1272f0a1b36249dd30e277dbc96",
-          "latencyMicros": 44,
+          "receiptSignature": "640cea22c363f820d4ff4653755bc7f1fc081be70f98902b511a92832a8c580d",
+          "latencyMicros": 55,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4209,8 +4209,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "d785a55ccadcb4c3b99af216e3fd8cdd409fc446d4ff32ffea72214b746aef5b",
-          "receiptSignature": "bfdde201a91a5986589d9829c33de04a6e299dfc1ef3b1cff17e31066117101c",
-          "latencyMicros": 22,
+          "receiptSignature": "dae05a02feca08f77124b4341a47188ade2312d5c70fe274d7a7fd23000cd2c6",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4225,8 +4225,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "bf8ccb51bb6ab750b095f68025fcdd8a296b8c17f4009c240cfdadec897d6774",
-          "receiptSignature": "cc5e25e3f2716b2584f714871f0b7ac3ca8477844c73ad98695496fa9d11796d",
-          "latencyMicros": 20,
+          "receiptSignature": "d12785e9c24e57e8ea7ced990eddd91fc1bbd44d2b699feffa816d5fe7e15a2c",
+          "latencyMicros": 24,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4241,8 +4241,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "7a3dea3cec194cff523f431a9d8a75bcf17c43bebefc1dd838e9d43f89dc8858",
-          "receiptSignature": "1afd6b38361cd24763e94533cf94e08f5b0330558739fcbab6ea9ffafb4d7dfe",
-          "latencyMicros": 21,
+          "receiptSignature": "83d09db58166424aa3c7b4e87bde8d0534e3fd92f1a16d9f68dd1685381403b7",
+          "latencyMicros": 32,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4257,8 +4257,8 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "3396fb65f03af23d2fd9f5110ced9bec746271d5fc451f256ede5b39d77018b9",
-          "receiptSignature": "f3e3210e0ba3ef1024753065814a45d72be521a4bb23a8c63fb660c4f9e185ef",
-          "latencyMicros": 19,
+          "receiptSignature": "3e978bb150551820522155fec805eda3d7d3dbec9b2a0cf726622fe9599e937a",
+          "latencyMicros": 22,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         },
         {
@@ -4273,7 +4273,7 @@
             "DEGRADATION_WITHOUT_REASON"
           ],
           "canonicalHash": "3cffbf8cb6d9bfca1e827d1efe55eb299c6bca0ad247085155ad723d24dfe79d",
-          "receiptSignature": "625b3559c7779df74b53fa6d77a14f03f70bb339095cd2f1c58fcdb4ed698b43",
+          "receiptSignature": "ba70b9a13321ad189fd66da5361f644053f1e8530d432d860ffee2cab9af071f",
           "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: DEGRADATION_WITHOUT_REASON"
         }
@@ -4290,12 +4290,12 @@
         "CONSTITUTION_VIOLATION": 1000
       },
       "batchMerkleRoot": "f8a53d7770f35593b18defe427f3d075e64da399ee6c1160507310056ce89242",
-      "durationMs": 43,
-      "avgLatencyMicros": 31,
-      "p50LatencyMicros": 26,
-      "p95LatencyMicros": 44,
-      "p99LatencyMicros": 66,
-      "maxLatencyMicros": 1494,
+      "durationMs": 51,
+      "avgLatencyMicros": 38,
+      "p50LatencyMicros": 30,
+      "p95LatencyMicros": 54,
+      "p99LatencyMicros": 71,
+      "maxLatencyMicros": 3185,
       "samples": [
         {
           "index": 35000,
@@ -4309,8 +4309,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "e5cdaa3d21fedea5bb17f612cc49775de28fe94073fabb0dd05057977308bed2",
-          "receiptSignature": "5a668077cf60743e1fcebd2e2f546405ec8c5299a0ff429f3123eead5d510ebf",
-          "latencyMicros": 223,
+          "receiptSignature": "abd23d889863fa4f434b07bd2be8bac2ffb2b0f0b8dc1c2e0212e089831240f8",
+          "latencyMicros": 184,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4325,8 +4325,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "720d70059e8ef7c02afeccad2aee63e000699c6bdcf45cf8aff26e2b1d7eecc0",
-          "receiptSignature": "edad031e3854af0e069da6821947bed6e6c192e09326e0a02942ae716e38c2e3",
-          "latencyMicros": 62,
+          "receiptSignature": "1152892381edbbebe8da8e35e6c99fc88f24eb6472f5440085f73f1103aef37f",
+          "latencyMicros": 46,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4341,8 +4341,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "f8e4c0aa53d50ec225af6ee61680335b0ba26f03ddd141b03605c02069647347",
-          "receiptSignature": "012633a949b90927f42e3f5a8ba45ae5cc10f0069cbf4e428ed9875ceb68e784",
-          "latencyMicros": 62,
+          "receiptSignature": "ee32f939bae522a1fb036d37a46a9a1a5deb4707694b6a4fdb0c85ab9330ba8a",
+          "latencyMicros": 34,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4357,8 +4357,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "459606e9b1c86e05b2537cff0d0dfb10e3cfa2de8b48a24de1c78bede006ecfc",
-          "receiptSignature": "b39fe4bcb2812f39830c1f1637d8f2542829e45543c5f0820c6e4dae9593065e",
-          "latencyMicros": 40,
+          "receiptSignature": "35c20e5b85cea54544949b9adc20a10b78bc0ea38cc6f81aa54377fb410dfc7f",
+          "latencyMicros": 32,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4373,8 +4373,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "2c8b31ca6c8848f6f9866e44af08d7a0ac063e42d18a91251b5569dc7c72ed58",
-          "receiptSignature": "1a7dec5c39414dacfff26828706e1fc136a4114993eaf147ba8d882516e0eab0",
-          "latencyMicros": 40,
+          "receiptSignature": "a07cf174ca7c22905bb3c5f16fd02e09c9d66ab71d6cabd924e0e184f2311c0e",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4389,8 +4389,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "b468b59b4d1344ce8a1f058039be30bef381153a1e3b7db29159202bc50a3ac6",
-          "receiptSignature": "151c0f514ef19c023441ddfe63c12579f2b9b35bb39d0ecd42453822b2ea7754",
-          "latencyMicros": 25,
+          "receiptSignature": "3f96ff62b4e68a60798d75b512bd61b456d381f4d5d739ebe964f5f8e9ee4f04",
+          "latencyMicros": 30,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         }
       ]
@@ -4406,12 +4406,12 @@
         "CONSTITUTION_VIOLATION": 1000
       },
       "batchMerkleRoot": "a38523cad39a00175eb786b24cab024f2fe38ee8baedde660cab6260cc56c5c8",
-      "durationMs": 41,
-      "avgLatencyMicros": 30,
-      "p50LatencyMicros": 25,
-      "p95LatencyMicros": 46,
-      "p99LatencyMicros": 105,
-      "maxLatencyMicros": 1402,
+      "durationMs": 68,
+      "avgLatencyMicros": 50,
+      "p50LatencyMicros": 42,
+      "p95LatencyMicros": 71,
+      "p99LatencyMicros": 314,
+      "maxLatencyMicros": 1712,
       "samples": [
         {
           "index": 36000,
@@ -4425,8 +4425,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "bc7ea47c2923dacba01a884c6ebcae022b5c28b5f52f84a80291148e2613d8c9",
-          "receiptSignature": "72e8f3330c861947980c77a19a031fbc3b791c28dbf597b57c079f0113647714",
-          "latencyMicros": 58,
+          "receiptSignature": "178b65667b3f6caaabd770fd4f13da76f3bfc792211778dd5eaa982ab8cd5672",
+          "latencyMicros": 155,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4441,8 +4441,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "9294c6787bef15a63062da2c5a00c4ded30691f995f61cc9f85be839c44cbea5",
-          "receiptSignature": "7f7736c988fa6baeb87e1e9b7b1bd25d135f330ac856cbabae110d3a755ab520",
-          "latencyMicros": 33,
+          "receiptSignature": "ea5574328d864912dbf6fe1d47bbb733c8a8c282be5a20cdc5175bd56671eb4e",
+          "latencyMicros": 54,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4457,8 +4457,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "a051afc5f9af37aea706abc9878dd87d0a7011636ef2d0846793611e23e97313",
-          "receiptSignature": "8d2db8f22d7a42fce6d4cdd50a0c3937170bf651c4ca707752b3de434c1245f1",
-          "latencyMicros": 28,
+          "receiptSignature": "7f732b09dfbb2fa819aac5865bf3ebc563609a3d62f13dfdb69ee419971ff497",
+          "latencyMicros": 50,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4473,8 +4473,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "af21ea68ebb048b7909d56fe90fe78dbe0bdc9bfc80c107372524cb6063777d5",
-          "receiptSignature": "ec11dccdad4471b368b7205defb62461b132979b3cb0f33561f2bf20d75955ed",
-          "latencyMicros": 60,
+          "receiptSignature": "f624dcc61f6cf312d04dca26076ebe42023c8ae28b7aee062020aced404fbead",
+          "latencyMicros": 46,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4489,8 +4489,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "e45d9b819215fae99592804fa8d7137fea1c680df93973425a243512869b3892",
-          "receiptSignature": "03ba2527797f7bf957855214d1d2600e4db4e9519011bc2fcb0dbb753e477f33",
-          "latencyMicros": 28,
+          "receiptSignature": "700af298b11dc9f30d5c270c87b8bb6789695c9f64919da0546b22879a275e3c",
+          "latencyMicros": 46,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4505,8 +4505,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "f3f6ac3259a70ad1498443402cc777b1d4f2620e0ddfe680f97fbaacbf785374",
-          "receiptSignature": "4fd776918c6118a09b78a4dee0b2e58f37ae25c9a5b5f7405de46e9b0c08e620",
-          "latencyMicros": 27,
+          "receiptSignature": "224753ae0f4c5666784cc26b4e68c5f16bbc4c0b5b9dbfca410c52d1393b9451",
+          "latencyMicros": 46,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         }
       ]
@@ -4522,12 +4522,12 @@
         "CONSTITUTION_VIOLATION": 1000
       },
       "batchMerkleRoot": "022820341a18d6707a68c73b2c09e06fdccea26abfa6bb88b18f2bbc5105ccb3",
-      "durationMs": 39,
-      "avgLatencyMicros": 29,
-      "p50LatencyMicros": 24,
-      "p95LatencyMicros": 39,
-      "p99LatencyMicros": 95,
-      "maxLatencyMicros": 1355,
+      "durationMs": 49,
+      "avgLatencyMicros": 38,
+      "p50LatencyMicros": 29,
+      "p95LatencyMicros": 59,
+      "p99LatencyMicros": 83,
+      "maxLatencyMicros": 1816,
       "samples": [
         {
           "index": 37000,
@@ -4541,8 +4541,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "b9f22362efc558fd3a71e90ff573b0bf6b7fb4d4d884b2b76b00cefc71f76494",
-          "receiptSignature": "4c4c68fcbdbf0d87def198a891216d3602a86ef4b13c5bfcd103bba043c38741",
-          "latencyMicros": 56,
+          "receiptSignature": "00e4e42e2fdfda313598cdde595585edcc69d7e4645ace66144ce6badb05407c",
+          "latencyMicros": 67,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4557,8 +4557,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "8f3722063295b6aa0c3a1ff133790d8456138f98f62f0ee7a33d41be307df01f",
-          "receiptSignature": "3b186571f3b61abb89e9d6d66279186486a6dd89d469364c162d32de9fd5aa98",
-          "latencyMicros": 28,
+          "receiptSignature": "af7c6169fe707eb0ee212478c84b1473f79c03947940fd8caf489e0335ea942a",
+          "latencyMicros": 29,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4573,7 +4573,7 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "4bc601ab57687edc30962e5b2e63becb93fbad39ef8d1cd7c00ba6bf83049855",
-          "receiptSignature": "651ea30e92d9b71e86ecbfddba679c21419b63e5d8bd60fea391780d0952d403",
+          "receiptSignature": "8bd710f6df723350220eeaab0fed15def44e3f601a2a0391a812766296ec0ddd",
           "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
@@ -4589,8 +4589,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "e561cd25cfd9a982ace78f90a5ebd0f5e13dce94382f8e4519fb9c6fe35ea75a",
-          "receiptSignature": "adc06b1a228a9cc33d2f935a6bf2e333e5225ce653e7d1d09fad9ba19529ec11",
-          "latencyMicros": 46,
+          "receiptSignature": "8f9df27f48fab1791e92ce544404b59254172c3ce480748420c1142221a22cbd",
+          "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4605,8 +4605,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "788f1821df569983a28f96487e2aeffb58d56d95143933ee1efa2be3f1f11bfa",
-          "receiptSignature": "d86e8667f61c34af47fbeffdfc4b9bc17eb6285f3d17fd96ad5792c6a6f866d3",
-          "latencyMicros": 26,
+          "receiptSignature": "8ca3d27776d528cabba122be12076d200bce2fd70706c8f4bd485033e2d83902",
+          "latencyMicros": 25,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4621,8 +4621,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "258c1ece93a58cc8a696b3c15dfc04f9de0a49ef0cc3d0c0b591205ba4589da9",
-          "receiptSignature": "9a7be984205b737a3769f9dada691b6c73d453e67840b2c1131c4c136e478ef2",
-          "latencyMicros": 23,
+          "receiptSignature": "8a812d729926d062bbf397acb150eb83c87ff0c6ebbe287d830b1ff36970c2ae",
+          "latencyMicros": 28,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         }
       ]
@@ -4638,12 +4638,12 @@
         "CONSTITUTION_VIOLATION": 1000
       },
       "batchMerkleRoot": "6b1049493f89074284f0317999a202a5e27836a3842ed2d2d0f4a2c2b3cada49",
-      "durationMs": 38,
-      "avgLatencyMicros": 28,
-      "p50LatencyMicros": 24,
-      "p95LatencyMicros": 37,
-      "p99LatencyMicros": 55,
-      "maxLatencyMicros": 1293,
+      "durationMs": 49,
+      "avgLatencyMicros": 39,
+      "p50LatencyMicros": 28,
+      "p95LatencyMicros": 55,
+      "p99LatencyMicros": 115,
+      "maxLatencyMicros": 2399,
       "samples": [
         {
           "index": 38000,
@@ -4657,8 +4657,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "37ee64e21f9d40a02113235e3376ee81464d31d2abf0b0f44e2f7faa07198fc7",
-          "receiptSignature": "0839b9d336facd0bb04bfca8ef992f4a378fb611a5db1b96f8bc678bb9454dd5",
-          "latencyMicros": 61,
+          "receiptSignature": "c12f3860a2d9405af545a941f52b5b2ff9783aff75d5b554608998aa6a6dba1e",
+          "latencyMicros": 67,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4673,8 +4673,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "3648ea13adc398058489cfde6d1eccc04af54c364f92a08ad62cf21fa82e2788",
-          "receiptSignature": "a378f97b1be49d46d1af9ba4c54702897fc9cb646309f138af8b048eea32e4d7",
-          "latencyMicros": 170,
+          "receiptSignature": "648aee322d60541693305a6cefdc59706caf7d45e2c6c1da8ce0e7d612799219",
+          "latencyMicros": 196,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4689,8 +4689,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "c13afe6fe5aec82f4f3e28dd419f7ef77b14dfe1ed864e853a49c026ef5d63c5",
-          "receiptSignature": "54d9a1b6101949434bf709de1b12547ee614167e8265d4fce11f0d98e7e25dd7",
-          "latencyMicros": 27,
+          "receiptSignature": "ad2aafb16a8779b77217ab0d9ee5e261177180343cfdfdf3e866df3a9ba43f31",
+          "latencyMicros": 29,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4705,7 +4705,7 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "032e9e0536ada4ba4ed4babc45f817fb97fb050cd4dddcf60c35c3d05713133e",
-          "receiptSignature": "a1ec0fb1a74de998c331c53dae82a3add3f2a442c68a73f04ba0efe82c37b91e",
+          "receiptSignature": "eb5abdef4dd76a47239668f6d4aaa38e236df11cb94f4fcdc3135914112737cd",
           "latencyMicros": 26,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
@@ -4721,8 +4721,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "283b477e2bc975c3baa9bcfe2c91ecfb017a502c956f95a4c4747b7e318dce4f",
-          "receiptSignature": "81bb7dfc9835a3bab2dca78795ff823b75fdd82a58b717e65c4e957d6cd7eb3c",
-          "latencyMicros": 26,
+          "receiptSignature": "553c881f841e7a7587d00ed5f38561fe2e880516c63c4fe42733a2e82267c25d",
+          "latencyMicros": 27,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4737,8 +4737,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "ac56086841bf1fbb8a3ed6b446196a60bfc7f2e210fb50e82105009e4746a8ef",
-          "receiptSignature": "b2aeee68d01f528f0d1c4ac62fb4fe2e1a0244e7a2bfae837152abaced6245d7",
-          "latencyMicros": 34,
+          "receiptSignature": "c1de0d9a27a431ced5f87b1c6d09614976dc1ddef07568278eebffa16f4091e9",
+          "latencyMicros": 24,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         }
       ]
@@ -4754,12 +4754,12 @@
         "CONSTITUTION_VIOLATION": 1000
       },
       "batchMerkleRoot": "027147a553ac4c00898223061e8c3ef2a702e77b33e206f4ff249d3ef7549a0b",
-      "durationMs": 40,
-      "avgLatencyMicros": 29,
-      "p50LatencyMicros": 24,
-      "p95LatencyMicros": 40,
-      "p99LatencyMicros": 55,
-      "maxLatencyMicros": 1788,
+      "durationMs": 52,
+      "avgLatencyMicros": 37,
+      "p50LatencyMicros": 30,
+      "p95LatencyMicros": 58,
+      "p99LatencyMicros": 74,
+      "maxLatencyMicros": 1843,
       "samples": [
         {
           "index": 39000,
@@ -4773,8 +4773,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "e9588d11b5c4b6054eb70d501ca74094142ad0c2e81d904f0b889e95aade9e1f",
-          "receiptSignature": "e0f9cfb216247adbab35cbab1cae77fc4b601e49dab339632298f3ecc4f034b1",
-          "latencyMicros": 51,
+          "receiptSignature": "150b8b58fadf96bc36ee1699d9ed52510b180ab004063d1a3fbd4e6f6278d3cf",
+          "latencyMicros": 78,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4789,8 +4789,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "278961a3f0716f62c86f1f1ec95d0b5ed15ca37e5e953feb9e874136b9424e08",
-          "receiptSignature": "b5e1f4e62dfe139513a023cd647c786f55890a2b240c9ebcc4abd7c7af7947ef",
-          "latencyMicros": 28,
+          "receiptSignature": "de2a113faf6e1d099dcf792805b573859722a07f8d423f9bad1dabcc5b9146d2",
+          "latencyMicros": 43,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4805,8 +4805,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "8d576233bdb67f77f67e7824cd30622472c721f02065b4163ca6cfcf885ceaeb",
-          "receiptSignature": "3ef60993b5fb9165d1f1180f59e4a2519200af1eb0bd6757e2947977b6046eb2",
-          "latencyMicros": 24,
+          "receiptSignature": "7904bc2380f5a3564dd697621f6dfc658650a1f51fe23e0ffde7e9cb10cd728d",
+          "latencyMicros": 32,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4821,8 +4821,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "a453f703aa704dcbbf92be143a88626b30c59bba79e13e35d55bc13c1a2ae221",
-          "receiptSignature": "359cbd80137c099bef7b063dd8dcb2e6344b9ead4d865461ff76d64051c52113",
-          "latencyMicros": 24,
+          "receiptSignature": "94f38d14d7108662893308a75c54537a544ef397031c55c26a036736f557237d",
+          "latencyMicros": 34,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4837,8 +4837,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "5adb42e996c6d115f94dd4406a1157261312123770b79927576a5c5f6b6b11ce",
-          "receiptSignature": "974c8881fa8b36b2d1c84e6901ce2d2e21b0a314bad9443bafddf61fe3fd6902",
-          "latencyMicros": 23,
+          "receiptSignature": "bea596ea8ffb432cc825fe729986e258223db8ddfb9f4bd8b1681edd06839a42",
+          "latencyMicros": 32,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         },
         {
@@ -4853,8 +4853,8 @@
             "CONSTITUTION_VIOLATION"
           ],
           "canonicalHash": "2c264bed0dcd37a44d7572189f2b3b676977308603fadf767cf0f7e2a2a2bedf",
-          "receiptSignature": "fe17ad60a24a40de3622dc22472bcf8d6e3067da9b5f306ca37c575056217353",
-          "latencyMicros": 24,
+          "receiptSignature": "aa6effece48b840b6a2b18049a735b1e63a822d5a2123f24e0dc6a6c4d28df3a",
+          "latencyMicros": 37,
           "explanation": "Boundary checks failed with violations: CONSTITUTION_VIOLATION"
         }
       ]
@@ -4870,12 +4870,12 @@
         "CANON_CONTRADICTION_QUARANTINE": 1000
       },
       "batchMerkleRoot": "c5aa558ffb40b99a324cbe18c2ffe88c4dd2b379e27bdb7f6e63617706032c22",
-      "durationMs": 19,
-      "avgLatencyMicros": 3,
-      "p50LatencyMicros": 2,
-      "p95LatencyMicros": 5,
-      "p99LatencyMicros": 14,
-      "maxLatencyMicros": 288,
+      "durationMs": 33,
+      "avgLatencyMicros": 4,
+      "p50LatencyMicros": 3,
+      "p95LatencyMicros": 6,
+      "p99LatencyMicros": 7,
+      "maxLatencyMicros": 328,
       "samples": [
         {
           "index": 40000,
@@ -4890,7 +4890,7 @@
           ],
           "canonicalHash": "867b96b7930eb7a7351c59240b671db717011bd269d48e516124138ceda8a1c5",
           "receiptSignature": "0ae58bd95c051a2f848c4ff3f3895d47c201d47f184788fe9446e62f3cc02ad9",
-          "latencyMicros": 288,
+          "latencyMicros": 328,
           "explanation": "Direct violation of frozen Canon: Comparative canon superiority is explicitly UNPROVEN pending frozen real-model harness. Unverified marketing claims are barred."
         },
         {
@@ -4954,7 +4954,7 @@
           ],
           "canonicalHash": "bc3ae2b00b46f23cc9a0a76a6cce747ad35f2ba73b6245fae0b18aded4a043eb",
           "receiptSignature": "ca7411df3c1d1a67bad1a0e18850c316dec6441bc1084bb8312a01f8093bb203",
-          "latencyMicros": 124,
+          "latencyMicros": 135,
           "explanation": "Direct violation of frozen Canon: Comparative canon superiority is explicitly UNPROVEN pending frozen real-model harness. Unverified marketing claims are barred."
         },
         {
@@ -4970,7 +4970,7 @@
           ],
           "canonicalHash": "ae966c72c1efe6202baf90b7de0409ddf8a8877d3324105abdf9841db23bd223",
           "receiptSignature": "82cefc29624ec75e4f3e8a34682677221782698b10da3210f064d3f0f7abefb1",
-          "latencyMicros": 2,
+          "latencyMicros": 3,
           "explanation": "Violates sovereign Canon: Human identity and intent are first-class sovereign constraints, not transient context to be diluted."
         }
       ]
@@ -4986,12 +4986,12 @@
         "CANON_CONTRADICTION_QUARANTINE": 1000
       },
       "batchMerkleRoot": "c16b365f697d9586c17767cfde98a8c494e63f85d7500ab07ee199f94851e576",
-      "durationMs": 21,
-      "avgLatencyMicros": 2,
+      "durationMs": 24,
+      "avgLatencyMicros": 5,
       "p50LatencyMicros": 2,
-      "p95LatencyMicros": 3,
-      "p99LatencyMicros": 4,
-      "maxLatencyMicros": 67,
+      "p95LatencyMicros": 4,
+      "p99LatencyMicros": 6,
+      "maxLatencyMicros": 3151,
       "samples": [
         {
           "index": 41000,
@@ -5006,7 +5006,7 @@
           ],
           "canonicalHash": "208041e1798071c5523970560282b414b2fb8147cb000ebb8b24a301b9062c2c",
           "receiptSignature": "36d7be4e943c694acc0ac2d60b09c23178415b119bd589f37788ff2ab490eb40",
-          "latencyMicros": 12,
+          "latencyMicros": 16,
           "explanation": "Direct violation of frozen Canon: Comparative canon superiority is explicitly UNPROVEN pending frozen real-model harness. Unverified marketing claims are barred."
         },
         {
@@ -5022,7 +5022,7 @@
           ],
           "canonicalHash": "fbb0b711234994fea9a9dd19e053d21ca2cb73d9f80d076130ae47c65e584bbb",
           "receiptSignature": "f09d9cac7398f8049699ab981865e3169157bcb9bf52b0491f7aeccacaaea8ee",
-          "latencyMicros": 1,
+          "latencyMicros": 3,
           "explanation": "Direct violation of frozen Canon: Comparative canon superiority is explicitly UNPROVEN pending frozen real-model harness. Unverified marketing claims are barred."
         },
         {
@@ -5054,7 +5054,7 @@
           ],
           "canonicalHash": "61123c357000bb597f2b28dbefd65ee3fe5b2f73cb9b0305ff01ce859a0169a8",
           "receiptSignature": "0c0192dab04a9bc17bdae4be0d16ccddd8159f46e6319727681887d2ccee648f",
-          "latencyMicros": 5,
+          "latencyMicros": 4,
           "explanation": "Violates sovereign Canon: Human identity and intent are first-class sovereign constraints, not transient context to be diluted."
         },
         {
@@ -5102,12 +5102,12 @@
         "CANON_CONTRADICTION_QUARANTINE": 1000
       },
       "batchMerkleRoot": "0cba9bafe669d777296151e985ef5fb848b127478476f8bc6f0dac1b56ea35a3",
-      "durationMs": 19,
+      "durationMs": 18,
       "avgLatencyMicros": 1,
       "p50LatencyMicros": 1,
-      "p95LatencyMicros": 2,
-      "p99LatencyMicros": 3,
-      "maxLatencyMicros": 17,
+      "p95LatencyMicros": 3,
+      "p99LatencyMicros": 4,
+      "maxLatencyMicros": 18,
       "samples": [
         {
           "index": 42000,
@@ -5122,7 +5122,7 @@
           ],
           "canonicalHash": "7c1bd55e84ec7fb77f865cb7fa2efc2ef9e0242203c890a5d77312438d0d8bdf",
           "receiptSignature": "9f9e9dcab2eca2d72f13b34ebc3d2501d69232e652df7682d8a3d546e795bc89",
-          "latencyMicros": 17,
+          "latencyMicros": 10,
           "explanation": "Contradicts honesty disclosure: Substrate uses NLI-proxy v2 + optional LLM-judge adapter; not a trained on-device CrossEncoder."
         },
         {
@@ -5218,12 +5218,12 @@
         "CANON_CONTRADICTION_QUARANTINE": 1000
       },
       "batchMerkleRoot": "46282609f03e0db76320360e92435ed1869c54e2eef610d672542d5fe70711e5",
-      "durationMs": 18,
+      "durationMs": 19,
       "avgLatencyMicros": 1,
       "p50LatencyMicros": 1,
       "p95LatencyMicros": 2,
-      "p99LatencyMicros": 2,
-      "maxLatencyMicros": 13,
+      "p99LatencyMicros": 3,
+      "maxLatencyMicros": 12,
       "samples": [
         {
           "index": 43000,
@@ -5238,7 +5238,7 @@
           ],
           "canonicalHash": "c5c4644b3869ef44a6423044d63946b16c9323d7cddd469e2303aee58ba96c34",
           "receiptSignature": "6b24387e1a865025bf0f8832baba09cc2f6b3acb08e8f069324f2f701defaf98",
-          "latencyMicros": 10,
+          "latencyMicros": 11,
           "explanation": "Contradicts honesty disclosure: Substrate uses NLI-proxy v2 + optional LLM-judge adapter; not a trained on-device CrossEncoder."
         },
         {
@@ -5270,7 +5270,7 @@
           ],
           "canonicalHash": "461cd8dfb7bb0798ebf78fcdbfe9c724df325364402570c5c15d2d090401fc01",
           "receiptSignature": "330cb98fbc0f44262ef9b9c964b6c96752724ae5fb65b5d02841b032b077aee6",
-          "latencyMicros": 1,
+          "latencyMicros": 2,
           "explanation": "Violates sovereign Canon: Human identity and intent are first-class sovereign constraints, not transient context to be diluted."
         },
         {
@@ -5318,7 +5318,7 @@
           ],
           "canonicalHash": "42e4788b0ae288b50c57e69ac4b1b3df171c568aff5a35465342ac2abf4b922e",
           "receiptSignature": "f6b86c9c1b707cb22b664a705573c107817260cb7e2d004735f97a304923633b",
-          "latencyMicros": 3,
+          "latencyMicros": 2,
           "explanation": "Contradicts architecture canon: Single-process / in-memory substrate field; project isolation is designed, not battle-tested at scale."
         }
       ]
@@ -5334,12 +5334,12 @@
         "CANON_CONTRADICTION_QUARANTINE": 1000
       },
       "batchMerkleRoot": "c1773cdd60de195533bd46bfaf6032ed33e9a3ab14a50f9e13610a466bab56fc",
-      "durationMs": 16,
+      "durationMs": 24,
       "avgLatencyMicros": 1,
       "p50LatencyMicros": 1,
       "p95LatencyMicros": 2,
       "p99LatencyMicros": 3,
-      "maxLatencyMicros": 25,
+      "maxLatencyMicros": 14,
       "samples": [
         {
           "index": 44000,
@@ -5354,7 +5354,7 @@
           ],
           "canonicalHash": "b693395dc06dfd90067a32bbdd1d1b226c95224537f2abf871661b0bb6e48b1b",
           "receiptSignature": "7906719e12d6afdf3e8f94e906515ac09833d845d45d6786a5a1f07101119875",
-          "latencyMicros": 8,
+          "latencyMicros": 10,
           "explanation": "Violates sovereign Canon: Human identity and intent are first-class sovereign constraints, not transient context to be diluted."
         },
         {
@@ -5448,12 +5448,12 @@
       "denied": 0,
       "violationsCount": {},
       "batchMerkleRoot": "d6389adedd5d94afc5139860c29a1b46f93957255d8d81d49e849cd84f01dbec",
-      "durationMs": 58,
-      "avgLatencyMicros": 38,
-      "p50LatencyMicros": 28,
-      "p95LatencyMicros": 55,
-      "p99LatencyMicros": 117,
-      "maxLatencyMicros": 1663,
+      "durationMs": 61,
+      "avgLatencyMicros": 39,
+      "p50LatencyMicros": 31,
+      "p95LatencyMicros": 68,
+      "p99LatencyMicros": 158,
+      "maxLatencyMicros": 920,
       "samples": [
         {
           "index": 45000,
@@ -5465,8 +5465,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "0167e86a8f122fe1b7f18b1568c6a8574273ffdeb59be64439068d4e802db99e",
-          "receiptSignature": "07924f011f7adae4be8a0b1e6198a5d8c69f3490c5b694fe5d022379a34d0a1f",
-          "latencyMicros": 391,
+          "receiptSignature": "946a01abd7619214e7a12a3c80fe9e48b8c1a7079265fd427db101d3d420a046",
+          "latencyMicros": 360,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5479,8 +5479,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "b814758ab05d495cab62ce1b1aa472f5da5a932596e504f590a5c7a6a9576357",
-          "receiptSignature": "4354b9683fc2855506638c9d5c6cbed106cfe647c27834d7c8c7589680ac2740",
-          "latencyMicros": 52,
+          "receiptSignature": "57ad431afa8e60d8255f413f5c46d55211c140f46c9623196d94a2576a740fbb",
+          "latencyMicros": 67,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5493,8 +5493,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "800d44539382a899c20936584cfe6ecab966424fef4a668363a9225ff4b1fc5c",
-          "receiptSignature": "4cb95ef968bfd20c06f9617e7b1fcb1490106615eb8183f4442b5435c1eb5b74",
-          "latencyMicros": 50,
+          "receiptSignature": "b4a1ddac4661c4182269eec127ea0dd80735050a0c09c98f312cfd2b87c3b33c",
+          "latencyMicros": 42,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5507,8 +5507,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "2c978506f8abf8ca717a311e663b422f2e821d485a39d362e9349620182e3bb9",
-          "receiptSignature": "9649453a8c66ff76bfe4d0801566e26e9f4b8e61729d98f7340fe2d736fe4327",
-          "latencyMicros": 29,
+          "receiptSignature": "c425610a8b916c829c1d60aa3d45a2bc93c8f25dd67d9c43bcdf566143aba54f",
+          "latencyMicros": 33,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5521,8 +5521,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "cd421957589b33588d501c6f1d0bd205819f74c08b020e0035da343ec1379b8f",
-          "receiptSignature": "2bc21dcebb6936e6a13dd2489d7bae947e0d4ffa92f7a214d336ea31b07aa193",
-          "latencyMicros": 30,
+          "receiptSignature": "000dfeb9d3c82e7c2d1ca58b01c99102bf6228bfb700da95f292b482ff764c0a",
+          "latencyMicros": 32,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5535,8 +5535,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "9aba57f9154f692e6a31fcf1e577e4a0b73037d7a7975d088120f631fa12f8aa",
-          "receiptSignature": "6c9b82f00fb26c9c8d068b1e003aae5ea0737718925b5bf333efa1ff936e4ef7",
-          "latencyMicros": 26,
+          "receiptSignature": "abad445c0cf2ac73fa9d8adef1250b8abd37c2448fdabde933dab960d34845fa",
+          "latencyMicros": 31,
           "explanation": "All boundary invariants verified successfully."
         }
       ]
@@ -5550,12 +5550,12 @@
       "denied": 0,
       "violationsCount": {},
       "batchMerkleRoot": "b2583260609b18c3c316fad50fb76b9b957dd872eb69d3b4e3d919ec8dd73d70",
-      "durationMs": 47,
-      "avgLatencyMicros": 32,
-      "p50LatencyMicros": 27,
-      "p95LatencyMicros": 48,
-      "p99LatencyMicros": 65,
-      "maxLatencyMicros": 1643,
+      "durationMs": 52,
+      "avgLatencyMicros": 38,
+      "p50LatencyMicros": 29,
+      "p95LatencyMicros": 62,
+      "p99LatencyMicros": 126,
+      "maxLatencyMicros": 2283,
       "samples": [
         {
           "index": 46000,
@@ -5567,8 +5567,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "a7115e3970a7013cb96ba507f9cff59b7133c04208afe2f37cc213535834935d",
-          "receiptSignature": "a56202af706718c308166da4e4df0a6f94b54ff2e09adbf01467b67ee05194b1",
-          "latencyMicros": 102,
+          "receiptSignature": "be60802c1b8f8b3d4d6dae6bcbc682da3a3c2ef40e3e3000f6c6e7d00fc50044",
+          "latencyMicros": 92,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5581,8 +5581,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "35b0676987d81737945e8a86ca5731f5097afc48d4edc1ad658190ff0d1bf85b",
-          "receiptSignature": "ed824b2f6a99ef6c613b27286dd836059a06ea78dfa277b1eb9f3a2d6f0fad3f",
-          "latencyMicros": 32,
+          "receiptSignature": "eb3afaf963577b0bce217ed22497fcc50539ee938b26064f0ade8d9f440d04b9",
+          "latencyMicros": 34,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5595,8 +5595,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "10edf00dcb6f58fc0dc8da9a084fb46e2b65b9720afe76e29c4d274c0c66200c",
-          "receiptSignature": "5c9c82b4364039785fd770c627d5ca9cc129d51ca23259954979416eeccaf135",
-          "latencyMicros": 30,
+          "receiptSignature": "c4b207a376366cbc783a30188fb14e692545c9309974d0cb8d165404d77edeb8",
+          "latencyMicros": 31,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5609,8 +5609,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "12205473937b8622e3f71984d5dd7833b347cd1fc8fbf478d20cb7b54cccb26d",
-          "receiptSignature": "746f73f00a928cfcc7fa1d46c844b0eb8d122f6e1464378cb500f04246957929",
-          "latencyMicros": 29,
+          "receiptSignature": "81ae1d5d78e43f082d5bdb160a6b0383e53b86399cb37eb95322f7b59718da6a",
+          "latencyMicros": 30,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5623,8 +5623,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "46eb9e60da8396828ebffff8cb368930fdc29cad6e17d8214258c9659ab6e409",
-          "receiptSignature": "20571f046dcc7fc0aef85311f307eb520e06263abb5af8a47f299a2cb6736ad4",
-          "latencyMicros": 28,
+          "receiptSignature": "61bd05bf51712e41889e685cd3f8faa4f92d112d12be8038d40f46a78075e3e7",
+          "latencyMicros": 31,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5637,8 +5637,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "323a5179356210f783431272fb8868cb58a63e3e4e481c47f64c57fd708e33df",
-          "receiptSignature": "5e1fc3cbc28e2f3d34e9aed663751d1ff14f67d0d28799a474045664c0a6b9d3",
-          "latencyMicros": 27,
+          "receiptSignature": "4413c9ded91f66d12e8dfb503f3027bf9f976a236a2333d9fb484e7c530d52fe",
+          "latencyMicros": 26,
           "explanation": "All boundary invariants verified successfully."
         }
       ]
@@ -5652,12 +5652,12 @@
       "denied": 0,
       "violationsCount": {},
       "batchMerkleRoot": "e0d876a80b372e3cc6fd191594c640bc41d91c70a23fb03d48c0b16f9543879d",
-      "durationMs": 47,
-      "avgLatencyMicros": 34,
+      "durationMs": 50,
+      "avgLatencyMicros": 36,
       "p50LatencyMicros": 28,
-      "p95LatencyMicros": 48,
-      "p99LatencyMicros": 80,
-      "maxLatencyMicros": 1201,
+      "p95LatencyMicros": 49,
+      "p99LatencyMicros": 127,
+      "maxLatencyMicros": 1635,
       "samples": [
         {
           "index": 47000,
@@ -5669,8 +5669,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "896343dd0cf5354ed37fbe18eed764e229db837360f19ac033c07ecc13adf62d",
-          "receiptSignature": "f30ff55a1469f4373043a703ea3a0d2a7b19a7dc3bf2cbe80d8fca82832d38dc",
-          "latencyMicros": 71,
+          "receiptSignature": "2c53725e0bcf1251c8efd97ca3ef9bfe07d71029394fc3723602dcacb403f37c",
+          "latencyMicros": 86,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5683,8 +5683,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "55f87551e1f4e77bc9d7bc48d03bbbf0853197e7f8d2de3e330eff007dcc7e3b",
-          "receiptSignature": "cb5ba4b804cd12d9bd71a34c4d3b5e369e9b6790e7eea364ad2d24e44f853b15",
-          "latencyMicros": 33,
+          "receiptSignature": "086c824c7d2e15ce9eb4b9c986a3d2e331c62e928be0d9e40b64fc956dd9f8fc",
+          "latencyMicros": 32,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5697,8 +5697,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "50a84c9c9f922f7034355aaa6507d02f7f0304c46c50d7e986ba2384d77a67d2",
-          "receiptSignature": "e11ca9126e0bf851cfadf23a1a78186171ce403b7b2512785fd19a654b671062",
-          "latencyMicros": 29,
+          "receiptSignature": "39db1557ab7fb51c4831a94a263f6775bfde6be42383f557bf394ddc652f4136",
+          "latencyMicros": 27,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5711,8 +5711,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "106c55efb5f732989d5eb33ef6278aef28d9384beefb662eb6ea788ccb406f40",
-          "receiptSignature": "c720bce19bbd835577779176844e2de9a0eb17ac3b481bf051adc12b6ef3c7b4",
-          "latencyMicros": 30,
+          "receiptSignature": "cff71a0b614b8c2d514effd62ae0d9aa1f342930affdf341dd88fc3bf1a10e06",
+          "latencyMicros": 31,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5725,8 +5725,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "7b06de58bf3ee08f51ba5c49316d411e67af5023675d9004c2815f57937ce192",
-          "receiptSignature": "209a07d8639887c40b687180ddc61d8811d7c89abd34fa665f6eb837693f08bd",
-          "latencyMicros": 27,
+          "receiptSignature": "86882d1b648bd6fb4f254c3cb48e57f8ec70b1ca8cf0fc1564519e6cb16d8781",
+          "latencyMicros": 28,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5739,8 +5739,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "6acd2447e242907d9c14585a40e6d223b7f452422224d59400d086f94af6389e",
-          "receiptSignature": "24d95f5f452d66da31679677f7fad0356675ab92d59eae90a179e5b03c4ce7a9",
-          "latencyMicros": 30,
+          "receiptSignature": "1c2f378ab62276a0ef414052717fe1453c8b5277849a8a972a1c70290017b1b8",
+          "latencyMicros": 37,
           "explanation": "All boundary invariants verified successfully."
         }
       ]
@@ -5754,12 +5754,12 @@
       "denied": 0,
       "violationsCount": {},
       "batchMerkleRoot": "d1f620494ba2fff52cfc6759583a46e938e141b1a46bd720c655cfb24f6defd9",
-      "durationMs": 51,
-      "avgLatencyMicros": 37,
+      "durationMs": 43,
+      "avgLatencyMicros": 29,
       "p50LatencyMicros": 26,
-      "p95LatencyMicros": 58,
-      "p99LatencyMicros": 227,
-      "maxLatencyMicros": 1712,
+      "p95LatencyMicros": 43,
+      "p99LatencyMicros": 68,
+      "maxLatencyMicros": 443,
       "samples": [
         {
           "index": 48000,
@@ -5771,8 +5771,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "dbea27eed515e3f8f6813a8746f8d98100e8cd1b9b118a1dc8e320be664eb92c",
-          "receiptSignature": "8ddb029be3f3867ed5f80ef987d0df0df1e7155074a4950137b4ad2e13a5b2d1",
-          "latencyMicros": 68,
+          "receiptSignature": "d718b71abbb3678b6aa62ca881da62bb6570e20242db234c19308356945a80a8",
+          "latencyMicros": 99,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5785,8 +5785,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "b65ff9bc8314a478acb484a37eab936698af36aefdcb717c7a3788badc84b72c",
-          "receiptSignature": "c6d6ff4b0c6565ec79897b6c23895792d61c34af30b4b1131114434b82730d51",
-          "latencyMicros": 506,
+          "receiptSignature": "7b9b69fe7b9af6d5a0332b8a763bf317f203653a49cbac0b9378e06cd7659fdc",
+          "latencyMicros": 443,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5799,8 +5799,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "43a8737372c8b75362740b5818fa451062e6eff2fa188f253e0fba47bfac828f",
-          "receiptSignature": "4f6d451f358fdde8e55e413e4c728e2fdda30f459dc082bfc6260bcf11d3d877",
-          "latencyMicros": 26,
+          "receiptSignature": "3bb6e29f9ccd1e686181bab6b1c8940157d7460d9151adedfb916564a396e708",
+          "latencyMicros": 28,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5813,8 +5813,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "ad21793a76aa0527f9dc2dd6e4c573b175cb3d650940e1c94d4716a84a098e83",
-          "receiptSignature": "9505bed0b950d40b2f136d9f24dbeebc150d71f85023240f2b3b714679043f0d",
-          "latencyMicros": 38,
+          "receiptSignature": "c697452a0b6e7aa621916bc75e15f68cb91969484fb306b120fbe39864e783c4",
+          "latencyMicros": 28,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5827,8 +5827,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "dd0658eb7ee5369c2ba24c06242a229dc059398eb62f19b10d4d0fe0a16c1fa0",
-          "receiptSignature": "4be2ba1fb997401d19c489774876b52913bd5818e7b088d84f61773f214c2789",
-          "latencyMicros": 70,
+          "receiptSignature": "e5e0121a77708e909bdff9cd963d4ac199205f0ad319c137991525cbe23c22ab",
+          "latencyMicros": 29,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5841,8 +5841,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "00eebe068a761221da274af565be2cf1c8172ca924b3e557bd71b38fe3bfa853",
-          "receiptSignature": "63cad345bafc433995b97a46a8bb8e94f3cc8a37361ec3a71f1ad92f690b6c80",
-          "latencyMicros": 23,
+          "receiptSignature": "4c49c7bd0bc6391096b02a36baaa31cc82a412be8ff47ed8a530f8cb08a755f5",
+          "latencyMicros": 26,
           "explanation": "All boundary invariants verified successfully."
         }
       ]
@@ -5856,12 +5856,12 @@
       "denied": 0,
       "violationsCount": {},
       "batchMerkleRoot": "24c62f3f58b1ab85bf5789739c9d847a1cea16ab12dfbfe5f2eb7aaa32349e65",
-      "durationMs": 40,
-      "avgLatencyMicros": 29,
-      "p50LatencyMicros": 25,
-      "p95LatencyMicros": 39,
-      "p99LatencyMicros": 52,
-      "maxLatencyMicros": 1315,
+      "durationMs": 45,
+      "avgLatencyMicros": 32,
+      "p50LatencyMicros": 28,
+      "p95LatencyMicros": 43,
+      "p99LatencyMicros": 53,
+      "maxLatencyMicros": 1500,
       "samples": [
         {
           "index": 49000,
@@ -5873,8 +5873,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "a141cd748e59038711cf1433285b7cd5f4956b80c8922070707f566c84800d45",
-          "receiptSignature": "6a546402c0d602879f4a4c9c1b0757265ccf3dc55ea408b861d0736678150d2a",
-          "latencyMicros": 61,
+          "receiptSignature": "1d43ba3f6dec55488a5c46f6273e792b7ab8566bf3340bfbe76588ab8c432d6e",
+          "latencyMicros": 70,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5887,8 +5887,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "a67c179e498d622c22e063a59a0cd1f5ee1f69b0e34ee311dc83e24c8b2f4969",
-          "receiptSignature": "4829a644697eada47c27123520e39cb72b4a68ea6793ebe09a598570b2c03293",
-          "latencyMicros": 28,
+          "receiptSignature": "9311deda421860bac279ba3b41061801aa7e3fffdb57ae97cfa4eddaa54ad701",
+          "latencyMicros": 29,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5901,8 +5901,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "2f62097bd669b553dec7b5e94c71ec74f7ea18ccd193bca11d37b782310d3f78",
-          "receiptSignature": "69318c354cc23863733865b4f5684ca90f3a10478763c8e37e16f2de801465c6",
-          "latencyMicros": 24,
+          "receiptSignature": "f15d893b777278cf0ba31e202be6f9e0a439171179711d776e37fa8d9ecb0e1b",
+          "latencyMicros": 32,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5915,8 +5915,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "3bba5f279f28d9b8af7e58b566b8676b9ebda1ae1bfe9cc65a311e54463f140e",
-          "receiptSignature": "ec8b5811aa47a64ca256a4d540dfb15bcd03702720d9a55ff0cf2b16339aa13b",
-          "latencyMicros": 26,
+          "receiptSignature": "bb580b674e757a60341b4651daf819397b3ff346eb1e4f5e56cd5fc7bdb8ffe5",
+          "latencyMicros": 30,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5929,8 +5929,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "a13f27b1846a31b386e73a524cd3c96459cb6d7089742859b40dedfc3cd29da4",
-          "receiptSignature": "f26665a0fa3fce24158f49f9c0e3cb5efc12b700a3b5afd83df45e6ae48214f3",
-          "latencyMicros": 26,
+          "receiptSignature": "8620b28da2006014bbf23f2e142af5d892b39cd04ddb4b84fcd55e91c145daae",
+          "latencyMicros": 30,
           "explanation": "All boundary invariants verified successfully."
         },
         {
@@ -5943,8 +5943,8 @@
           "decision": "Granted",
           "violations": [],
           "canonicalHash": "89cde3ac43e16a1d1d6bc1d48cafd47fb95b8b5a82448e7469f18dd5dff8a907",
-          "receiptSignature": "a5c072e6d7cfa319935d098823818ec975521b2b443e574f9aa68f1c96fe49b9",
-          "latencyMicros": 25,
+          "receiptSignature": "6491cf72b80531fdcfe7a4fcb16fcfefcc81963f10e23e87281fe301a5599688",
+          "latencyMicros": 30,
           "explanation": "All boundary invariants verified successfully."
         }
       ]
