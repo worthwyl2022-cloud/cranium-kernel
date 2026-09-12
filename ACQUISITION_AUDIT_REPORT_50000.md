@@ -2,7 +2,7 @@
 
 **Document Type:** Cryptographic Verification Receipt & Diligence Artifact  
 **Date:** 2026-09-12  
-**Campaign ID:** `CRANIUM-STRESS-50K-MTYLLFVQ`  
+**Campaign ID:** `CRANIUM-STRESS-50K-MTYMJ710`  
 **Execution Mode:** Deterministic In-Kernel State Reducer + Pure SHA-256 (Live Execution, No Mocks)  
 **Status:** **PASSED (100% Invariant Defense)**  
 **Master Merkle Root:** `d1f1446c0e2feba5a9153014270b982576d46591da61ba037fd63711e4424da3`  
@@ -29,8 +29,8 @@ The test suite systematically attacked all eight structural boundaries defined i
 | **Total Test Cycles** | **50,000** | 100% live in-memory execution |
 | **Adversarial Invasions Defended** | **45,000 (100.0%)** | Zero boundary breaches |
 | **Legitimate Transitions Granted** | **5,000 (100.0%)** | Zero false rejection of valid evidence |
-| **Total Duration** | **2.71 seconds** | Continuous microsecond execution |
-| **Throughput** | **18,463.8 ops/sec** | Zero external network bottlenecks |
+| **Total Duration** | **2.41 seconds** | Continuous microsecond execution |
+| **Throughput** | **20,755.5 ops/sec** | Zero external network bottlenecks |
 | **Cryptographic Root** | `d1f1446c0e2feba5a9153014270b982576d46591da61ba037fd63711e4424da3` | 50 Merkle batch roots aggregated |
 | **Replay Invariant** | **Strictly Preserved** | Zero collision state corruptions |
 
@@ -72,11 +72,11 @@ Every attempted breach generated an explicit, typed `BoundaryViolation` logged t
 ## 4. Latency & Microsecond Timing Distribution
 
 The Cranium state reduction pipeline is non-blocking and deterministic:
-- **Mean Latency:** ~60 &mu;s per transaction
-- **p50 (Median):** ~32 &mu;s
-- **p95:** ~369 &mu;s
-- **p99:** ~497 &mu;s
-- **Max Latency:** ~1203 &mu;s
+- **Mean Latency:** ~56 &mu;s per transaction
+- **p50 (Median):** ~29 &mu;s
+- **p95:** ~354 &mu;s
+- **p99:** ~467 &mu;s
+- **Max Latency:** ~1256 &mu;s
 
 ---
 
