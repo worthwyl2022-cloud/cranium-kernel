@@ -27,6 +27,7 @@ import {
   type JournalOperation,
   type MemorySnapshot,
   type MemoryConfig,
+  type ReceiptVerificationContext,
   DEFAULT_MEMORY_CONFIG,
 } from './types';
 
@@ -111,6 +112,14 @@ export class MiracleMemoryStore {
 
     // Validate tier-specific constraints
     this.validateWriteConstraints(atom.id, tier, weight, receiptHash, quarantineReason);
+    if (tier === MemoryTier.CANON || tier === MemoryTier.CONSTITUTIONAL) {
+      this.requireVerifiedReceipt(receiptHash, {
+        atomId: atom.id,
+        operation: 'WRITE',
+        previousTier: null,
+        newTier: tier,
+      });
+    }
 
     // Check for existing atom
     const existing = this.atoms.get(atom.id);
@@ -175,6 +184,12 @@ export class MiracleMemoryStore {
         `at least 16 characters (got ${receiptHash?.length ?? 0}).`
       );
     }
+    this.requireVerifiedReceipt(receiptHash, {
+      atomId,
+      operation: 'PROMOTE',
+      previousTier: MemoryTier.PROVISIONAL,
+      newTier: MemoryTier.CANON,
+    });
 
     const clampedWeight = this.clampWeight(weight, MemoryTier.CANON);
     const now = new Date().toISOString();
@@ -218,6 +233,12 @@ export class MiracleMemoryStore {
         `Unexplained quarantine is indistinguishable from censorship.`
       );
     }
+    this.requireVerifiedReceipt(receiptHash, {
+      atomId,
+      operation: 'QUARANTINE',
+      previousTier: existing.tier,
+      newTier: MemoryTier.QUARANTINED,
+    });
 
     const now = new Date().toISOString();
     const previousTier = existing.tier;
@@ -254,6 +275,17 @@ export class MiracleMemoryStore {
         `Cannot release atom '${atomId}': current tier is ${existing.tier}, not QUARANTINED.`
       );
     }
+    if (existing.humanReviewed !== true) {
+      throw new Error(
+        `Cannot release atom '${atomId}': human review is required before release.`
+      );
+    }
+    this.requireVerifiedReceipt(receiptHash, {
+      atomId,
+      operation: 'RELEASE',
+      previousTier: MemoryTier.QUARANTINED,
+      newTier: MemoryTier.PROVISIONAL,
+    });
 
     const now = new Date().toISOString();
 
@@ -272,6 +304,30 @@ export class MiracleMemoryStore {
     this.appendJournal('RELEASE', atomId, MemoryTier.QUARANTINED, MemoryTier.PROVISIONAL, receiptHash, now);
 
     return released;
+  }
+
+  /** Record an explicit review decision without changing the atom tier. */
+  markHumanReviewed(atomId: string, reviewReceiptHash: string): MemoryAtom {
+    const existing = this.atoms.get(atomId);
+    if (!existing || existing.tier !== MemoryTier.QUARANTINED) {
+      throw new Error(`Cannot review atom '${atomId}': it is not QUARANTINED.`);
+    }
+    this.requireVerifiedReceipt(reviewReceiptHash, {
+      atomId,
+      operation: 'REVIEW',
+      previousTier: MemoryTier.QUARANTINED,
+      newTier: MemoryTier.QUARANTINED,
+    });
+    const now = new Date().toISOString();
+    const reviewed: MemoryAtom = {
+      ...existing,
+      humanReviewed: true,
+      lastModifiedAt: now,
+      journalIndex: this.journal.length,
+    };
+    this.atoms.set(atomId, reviewed);
+    this.appendJournal('REVIEW', atomId, MemoryTier.QUARANTINED, MemoryTier.QUARANTINED, reviewReceiptHash, now);
+    return reviewed;
   }
 
   // ── Snapshots ───────────────────────────────────────────────────────
@@ -294,6 +350,7 @@ export class MiracleMemoryStore {
       })),
       journalHead: this.journal.length,
       journalHeadHash: this.journalHeadHash,
+      journal: this.journal,
     });
 
     const integrityHash = sha256(serialized);
@@ -304,6 +361,7 @@ export class MiracleMemoryStore {
       journalHead: this.journal.length,
       journalHeadHash: this.journalHeadHash,
       atoms,
+      journal: this.journal.map((entry) => ({ ...entry })),
       kernelVersions: kernelState
         ? {
             cognitiveVersion: kernelState.cognitiveVersion,
@@ -333,6 +391,7 @@ export class MiracleMemoryStore {
       })),
       journalHead: snapshot.journalHead,
       journalHeadHash: snapshot.journalHeadHash,
+      journal: snapshot.journal,
     });
 
     const computedHash = sha256(serialized);
@@ -351,8 +410,16 @@ export class MiracleMemoryStore {
       this.atoms.set(atom.atom.id, atom);
     }
 
-    // Journal continues from current position (we don't overwrite journal history)
-    // The restore itself is journaled
+    if (snapshot.journal.length !== snapshot.journalHead) {
+      throw new Error(
+        `Snapshot journal length mismatch: expected ${snapshot.journalHead}, got ${snapshot.journal.length}.`
+      );
+    }
+    this.journal = snapshot.journal.map((entry) => ({ ...entry }));
+    if (this.journalHeadHash !== snapshot.journalHeadHash) {
+      throw new Error('Snapshot journal head mismatch. The journal prefix is not authentic.');
+    }
+    // The restore itself is journaled after the verified snapshot prefix.
     const now = new Date().toISOString();
     this.appendJournal('SNAPSHOT', 'SYSTEM', null, MemoryTier.CONSTITUTIONAL, `restore:${snapshot.integrityHash}`, now);
   }
@@ -406,12 +473,43 @@ export class MiracleMemoryStore {
    * the new chain root. A snapshot should be taken before compaction.
    */
   compactJournal(keepLast: number): { removed: number; newLength: number } {
+    if (!Number.isInteger(keepLast) || keepLast < 1) {
+      throw new Error(`keepLast must be a positive integer (got ${keepLast}).`);
+    }
     if (keepLast >= this.journal.length) {
       return { removed: 0, newLength: this.journal.length };
     }
 
     const removeCount = this.journal.length - keepLast;
-    this.journal = this.journal.slice(removeCount);
+    const retained = this.journal.slice(removeCount).map((entry, index) => ({
+      ...entry,
+      index,
+      previousEntryHash: '',
+    }));
+    for (let index = 0; index < retained.length; index++) {
+      const entry = retained[index];
+      const previousEntryHash = index === 0 ? '' : retained[index - 1].entryHash;
+      retained[index] = {
+        ...entry,
+        previousEntryHash,
+        entryHash: this.computeEntryHash(
+          index,
+          entry.operation,
+          entry.atomId,
+          entry.previousTier,
+          entry.newTier,
+          entry.receiptHash,
+          previousEntryHash,
+        ),
+      };
+    }
+    this.journal = retained;
+    for (const [atomId, atom] of this.atoms) {
+      const latestIndex = this.journal.map((entry) => entry.atomId).lastIndexOf(atomId);
+      if (latestIndex >= 0) {
+        this.atoms.set(atomId, { ...atom, journalIndex: latestIndex });
+      }
+    }
 
     return { removed: removeCount, newLength: this.journal.length };
   }
@@ -535,5 +633,17 @@ export class MiracleMemoryStore {
     return sha256(
       `${index}:${operation}:${atomId}:${previousTier ?? 'NULL'}:${newTier}:${receiptHash}:${previousEntryHash}`
     );
+  }
+
+  private requireVerifiedReceipt(receiptHash: string, context: ReceiptVerificationContext): void {
+    if (!this.config.requireVerifiedReceipts) return;
+    if (!this.config.receiptVerifier) {
+      throw new Error('Verified receipt binding is required, but no Core receipt verifier is configured.');
+    }
+    if (!this.config.receiptVerifier(receiptHash, context)) {
+      throw new Error(
+        `Receipt verification failed for ${context.operation} on atom '${context.atomId}'.`
+      );
+    }
   }
 }
