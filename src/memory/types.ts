@@ -82,6 +82,23 @@ export interface MemoryAtom {
   humanReviewed?: boolean;
 }
 
+export interface ReceiptVerificationContext {
+  atomId: string;
+  operation: 'WRITE' | 'PROMOTE' | 'QUARANTINE' | 'REVIEW' | 'RELEASE';
+  previousTier: MemoryTier | null;
+  newTier: MemoryTier;
+}
+
+/**
+ * Narrow trust boundary between Miracle Memory and the Core receipt system.
+ * Implementations must verify authenticity, subject binding, operation binding,
+ * freshness/replay policy, and revocation before returning true.
+ */
+export type ReceiptVerifier = (
+  receiptHash: string,
+  context: ReceiptVerificationContext,
+) => boolean;
+
 /**
  * A single journal entry. The journal is append-only.
  * Each entry records what happened, when, and chains to the prior entry.
@@ -90,6 +107,7 @@ export type JournalOperation =
   | 'WRITE'
   | 'PROMOTE'
   | 'QUARANTINE'
+  | 'REVIEW'
   | 'RELEASE'
   | 'SNAPSHOT';
 
@@ -145,6 +163,9 @@ export interface MemorySnapshot {
   /** All atoms at snapshot time. */
   atoms: MemoryAtom[];
 
+  /** Complete journal prefix at snapshot time, before the snapshot marker. */
+  journal: JournalEntry[];
+
   /** Kernel state version numbers for cross-reference. */
   kernelVersions: {
     cognitiveVersion: number;
@@ -181,6 +202,12 @@ export interface MemoryConfig {
    * If null, snapshots are in-memory only.
    */
   snapshotPath: string | null;
+
+  /** Optional Core receipt verifier. Required when strict receipt binding is enabled. */
+  receiptVerifier: ReceiptVerifier | null;
+
+  /** Reject tier-changing operations that cannot be verified by Core. */
+  requireVerifiedReceipts: boolean;
 }
 
 export const DEFAULT_MEMORY_CONFIG: MemoryConfig = {
@@ -188,4 +215,6 @@ export const DEFAULT_MEMORY_CONFIG: MemoryConfig = {
   journalCompactionThreshold: 50000,
   journalPath: null,
   snapshotPath: null,
+  receiptVerifier: null,
+  requireVerifiedReceipts: false,
 };

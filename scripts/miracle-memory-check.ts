@@ -113,6 +113,30 @@ async function run() {
     tags: ['hypothesis', 'immune-integration'],
   };
 
+  check('Strict receipt mode rejects unverifiable promotion', () => {
+    const strictMemory = new MiracleMemoryStore({
+      requireVerifiedReceipts: true,
+      receiptVerifier: (receiptHash, context) =>
+        receiptHash === `verified:${context.operation}:${context.atomId}`,
+    });
+    strictMemory.write({
+      atom: testAtom,
+      tier: MemoryTier.PROVISIONAL,
+      weight: 0.5,
+      receiptHash: 'intake-receipt-hash-0123456789',
+    });
+    assert.throws(
+      () => strictMemory.promote(testAtom.id, 'unverified-receipt-0123456789', 0.95),
+      /Receipt verification failed/
+    );
+    const promoted = strictMemory.promote(
+      testAtom.id,
+      `verified:PROMOTE:${testAtom.id}`,
+      0.95
+    );
+    assert.equal(promoted.tier, MemoryTier.CANON);
+  });
+
   check('Write PROVISIONAL atom', () => {
     const written = memory.write({
       atom: testAtom,
@@ -203,6 +227,18 @@ async function run() {
   });
 
   check('Release quarantined atom back to PROVISIONAL', () => {
+    assert.throws(
+      () => memory.release(
+        'test-provisional-001',
+        'release-without-review-0123456789'
+      ),
+      /human review is required/
+    );
+    const reviewed = memory.markHumanReviewed(
+      'test-provisional-001',
+      'human-review-receipt-hash-0123456789'
+    );
+    assert.equal(reviewed.humanReviewed, true);
     const released = memory.release(
       'test-provisional-001',
       'release-receipt-hash-0123456789abcdef'
@@ -252,6 +288,15 @@ async function run() {
     assert.ok(result.intact, `Chain broken at index ${result.brokenAtIndex}`);
   });
 
+  check('Journal compaction re-roots the retained chain', () => {
+    const before = memory.journalLength;
+    const result = memory.compactJournal(3);
+    assert.equal(result.removed, before - 3);
+    assert.equal(memory.journalLength, 3);
+    assert.ok(memory.verifyJournalIntegrity().intact);
+    assert.equal(memory.getJournal()[0].previousEntryHash, '');
+  });
+
   // ── 7. Snapshot / Restore ──────────────────────────────────────────
   console.log('\n── Snapshot / Restore ──');
 
@@ -259,6 +304,7 @@ async function run() {
     const snap = memory.snapshot();
     assert.ok(snap.integrityHash.length === 64, 'Integrity hash should be 64 hex chars');
     assert.ok(snap.atoms.length > 0);
+    assert.equal(snap.journal.length, snap.journalHead);
     assert.equal(snap.journalHead, memory.journalLength - 1); // -1 because snapshot adds one more entry
   });
 
@@ -267,6 +313,8 @@ async function run() {
     const freshMemory = new MiracleMemoryStore();
     freshMemory.restore(snap);
     assert.equal(freshMemory.size, snap.atoms.length);
+    assert.equal(freshMemory.journalLength, snap.journalHead + 1); // restore marker
+    assert.ok(freshMemory.verifyJournalIntegrity().intact);
     const axiom = freshMemory.read('atom-axiom-001');
     assert.ok(axiom);
     assert.equal(axiom.tier, MemoryTier.CONSTITUTIONAL);

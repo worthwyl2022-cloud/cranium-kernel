@@ -9,8 +9,9 @@
     "preview": "vite preview --port 3000 --host 0.0.0.0",
     "lint": "tsc --noEmit",
     "verify:synapse": "tsx scripts/synapse-integration-check.ts",
+    "verify:memory": "tsx scripts/miracle-memory-check.ts",
     "atomic:recovery-check": "tsx scripts/atomic-recovery-check.ts",
-    "verify": "npm run lint && npm run build && npm run verify:synapse && npm run atomic:recovery-check"
+    "verify": "npm run lint && npm run build && npm run verify:memory && npm run verify:synapse && npm run atomic:recovery-check"
   },
   "dependencies": {
     "clsx": "^2.1.1",
